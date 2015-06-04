@@ -4,7 +4,7 @@ public class Bot {
 	/**
 	 * x et y représentent la position du Bot dans la Map
 	 */
-	int x, y;
+	static int x, y;
 	
 	/**
 	 * orientation représente l'orientation du Bot (NORD, EST, SUD, OUEST)
@@ -25,46 +25,46 @@ public class Bot {
 	 * constructeurs
 	 */
 	public Bot(){
-		this.x = 0;
-		this.y = 0;
+		x = 0;
+		y = 0;
 		orientation = Orientation.SUD;
 		couleur = Couleur.GRIS;
 	}
-	public Bot(int x, int y){
-		this.x = x;
-		this.y = y;
+	public Bot(int l, int c){
+		x = l;
+		y = c;
 		orientation = Orientation.SUD;
 		couleur = Couleur.GRIS;
 	}
 	public Bot(Orientation o){
-		this.x = 0;
-		this.y = 0;
+		x = 0;
+		y = 0;
 		orientation = o;
 		couleur = Couleur.GRIS;
 	}
 	public Bot(Couleur c){
-		this.x = 0;
-		this.y = 0;
+		x = 0;
+		y = 0;
 		orientation = Orientation.SUD;
 		couleur = c;
 	}
-	public Bot(int x, int y, Orientation o){
-		this.x = x;
-		this.y = y;
+	public Bot(int l, int c, Orientation o){
+		x = l;
+		y = c;
 		orientation = o;
 		couleur = Couleur.GRIS;
 	}
-	public Bot(int x, int y, Couleur c){
-		this.x = x;
-		this.y = y;
+	public Bot(int l, int c, Couleur coul){
+		x = l;
+		y = c;
 		orientation = Orientation.SUD;
-		couleur = c;
+		couleur = coul;
 	}
-	public Bot(int x, int y, Orientation o, Couleur c){
-		this.x = x;
-		this.y = y;
+	public Bot(int l, int c, Orientation o, Couleur coul){
+		x = l;
+		y = c;
 		orientation = o;
-		couleur = c;
+		couleur = coul;
 	}
 	
 	
@@ -95,16 +95,16 @@ public class Bot {
 	 * renvoie la position horizontale du Bot
 	 * @return la valeur de l'attribut x
 	 */
-	public int getX(){
-		return this.x;
+	public static int getX(){
+		return x;
 	}
 	
 	/**
 	 * renvoie la position verticale du Bot
 	 * @return la valeur de l'attribut y
 	 */
-	public int getY(){
-		return this.y;
+	public static int getY(){
+		return y;
 	}
 	
 	/**
@@ -128,8 +128,8 @@ public class Bot {
 	 * @require x ne dépasse pas les bornes de la Map
 	 * @param x : nouvelle position horizontale 
 	 */
-	public void setX(int x){
-		this.x = x;
+	public static void setX(int new_x){
+		x = new_x;
 	}
 	
 	/**
@@ -137,8 +137,8 @@ public class Bot {
 	 * @require y ne dépasse pas les bornes de la Map
 	 * @param y : nouvelle position verticale 
 	 */
-	public void setY(int y){
-		this.y = y;
+	public static void setY(int new_y){
+		y = new_y;
 	}
 	
 	/**
