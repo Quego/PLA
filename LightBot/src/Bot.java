@@ -9,12 +9,12 @@ public class Bot {
 	/**
 	 * orientation représente l'orientation du Bot (NORD, EST, SUD, OUEST)
 	 */
-	Orientation orientation;
+	static Orientation orientation;
 	
 	/**
 	 * couleur représente la couleur du Bot
 	 */
-	Couleur couleur;
+	static Couleur couleur;
 	
 	/**
 	 * actions représente la liste d'actions que le Bot va exécuter lors de l'appel de la procédure play()
@@ -27,44 +27,44 @@ public class Bot {
 	public Bot(){
 		this.x = 0;
 		this.y = 0;
-		this.orientation = Orientation.SUD;
-		this.couleur = Couleur.GRIS;
+		orientation = Orientation.SUD;
+		couleur = Couleur.GRIS;
 	}
 	public Bot(int x, int y){
 		this.x = x;
 		this.y = y;
-		this.orientation = Orientation.SUD;
-		this.couleur = Couleur.GRIS;
+		orientation = Orientation.SUD;
+		couleur = Couleur.GRIS;
 	}
 	public Bot(Orientation o){
 		this.x = 0;
 		this.y = 0;
-		this.orientation = o;
-		this.couleur = Couleur.GRIS;
+		orientation = o;
+		couleur = Couleur.GRIS;
 	}
 	public Bot(Couleur c){
 		this.x = 0;
 		this.y = 0;
-		this.orientation = Orientation.SUD;
-		this.couleur = c;
+		orientation = Orientation.SUD;
+		couleur = c;
 	}
 	public Bot(int x, int y, Orientation o){
 		this.x = x;
 		this.y = y;
-		this.orientation = o;
-		this.couleur = Couleur.GRIS;
+		orientation = o;
+		couleur = Couleur.GRIS;
 	}
 	public Bot(int x, int y, Couleur c){
 		this.x = x;
 		this.y = y;
-		this.orientation = Orientation.SUD;
-		this.couleur = c;
+		orientation = Orientation.SUD;
+		couleur = c;
 	}
 	public Bot(int x, int y, Orientation o, Couleur c){
 		this.x = x;
 		this.y = y;
-		this.orientation = o;
-		this.couleur = c;
+		orientation = o;
+		couleur = c;
 	}
 	
 	
@@ -95,7 +95,7 @@ public class Bot {
 	 * renvoie la position horizontale du Bot
 	 * @return la valeur de l'attribut x
 	 */
-	int getX(){
+	public int getX(){
 		return this.x;
 	}
 	
@@ -103,7 +103,7 @@ public class Bot {
 	 * renvoie la position verticale du Bot
 	 * @return la valeur de l'attribut y
 	 */
-	int getY(){
+	public int getY(){
 		return this.y;
 	}
 	
@@ -111,16 +111,16 @@ public class Bot {
 	 * renvoie l'orientation du Bot
 	 * @return la valeur de l'attribut orientation
 	 */
-	Orientation getOrientation(){
-		return this.orientation;
+	public static Orientation getOrientation(){
+		return orientation;
 	}
 	
 	/**
 	 * renvoie la couleur du Bot
 	 * @return la valeur de l'attribut couleur
 	 */
-	Couleur getCouleur(){
-		return this.couleur;
+	public Couleur getCouleur(){
+		return couleur;
 	}
 	
 	/**
@@ -128,7 +128,7 @@ public class Bot {
 	 * @require x ne dépasse pas les bornes de la Map
 	 * @param x : nouvelle position horizontale 
 	 */
-	void setX(int x){
+	public void setX(int x){
 		this.x = x;
 	}
 	
@@ -137,7 +137,7 @@ public class Bot {
 	 * @require y ne dépasse pas les bornes de la Map
 	 * @param y : nouvelle position verticale 
 	 */
-	void setY(int y){
+	public void setY(int y){
 		this.y = y;
 	}
 	
@@ -145,16 +145,16 @@ public class Bot {
 	 * met à jour l'orientation du Bot
 	 * @param x : nouvelle orientation
 	 */
-	void setOrientation(Orientation o){
-		this.orientation = o;
+	public void setOrientation(Orientation o){
+		orientation = o;
 	}
 	
 	/**
 	 * met à jour la couleur du Bot
 	 * @param x : nouvelle couleur
 	 */
-	void setCouleur(Couleur c){
-		this.couleur = c;
+	public void setCouleur(Couleur c){
+		couleur = c;
 	}
 	
 
