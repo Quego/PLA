@@ -5,6 +5,7 @@ public class Map {
 	private List<List<Cellule>> map;
 	private int largeur, longueur, niveau;
 	private String nom;
+	private List<Action> actionsAutorisees;
 	
 	public Map() {
 		this.map = null;
@@ -12,14 +13,16 @@ public class Map {
 		this.longueur = 0;
 		this.niveau = 0;
 		this.nom = "";
+		this.actionsAutorisees = null;
 	}
 	
-	public Map(List<List<Cellule>> m, int la, int lo, int ni, String no) {
+	public Map(List<List<Cellule>> m, int la, int lo, int ni, String no, List<Action> a) {
 		this.map = m;
 		this.largeur = la;
 		this.longueur = lo;
 		this.niveau = ni;
 		this.nom = no;
+		this.actionsAutorisees = a;
 	}
 	
 	public List<List<Cellule>> getMap() {return this.map;}
@@ -31,6 +34,8 @@ public class Map {
 	public int getNiveau() {return this.niveau;}
 	
 	public String getNom() {return this.nom;}
+	
+	public List<Action> getActionsAutorisees() {return this.actionsAutorisees;}
 	
 	public Cellule getCellule(int l, int c) {
 		return this.map.get(l).get(c);
