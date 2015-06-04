@@ -3,7 +3,7 @@ import java.util.List;
 public class Map {
 
 	private List<List<Cellule>> map;
-	private int largeur, longueur, niveau;
+	private int largeur, longueur, niveau, maxActionsMain, maxProcedures, maxActionsProcedures;
 	private String nom;
 	private List<Action> actionsAutorisees;
 	
@@ -14,15 +14,21 @@ public class Map {
 		this.niveau = 0;
 		this.nom = "";
 		this.actionsAutorisees = null;
+		this.maxActionsMain = 0;
+		this.maxProcedures = 0;
+		this.maxActionsProcedures = 0;
 	}
 	
-	public Map(List<List<Cellule>> m, int la, int lo, int ni, String no, List<Action> a) {
+	public Map(List<List<Cellule>> m, int la, int lo, int ni, String no, List<Action> a, int mam, int mp, int map) {
 		this.map = m;
 		this.largeur = la;
 		this.longueur = lo;
 		this.niveau = ni;
 		this.nom = no;
 		this.actionsAutorisees = a;
+		this.maxActionsMain = mam;
+		this.maxProcedures = mp;
+		this.maxActionsProcedures = map;
 	}
 	
 	public List<List<Cellule>> getMap() {return this.map;}
@@ -32,6 +38,12 @@ public class Map {
 	public int getLongueur() {return this.longueur;}
 	
 	public int getNiveau() {return this.niveau;}
+	
+	public int getMaxActionsMain() {return this.maxActionsMain;}
+	
+	public int getMaxProcedures() {return this.maxProcedures;}
+	
+	public int getMaxActionsProcedures() {return this.maxActionsProcedures;}
 	
 	public String getNom() {return this.nom;}
 	
