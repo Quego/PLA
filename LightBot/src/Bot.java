@@ -145,7 +145,7 @@ public class Bot {
 	 * met à jour l'orientation du Bot
 	 * @param x : nouvelle orientation
 	 */
-	public void setOrientation(Orientation o){
+	public static void setOrientation(Orientation o){
 		orientation = o;
 	}
 	

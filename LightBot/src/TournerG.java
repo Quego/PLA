@@ -8,5 +8,6 @@ public class TournerG implements Action {
 			case NORD 	: 	o = Orientation.OUEST; 	break;
 			case OUEST 	: 	o = Orientation.NORD; 	break;
 		}
+		Bot.setOrientation(o);
 	}
 }

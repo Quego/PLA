@@ -8,5 +8,6 @@ public class TournerD implements Action{
 			case NORD 	: 	o = Orientation.EST; 	break;
 			case OUEST 	: 	o = Orientation.SUD; 	break;
 		}
+		Bot.setOrientation(o);
 	}
 }
