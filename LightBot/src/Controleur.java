@@ -9,9 +9,9 @@ public class Controleur {
 	
 	public Controleur() {
 		this.maps = null;
-		this.map = null;
-		this.bot = null;
-		this.suppleant = null;
+		this.map = maps.get(0);
+		this.bot = new Bot();
+		this.suppleant = new Bot(Etat.BLOQUE);
 	}
 	
 	public List<Map> getMaps() {return this.maps;}

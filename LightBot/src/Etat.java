@@ -1,16 +1,16 @@
 
 public enum Etat {
 
-	ACTIF("Actif"), INACTIF("Inactif");
+	BLOQUE("Bloque"), NONBLOQUE("Non bloque");
 	
-	private String couleur;
+	private String etat;
 	
 	private Etat(String e) {
-		this.couleur = e;
+		this.etat = e;
 	}
 	
 	public String toString() {
-		return this.couleur;
+		return this.etat;
 	}
 	
 }

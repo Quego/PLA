@@ -32,6 +32,14 @@ public class Bot {
 		fonctions.clear();
 		etat = Etat.ACTIF;
 	}
+	public Bot(Etat e){
+		position = new Position();
+		orientation = Orientation.SUD;
+		couleur = Couleur.GRIS;
+		objet = Objet.RIEN;
+		fonctions.clear();
+		etat = e;
+	}
 	public Bot(int l, int c){
 		position = new Position(l,c);
 		orientation = Orientation.SUD;
