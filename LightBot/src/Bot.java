@@ -28,42 +28,49 @@ public class Bot {
 		orientation = Orientation.SUD;
 		couleur = Couleur.GRIS;
 		objet = Objet.RIEN;
+		fonctions.clear();
 	}
 	public Bot(int l, int c){
 		position = new Position(l,c);
 		orientation = Orientation.SUD;
 		couleur = Couleur.GRIS;
 		objet = Objet.RIEN;
+		fonctions.clear();
 	}
 	public Bot(Orientation o){
 		position = new Position();
 		orientation = o;
 		couleur = Couleur.GRIS;
 		objet = Objet.RIEN;
+		fonctions.clear();
 	}
 	public Bot(Couleur c){
 		position = new Position();
 		orientation = Orientation.SUD;
 		couleur = c;
 		objet = Objet.RIEN;
+		fonctions.clear();
 	}
 	public Bot(int l, int c, Orientation o){
 		position = new Position(l,c);
 		orientation = o;
 		couleur = Couleur.GRIS;
 		objet = Objet.RIEN;
+		fonctions.clear();
 	}
 	public Bot(int l, int c, Couleur coul){
 		position = new Position(l,c);
 		orientation = Orientation.SUD;
 		couleur = coul;
 		objet = Objet.RIEN;
+		fonctions.clear();
 	}
 	public Bot(int l, int c, Orientation o, Couleur coul){
 		position = new Position(l,c);
 		orientation = o;
 		couleur = coul;
 		objet = Objet.RIEN;
+		fonctions.clear();
 	}
 	
 	/*-----------------------------PROCEDURES-----------------------------*/
