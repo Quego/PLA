@@ -38,10 +38,10 @@ public class Cellule {
 	public void setHauteur(int h) {this.hauteur = h;}
 	
 	public Objet getObjet() {return this.objet;}
-	public void setObjet(Objet o) {this.objet = o;}
+	public void setObjet(String o) {this.objet = Objet.valueOf(o);}
 	
 	public Couleur getCouleur() {return this.couleur;}
-	public void setCouleur(Couleur c) {this.couleur = c;}
+	public void setCouleur(String c) {this.couleur = Couleur.valueOf(c);}
 	
 	public boolean getOccupe() {return this.occupe;}
 	public void setOccupe(boolean o) {this.occupe = o;}
