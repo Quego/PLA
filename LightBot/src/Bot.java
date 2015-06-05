@@ -9,11 +9,11 @@ public class Bot {
 	 * objet représente l'objet tenu par le robot ou rien
 	 * actions représente la liste d'actions que le Bot va exécuter lors de l'appel de la procédure play()
 	 */
-	private static Position position;
-	private static Orientation orientation;
-	private static Couleur couleur;
-	private static Objet objet;
-	private static List<Fonction> fonctions;
+	private Position position;
+	private Orientation orientation;
+	private Couleur couleur;
+	private Objet objet;
+	private List<Fonction> fonctions;
 	
 	
 	
@@ -71,7 +71,7 @@ public class Bot {
 	 * exécute la liste de fonctions contenue dans l'attribut actions
 	 */
 	public void play(){
-		for (int i=0; i< this.fonctions.size();i++) {
+		for (int i=0; i< fonctions.size();i++) {
 			fonctions.get(i).executer();
 		}
 	}
@@ -81,8 +81,8 @@ public class Bot {
 	 * @ensure le Bot est retourné à la position initiale
 	 */
 	public void resetBot(){
-		position = Map.getPositionInit();
-		if (getPosition() != Map.getPositionInit()) throw new Ensure("Le Bot n'est pas retourné à sa position initiale");
+		position = Controleur.getMap().getPositionInit();
+		if (getPosition() != Controleur.getMap().getPositionInit()) throw new Ensure("Le Bot n'est pas retourné à sa position initiale");
 	}
 	
 	/**
@@ -105,6 +105,25 @@ public class Bot {
 	public static Position getPosition(){
 		return position;
 	}
+	
+	/**
+	 * renvoie la position devant le Bot
+	 * @return la position devant le Bot
+	 */
+	public static Position getPositionDevant(){
+		int c,l;
+		Position p;
+		c = position.getC(); l = position.getL();
+		switch (orientation){
+			case SUD 	:	c = c+1; 	break;
+			case OUEST 	: 	l = l-1; 	break;
+			case NORD 	: 	c = c-1; 	break;
+			case EST	: 	l = l+1; 	break;
+		}
+		p = new Position(l,c);
+		return p;
+	}
+	
 	
 	/**
 	 * renvoie l'orientation du Bot
@@ -186,5 +205,28 @@ public class Bot {
 		fonctions = list_f;
 	}
 	
-
+	
+	/*------------------------------------------------------------------*/
+	
+	public String toString(){
+		String pos 	= "Le Bot est à la position : "	+ this.position.toString() 	+"\n";
+		String orient = "Il est tourné vers "	+ this.orientation.toString() +"\n";
+		String coul = "Il est de couleur "	+ this.couleur.toString() +"\n";
+		String obj;
+		String fonct;
+		if (this.objet != Objet.RIEN) {
+				obj = "Il tient " + this.objet.toString() + "dans ses mains \n";
+		}
+		else {
+				obj = "Il ne tient rien dans ses mains \n";
+		}
+		if (this.fonctions.isEmpty()) {
+			fonct = "Il n'a rien à faire \n";
+		}
+		else {
+			fonct = "Il doit faire cette liste d'actions : " + this.fonctions.toString() + "\n";
+		}
+		
+		return pos+orient+coul+obj+fonct;
+	}
 }

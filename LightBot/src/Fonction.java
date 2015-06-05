@@ -66,5 +66,13 @@ public class Fonction {
 			actions.get(i).executer();
 		}
 	}
+	
+	public String toString(){
+		String s = "";
+		for (int i=0; i< this.actions.size()-1;i++) {
+			s += actions.get(i).toString() + ", ";
+		}
+		s += actions.get(this.actions.size()-1).toString();
+	}
 
 }

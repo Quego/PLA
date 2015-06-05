@@ -54,5 +54,9 @@ public class Position {
 	public boolean estDansMap() {
 		return ((this.l >= 0) && (this.l < Map.getLongueur()) && (this.c >= 0) && (this.c < Map.getLargeur()));
 	}
+	
+	public String toString() {
+		return "ligne " + this.l.toString() + ", colonne " + this.c.toString();
+	}
 
 }
