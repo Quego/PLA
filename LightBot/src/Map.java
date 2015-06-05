@@ -3,9 +3,9 @@ import java.util.List;
 public class Map {
 
 	private List<List<Cellule>> map;
-	private int largeur, longueur, niveau, maxActionsMain, maxProcedures, maxActionsProcedures;
+	private int largeur, longueur, niveau;
 	private String nom;
-	private List<Action> actionsAutorisees;
+	private Position positionInit;
 	
 	public Map() {
 		this.map = null;
@@ -13,22 +13,16 @@ public class Map {
 		this.longueur = 0;
 		this.niveau = 0;
 		this.nom = "";
-		this.actionsAutorisees = null;
-		this.maxActionsMain = 0;
-		this.maxProcedures = 0;
-		this.maxActionsProcedures = 0;
+		this.positionInit = new Position(0, 0);
 	}
 	
-	public Map(List<List<Cellule>> m, int la, int lo, int ni, String no, List<Action> a, int mam, int mp, int map) {
+	public Map(List<List<Cellule>> m, int la, int lo, int ni, String no, Position p) {
 		this.map = m;
 		this.largeur = la;
 		this.longueur = lo;
 		this.niveau = ni;
 		this.nom = no;
-		this.actionsAutorisees = a;
-		this.maxActionsMain = mam;
-		this.maxProcedures = mp;
-		this.maxActionsProcedures = map;
+		this.positionInit = p;
 	}
 	
 	public List<List<Cellule>> getMap() {return this.map;}
@@ -39,15 +33,13 @@ public class Map {
 	
 	public int getNiveau() {return this.niveau;}
 	
-	public int getMaxActionsMain() {return this.maxActionsMain;}
-	
-	public int getMaxProcedures() {return this.maxProcedures;}
-	
-	public int getMaxActionsProcedures() {return this.maxActionsProcedures;}
-	
 	public String getNom() {return this.nom;}
 	
-	public List<Action> getActionsAutorisees() {return this.actionsAutorisees;}
+	public Position getPositionInit() {return this.positionInit;}
+	
+	public Cellule getCellule(Position p) {
+		return this.map.get(p.getL()).get(p.getC());
+	}
 	
 	public Cellule getCellule(int l, int c) {
 		return this.map.get(l).get(c);
@@ -68,10 +60,11 @@ public class Map {
 	}
 	
 	public String toString() {
-		return "nom = " + this.nom + "\n" +
-			   "niveau = " + this.niveau + "\n" + 
-			   "largeur = " + this.largeur + "\n" + 
-			   "longueur = " + this.longueur + "\n";
+		return "Nom = " + this.nom + "\n" +
+			   "Niveau = " + this.niveau + "\n" + 
+			   "Largeur = " + this.largeur + "\n" + 
+			   "Longueur = " + this.longueur + "\n" +
+			   "Position Initiale = " + this.positionInit + "\n";
 	}
 	
 }
