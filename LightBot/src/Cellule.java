@@ -4,13 +4,13 @@ public class Cellule {
 	private int hauteur;
 	private Objet objet;
 	private Couleur couleur;
-	private boolean occupe;
+	private boolean occupee;
 	
 	public Cellule() {
 		this.hauteur = 0;
 		this.objet = Objet.RIEN;
 		this.couleur = Couleur.BLANC;
-		this.occupe = false;
+		this.occupee = false;
 	}
 	
 	public Cellule(int h) {
