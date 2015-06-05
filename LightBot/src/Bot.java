@@ -3,9 +3,9 @@ import java.util.*;
 import jus.util.assertion.*;
 public class Bot {
 	/**
-	 * x et y représentent la position du Bot dans la Map
+	 * position représente la position du Bot dans la Map
 	 */
-	static int x, y;
+	static Position position;
 	
 	/**
 	 * orientation représente l'orientation du Bot (NORD, EST, SUD, OUEST)
@@ -18,6 +18,11 @@ public class Bot {
 	static Couleur couleur;
 	
 	/**
+	 * objet représente l'objet tenu par le robot ou rien
+	 */
+	static Objet objet;
+	
+	/**
 	 * actions représente la liste d'actions que le Bot va exécuter lors de l'appel de la procédure play()
 	 */
 	List<Fonction> fonctions;
@@ -26,46 +31,46 @@ public class Bot {
 	 * constructeurs
 	 */
 	public Bot(){
-		x = 0;
-		y = 0;
+		position = new Position();
 		orientation = Orientation.SUD;
 		couleur = Couleur.GRIS;
+		objet = Objet.RIEN;
 	}
 	public Bot(int l, int c){
-		x = l;
-		y = c;
+		position = new Position(l,c);
 		orientation = Orientation.SUD;
 		couleur = Couleur.GRIS;
+		objet = Objet.RIEN;
 	}
 	public Bot(Orientation o){
-		x = 0;
-		y = 0;
+		position = new Position();
 		orientation = o;
 		couleur = Couleur.GRIS;
+		objet = Objet.RIEN;
 	}
 	public Bot(Couleur c){
-		x = 0;
-		y = 0;
+		position = new Position();
 		orientation = Orientation.SUD;
 		couleur = c;
+		objet = Objet.RIEN;
 	}
 	public Bot(int l, int c, Orientation o){
-		x = l;
-		y = c;
+		position = new Position(l,c);
 		orientation = o;
 		couleur = Couleur.GRIS;
+		objet = Objet.RIEN;
 	}
 	public Bot(int l, int c, Couleur coul){
-		x = l;
-		y = c;
+		position = new Position(l,c);
 		orientation = Orientation.SUD;
 		couleur = coul;
+		objet = Objet.RIEN;
 	}
 	public Bot(int l, int c, Orientation o, Couleur coul){
-		x = l;
-		y = c;
+		position = new Position(l,c);
 		orientation = o;
 		couleur = coul;
+		objet = Objet.RIEN;
 	}
 	
 	
@@ -94,20 +99,14 @@ public class Bot {
 		if (!(fonctions.isEmpty())) throw new Ensure("La liste d'actions n'a pas été vidée");
 	}
 	
-	/**
-	 * renvoie la position horizontale du Bot
-	 * @return la valeur de l'attribut x
-	 */
-	public static int getX(){
-		return x;
-	}
+	
 	
 	/**
-	 * renvoie la position verticale du Bot
-	 * @return la valeur de l'attribut y
+	 * renvoie la position du Bot
+	 * @return la valeur de l'attribut position
 	 */
-	public static int getY(){
-		return y;
+	public static Position getPosition(){
+		return position;
 	}
 	
 	/**
@@ -127,26 +126,29 @@ public class Bot {
 	}
 	
 	/**
-	 * met à jour la position du Bot
-	 * @require x ne dépasse pas les bornes de la Map
-	 * @param x : nouvelle position horizontale 
+	 * renvoie l'objet porté par le Bot
+	 * @return la valeur de l'attribut objet
 	 */
-	public static void setX(int new_x){
-		x = new_x;
+	public Objet getObjet(){
+		return objet;
 	}
+	
 	
 	/**
 	 * met à jour la position du Bot
-	 * @require y ne dépasse pas les bornes de la Map
-	 * @param y : nouvelle position verticale 
+	 * @param x : nouvelle orientation
 	 */
-	public static void setY(int new_y){
-		y = new_y;
+	public static void setPosition(Position p){
+		position = p;
+	}
+	public static void setPosition(int l, int c){
+		Position p = new Position(l,c);
+		position = p;
 	}
 	
 	/**
 	 * met à jour l'orientation du Bot
-	 * @param x : nouvelle orientation
+	 * @param o : nouvelle orientation
 	 */
 	public static void setOrientation(Orientation o){
 		orientation = o;
@@ -154,11 +156,20 @@ public class Bot {
 	
 	/**
 	 * met à jour la couleur du Bot
-	 * @param x : nouvelle couleur
+	 * @param c : nouvelle couleur
 	 */
 	public void setCouleur(Couleur c){
 		couleur = c;
 	}
+	
+	/**
+	 * met à jour l'objet porté par le Bot
+	 * @param obj : nouvel objet
+	 */
+	public void setObjet(Objet obj){
+		objet = obj;
+	}
+	
 	
 
 }
