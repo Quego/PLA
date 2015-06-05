@@ -121,7 +121,7 @@ public class Bot {
 	 * renvoie la couleur du Bot
 	 * @return la valeur de l'attribut couleur
 	 */
-	public Couleur getCouleur(){
+	public static Couleur getCouleur(){
 		return couleur;
 	}
 	
@@ -129,7 +129,7 @@ public class Bot {
 	 * renvoie l'objet porté par le Bot
 	 * @return la valeur de l'attribut objet
 	 */
-	public Objet getObjet(){
+	public static Objet getObjet(){
 		return objet;
 	}
 	
@@ -158,7 +158,7 @@ public class Bot {
 	 * met à jour la couleur du Bot
 	 * @param c : nouvelle couleur
 	 */
-	public void setCouleur(Couleur c){
+	public static void setCouleur(Couleur c){
 		couleur = c;
 	}
 	
@@ -166,7 +166,7 @@ public class Bot {
 	 * met à jour l'objet porté par le Bot
 	 * @param obj : nouvel objet
 	 */
-	public void setObjet(Objet obj){
+	public static void setObjet(Objet obj){
 		objet = obj;
 	}
 	
