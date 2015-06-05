@@ -50,5 +50,9 @@ public class Position {
 	public void setL(int new_l){
 		l = new_l;
 	}
+	
+	public boolean estDansMap() {
+		return ((this.l >= 0) && (this.l < Map.getLongueur()) && (this.c >= 0) && (this.c < Map.getLargeur()));
+	}
 
 }
