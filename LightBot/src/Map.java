@@ -35,7 +35,7 @@ public class Map {
 	
 	public String getNom() {return this.nom;}
 	
-	public Position getPositionInit() {return this.positionInit;}
+	public static Position getPositionInit() {return this.positionInit;}
 	
 	public Cellule getCellule(Position p) {
 		return this.map.get(p.getL()).get(p.getC());

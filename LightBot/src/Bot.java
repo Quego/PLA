@@ -85,9 +85,11 @@ public class Bot {
 	
 	/**
 	 * positionne le Bot à sa position, son orientation et sa couleur de départ
+	 * @ensure le Bot est retourné à la position initiale
 	 */
 	public void resetBot(){
-		//A FAIRE
+		position = Map.getPositionInit();
+		if (getPosition() != Map.getPositionInit()) throw new Ensure("Le Bot n'est pas retourné à sa position initiale");
 	}
 	
 	/**
