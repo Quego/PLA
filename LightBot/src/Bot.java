@@ -4,29 +4,22 @@ import jus.util.assertion.*;
 public class Bot {
 	/**
 	 * position représente la position du Bot dans la Map
-	 */
-	static Position position;
-	
-	/**
 	 * orientation représente l'orientation du Bot (NORD, EST, SUD, OUEST)
-	 */
-	static Orientation orientation;
-	
-	/**
 	 * couleur représente la couleur du Bot
-	 */
-	static Couleur couleur;
-	
-	/**
 	 * objet représente l'objet tenu par le robot ou rien
-	 */
-	static Objet objet;
-	
-	/**
 	 * actions représente la liste d'actions que le Bot va exécuter lors de l'appel de la procédure play()
 	 */
-	List<Fonction> fonctions;
+	private static Position position;
+	private static Orientation orientation;
+	private static Couleur couleur;
+	private static Objet objet;
+	private static List<Fonction> fonctions;
 	
+	
+	
+	
+	
+	/*-----------------------------CONSTRUCTEURS-----------------------------*/
 	/**
 	 * constructeurs
 	 */
@@ -73,7 +66,7 @@ public class Bot {
 		objet = Objet.RIEN;
 	}
 	
-	
+	/*-----------------------------PROCEDURES-----------------------------*/
 	/**
 	 * exécute la liste de fonctions contenue dans l'attribut actions
 	 */
@@ -103,6 +96,8 @@ public class Bot {
 	
 	
 	
+	
+	/*-----------------------------GETTEURS-----------------------------*/
 	/**
 	 * renvoie la position du Bot
 	 * @return la valeur de l'attribut position
@@ -135,10 +130,20 @@ public class Bot {
 		return objet;
 	}
 	
+	/**
+	 * renvoir la liste de fonctions à exécuter par le Bot
+	 * @return la valeur de l'attribut fonctions
+	 */
+	public static List<Fonction> getFonctions(){
+		return fonctions;
+	}
 	
+	
+	/*-----------------------------SETTEURS-----------------------------*/
 	/**
 	 * met à jour la position du Bot
-	 * @param x : nouvelle orientation
+	 * @param p : nouvelle position
+	 * @param l et c : nouvelle position
 	 */
 	public static void setPosition(Position p){
 		position = p;
@@ -156,6 +161,7 @@ public class Bot {
 		orientation = o;
 	}
 	
+	
 	/**
 	 * met à jour la couleur du Bot
 	 * @param c : nouvelle couleur
@@ -172,6 +178,13 @@ public class Bot {
 		objet = obj;
 	}
 	
+	/**
+	 * met à jour la liste de fonctions à exécuter par le Bot
+	 * @param list_f : nouvelle liste de fonctions
+	 */
+	public static void setFonctions(List<Fonction> list_f){
+		fonctions = list_f;
+	}
 	
 
 }
