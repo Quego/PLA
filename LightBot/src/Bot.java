@@ -1,4 +1,5 @@
 import java.util.*;
+
 import jus.util.assertion.*;
 public class Bot {
 	/**
@@ -19,7 +20,7 @@ public class Bot {
 	/**
 	 * actions représente la liste d'actions que le Bot va exécuter lors de l'appel de la procédure play()
 	 */
-	List<Action> actions;
+	List<Fonction> fonctions;
 	
 	/**
 	 * constructeurs
@@ -69,10 +70,12 @@ public class Bot {
 	
 	
 	/**
-	 * exécute la liste d'actions contenue dans l'attribut actions
+	 * exécute la liste de fonctions contenue dans l'attribut actions
 	 */
 	public void play(){
-		//A FAIRE
+		for (int i=0; i< this.fonctions.size();i++) {
+			fonctions.get(i).executer();
+		}
 	}
 	
 	/**
@@ -86,9 +89,9 @@ public class Bot {
 	 * vide la liste d'actions contenue dans l'attibut actions
 	 * @ensure la liste d'actions est vide
 	 */
-	public void resetActions(){
-		actions.clear();
-		if (!(actions.isEmpty())) throw new Ensure("La liste d'actions n'a pas été vidée");
+	public void resetListeFonctions(){
+		fonctions.clear();
+		if (!(fonctions.isEmpty())) throw new Ensure("La liste d'actions n'a pas été vidée");
 	}
 	
 	/**
