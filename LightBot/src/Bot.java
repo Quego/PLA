@@ -2,6 +2,8 @@ import java.util.*;
 
 import jus.util.assertion.*;
 public class Bot {
+	
+	/*-----------------------------ATTRIBUTS-----------------------------*/
 	/**
 	 * position représente la position du Bot dans la Map
 	 * orientation représente l'orientation du Bot (NORD, EST, SUD, OUEST)
@@ -13,7 +15,7 @@ public class Bot {
 	private Orientation orientation;
 	private Couleur couleur;
 	private Objet objet;
-	private List<Fonction> fonctions;
+	private List<IfThenElse> fonctions;
 	private Etat etat;
 	
 	
@@ -193,18 +195,19 @@ public class Bot {
 	
 	
 	/*-----------------------------GETTEURS-----------------------------*/
-	/**
-	 * renvoie la position du Bot
-	 * @return la valeur de l'attribut position
-	 */
-	public Position getPosition(){
-		return position;
-	}
+
+	public Position getPosition(){ return position;	}
 	
-	/**
-	 * renvoie la position devant le Bot
-	 * @return la position devant le Bot
-	 */
+	public Orientation getOrientation(){ return orientation; }
+	
+	public Couleur getCouleur(){ return couleur; }
+	
+	public Objet getObjet(){ return objet; }
+	
+	public List<IfThenElse> getFonctions(){ return fonctions; }
+
+	public Etat getEtat(){ return etat; }
+	
 	public Position getPositionDevant(){
 		int c,l;
 		Position p;
@@ -219,101 +222,21 @@ public class Bot {
 		return p;
 	}
 	
-	
-	/**
-	 * renvoie l'orientation du Bot
-	 * @return la valeur de l'attribut orientation
-	 */
-	public Orientation getOrientation(){
-		return orientation;
-	}
-	
-	/**
-	 * renvoie la couleur du Bot
-	 * @return la valeur de l'attribut couleur
-	 */
-	public Couleur getCouleur(){
-		return couleur;
-	}
-	
-	/**
-	 * renvoie l'objet porté par le Bot
-	 * @return la valeur de l'attribut objet
-	 */
-	public Objet getObjet(){
-		return objet;
-	}
-	
-	/**
-	 * renvoie la liste de fonctions à exécuter par le Bot
-	 * @return la valeur de l'attribut fonctions
-	 */
-	public List<Fonction> getFonctions(){
-		return fonctions;
-	}
-	
-	/**
-	 * renvoie l'etat du Bot
-	 * @return la valeur de l'attribut etat
-	 */
-	public Etat getEtat(){
-		return etat;
-	}
-	
 	/*-----------------------------SETTEURS-----------------------------*/
-	/**
-	 * met à jour la position du Bot
-	 * @param p : nouvelle position
-	 * @param l et c : nouvelle position
-	 */
-	public void setPosition(Position p){
-		position = p;
-	}
-	public void setPosition(int l, int c){
-		Position p = new Position(l,c);
-		position = p;
-	}
+
+	public void setPosition(Position p){ position = p;	}
 	
-	/**
-	 * met à jour l'orientation du Bot
-	 * @param o : nouvelle orientation
-	 */
-	public void setOrientation(Orientation o){
-		orientation = o;
-	}
+	public void setPosition(int l, int c){ position.setC(c); position.setL(l); }
+
+	public void setOrientation(Orientation o){ orientation = o;	}
 	
+	public void setCouleur(Couleur c){ couleur = c; }
 	
-	/**
-	 * met à jour la couleur du Bot
-	 * @param c : nouvelle couleur
-	 */
-	public void setCouleur(Couleur c){
-		couleur = c;
-	}
+	public void setObjet(Objet obj){ objet = obj; }
 	
-	/**
-	 * met à jour l'objet porté par le Bot
-	 * @param obj : nouvel objet
-	 */
-	public void setObjet(Objet obj){
-		objet = obj;
-	}
+	public void setFonctions(List<IfThenElse> list){ fonctions = list;	}
 	
-	/**
-	 * met à jour la liste de fonctions à exécuter par le Bot
-	 * @param list_f : nouvelle liste de fonctions
-	 */
-	public void setFonctions(List<Fonction> list_f){
-		fonctions = list_f;
-	}
-	
-	/**
-	 * met a jour l'etat du Bot
-	 * @param e : nouvel etat
-	 */
-	public void setEtat(Etat e){
-		etat = e;
-	}
+	public void setEtat(Etat e){ etat = e; }
 	
 
 }

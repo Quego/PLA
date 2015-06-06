@@ -1,78 +1,39 @@
 import java.util.List;
 
-public class Fonction {
-
-	List<Action> actions;
-	
-	/**
-	 * constructeurs
-	 */
+public class Fonction extends IfThenElse {
+	/*-----------------------------CONSTRUCTEURS-----------------------------*/
 	public Fonction() {
-		this.actions.clear();
+		super();
 	}
-	public Fonction(Action a){
-		this.actions.clear();
-		this.actions.add(a);
+	public Fonction(Procedure p){
+		super(p);
 	}
-	public Fonction(List<Action> list_a){
-		this.actions.clear();
-		this.actions.addAll(list_a);
-	}
-	
-	/**
-	 * ajoute une action dans la liste d'actions
-	 * @param a l'action à ajouter
-	 */
-	public void ajout(Action a){
-		this.actions.add(a);
-	}
-	
-	/**
-	 * ajoute une liste d'actions dans la liste d'actions
-	 * @param list_a la liste d'actions à ajouter
-	 */
-	public void ajout(List<Action> list_a){
-		this.actions.addAll(list_a);
-	}
-	
-	/**
-	 * ajoute une action dans la liste d'action à la position définie par index
-	 * @param index position de l'action dans la liste d'action 
-	 * @param a l'action à ajouter
-	 */
-	public void ajout (int index, Action a){
-		this.actions.add(index,a);
-	}
-	
-	/**
-	 * supprime une action dans la liste d'actions
-	 * @param a l'action à supprimer
-	 */
-	public void supprimer(Action a){
-		this.actions.remove(this.actions.indexOf(a));
-	}
-	
-	/**
-	 * supprime une liste d'actions dans la liste d'actions
-	 * @param list_a la liste d'action à supprimer
-	 */
-	public void supprimer(List<Action> list_a){
-		this.actions.removeAll(list_a);
-	}
-	
-	
+
+	/*---------------------PROCEDURES-&-FONCTIONS-----------------------------*/
 	public void executer() {
-		for (int i=0; i< this.actions.size();i++) {
-			actions.get(i).executer();
-		}
+		super.executer();
 	}
 	
-	public String toString(){
-		String s = "";
-		for (int i=0; i< this.actions.size()-1;i++) {
-			s += actions.get(i).toString() + ", ";
+	public String toString() {
+		String s ="";
+		if (super.proc_then.isEmpty()) {
+			s+ = "Alors le Bot n'a rien à faire \n";
 		}
-		s += actions.get(this.actions.size()-1).toString();
+		else {
+			s += "Alors le Bot doit faire cette liste d'actions : " 
+			s += super.proc_then.toString() + "\n";
+		}
+		return s;
 	}
+	
+	
+	/*-----------------------------GETTEUR-----------------------------*/
+	public Fonction getFonct(){ return super.proc_then;	}
+	
+	/*-----------------------------SETTEUR-----------------------------*/
+	public void setFonctThen(Fonction f){ super.proc_then = f;	}
+	
+	
+	
 
 }
