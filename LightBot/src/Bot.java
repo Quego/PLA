@@ -16,7 +16,7 @@ public class Bot {
 	private Orientation orientation;
 	private Couleur couleur;
 	private Objet objet;
-	private List<IfThenElse> fonctions;
+	private List<Action> fonctions;
 	private Etat etat;
 	
 	
@@ -205,7 +205,7 @@ public class Bot {
 	
 	public Objet getObjet(){ return objet; }
 	
-	public List<IfThenElse> getFonctions(){ return fonctions; }
+	public List<Action> getFonctions(){ return fonctions; }
 
 	public Etat getEtat(){ return etat; }
 	
@@ -235,7 +235,7 @@ public class Bot {
 	
 	public void setObjet(Objet obj){ objet = obj; }
 	
-	public void setFonctions(List<IfThenElse> list){ fonctions = list;	}
+	public void setFonctions(List<Action> list){ fonctions = list;	}
 	
 	public void setEtat(Etat e){ etat = e; }
 	
