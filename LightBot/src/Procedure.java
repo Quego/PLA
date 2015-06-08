@@ -1,7 +1,7 @@
 package src;
 import java.util.*;
 
-public class Procedure {
+public class Procedure implements Action {
 
 	
 	/*---------------------ATTRIBUT-----------------------------*/

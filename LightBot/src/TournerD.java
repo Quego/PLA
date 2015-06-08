@@ -11,4 +11,8 @@ public class TournerD implements Action{
 		}
 		Controleur.getBotActif().setOrientation(o);
 	}
+	
+	public String toString(){
+		return "Tourner à droite";
+	}
 }

@@ -1,7 +1,7 @@
 package src;
 import java.util.*;
 
-public class IfThenElse {
+public class IfThenElse implements Action {
 
 	/*-----------------------------ATTRIBUTS-----------------------------*/
 	/**
@@ -12,8 +12,8 @@ public class IfThenElse {
 	 */
 	protected String str_cond;
 	protected boolean bool_cond;
-	protected Procedure proc_then;
-	protected Procedure proc_else;
+	protected List<Action> proc_then;
+	protected List<Action> proc_else;
 	
 	
 	
@@ -21,26 +21,26 @@ public class IfThenElse {
 	public IfThenElse(){
 		this.str_cond = "vrai";
 		this.bool_cond = true;
-		this.proc_then = new Procedure();
-		this.proc_else = new Procedure();
+		this.proc_then = null;
+		this.proc_else = null;
 	}
 	public IfThenElse(List<Action> p){
 		this.str_cond = "vrai";
 		this.bool_cond = true;
-		this.proc_then = new Procedure(p);
-		this.proc_else = new Procedure();
+		this.proc_then = null;
+		this.proc_else = null;
 	}
 	public IfThenElse(List<Action> p_then,List<Action> p_else){
 		this.str_cond = "vrai";
 		this.bool_cond = true;
-		this.proc_then = new Procedure(p_then);
-		this.proc_else = new Procedure(p_then);
+		this.proc_then = null;
+		this.proc_else = null;
 	}
 	public IfThenElse(String str, boolean cond, List<Action> p_then,List<Action> p_else){
 		this.str_cond = str;
 		this.bool_cond = cond;
-		this.proc_then = new Procedure(p_then);
-		this.proc_else = new Procedure(p_then);
+		this.proc_then = null;
+		this.proc_else = null;
 	}
 	
 	/*---------------------PROCEDURES-&-FONCTIONS-----------------------------*/
@@ -50,11 +50,21 @@ public class IfThenElse {
 	public void executer(){
 		if (bool_cond) 	{
 			Controleur.getBotActif().setCouleur(Couleur.VERT);
-			proc_then.executer();
+			for (int i=0; i< this.proc_then.size();i++) {
+				if (proc_then.get(i).toString().equals("Break")){
+					break;
+				}
+				proc_then.get(i).executer();
+			}
 		}
 		else	{
 			Controleur.getBotActif().setCouleur(Couleur.ROUGE);	
-			proc_else.executer();
+			for (int i=0; i< this.proc_else.size();i++) {
+				if (proc_else.get(i).toString().equals("Break")){
+					break;
+				}
+				proc_else.get(i).executer();
+			}
 		}
 	}
 	
@@ -83,9 +93,9 @@ public class IfThenElse {
 	
 	public String getStrCond (){ return this.str_cond;	}
 	
-	public Procedure getFonctThen(){ return this.proc_then;	}
+	public List<Action> getFonctThen(){ return this.proc_then;	}
 	
-	public Procedure getFonctElse(){ return this.proc_else; }
+	public List<Action> getFonctElse(){ return this.proc_else; }
 	
 	
 	/*-----------------------------SETTEURS-----------------------------*/
@@ -93,9 +103,9 @@ public class IfThenElse {
 	
 	public void setStrCond (String s){ this.str_cond = s;	}
 	
-	public void setFonctThen(Procedure f){ this.proc_then = f;	}
+	public void setFonctThen(List<Action> f){ this.proc_then = f;	}
 	
-	public void setFonctElse(Procedure f){ this.proc_else = f; }
+	public void setFonctElse(List<Action> f){ this.proc_else = f; }
 	
 	
 }

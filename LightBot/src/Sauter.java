@@ -15,4 +15,8 @@ public class Sauter implements Action {
 		}
 		else throw new Ensure("Le Bot ne peut pas sauter !");
 	}
+	
+	public String toString(){
+		return "Sauter";
+	}
 }
