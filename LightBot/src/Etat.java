@@ -1,7 +1,8 @@
+package src;
 
 public enum Etat {
 
-	BLOQUE("Bloque"), NONBLOQUE("Non bloque");
+	INACTIF("Bloque"), ACTIF("Non bloque");
 	
 	private String etat;
 	

@@ -1,3 +1,4 @@
+package src;
 import java.util.*;
 
 public class Procedure {
@@ -8,8 +9,8 @@ public class Procedure {
 	
 	
 	/*---------------------CONSTRUCTEURS-----------------------------*/	
-	public Procedure() { this.actions.clear();	}
-	public Procedure(Procedure p) { this.actions = p; }
+	public Procedure() { actions = null;	}
+	public Procedure(List<Action> p) { this.actions = p; }
 	
 	/*---------------------PROCEDURES-&-FONCTIONS-----------------------------*/
 	/**
@@ -23,26 +24,20 @@ public class Procedure {
 	 * ajoute une action dans la liste d'actions
 	 * @param a l'action à ajouter
 	 */
-	public void ajout(Action a){
-		this.actions.add(a);
-	}
+	public void ajout(Action a){ this.actions.add(a);	}
 	
 	/**
 	 * ajoute une liste d'actions dans la liste d'actions
 	 * @param list_a la liste d'actions à ajouter
 	 */
-	public void ajout(List<Action> list_a){
-		this.actions.addAll(list_a);
-	}
+	public void ajout(List<Action> list_a){ this.actions.addAll(list_a); }
 	
 	/**
 	 * ajoute une action dans la liste d'action à la position définie par index
 	 * @param index position de l'action dans la liste d'action 
 	 * @param a l'action à ajouter
 	 */
-	public void ajout (int index, Action a){
-		this.actions.add(index,a);
-	}
+	public void ajout (int index, Action a){ this.actions.add(index,a);	}
 	
 	/**
 	 * supprime une action dans la liste d'actions
@@ -78,5 +73,7 @@ public class Procedure {
 			s += actions.get(i).toString() + ", ";
 		}
 		s += actions.get(this.actions.size()-1).toString();
+		return s;
 	}
+
 }

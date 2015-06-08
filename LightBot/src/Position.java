@@ -1,3 +1,4 @@
+package src;
 
 public class Position {
 	
@@ -52,11 +53,11 @@ public class Position {
 	}
 	
 	public boolean estDansMap() {
-		return ((this.l >= 0) && (this.l < Map.getLongueur()) && (this.c >= 0) && (this.c < Map.getLargeur()));
+		return ((this.l >= 0) && (this.l < Controleur.getMap().getLongueur()) && (this.c >= 0) && (this.c < Controleur.getMap().getLargeur()));
 	}
 	
 	public String toString() {
-		return "ligne " + this.l.toString() + ", colonne " + this.c.toString();
+		return "ligne " + this.l + ", colonne " + this.c;
 	}
 
 }

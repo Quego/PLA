@@ -1,3 +1,5 @@
+package src;
+import java.util.*;
 
 public class IfThenElse {
 
@@ -8,10 +10,10 @@ public class IfThenElse {
 	 * proc_then représente les actions que le Bot doit exécuter si la condition est vérifiée
 	 * proc_else représente les actions que le Bot doit exécuter si la condition n'est pas vérifiée
 	 */
-	private String str_cond;
-	private boolean bool_cond;
-	private Procedure proc_then;
-	private Procedure proc_else;
+	protected String str_cond;
+	protected boolean bool_cond;
+	protected Procedure proc_then;
+	protected Procedure proc_else;
 	
 	
 	
@@ -19,26 +21,26 @@ public class IfThenElse {
 	public IfThenElse(){
 		this.str_cond = "vrai";
 		this.bool_cond = true;
-		this.proc_then.Procedure();
-		this.proc_else.Procedure(p);
+		this.proc_then = new Procedure();
+		this.proc_else = new Procedure();
 	}
-	public IfThenElse(Procedure p){
+	public IfThenElse(List<Action> p){
 		this.str_cond = "vrai";
 		this.bool_cond = true;
-		this.proc_then.Procedure(p);
-		this.proc_else.Procedure();
+		this.proc_then = new Procedure(p);
+		this.proc_else = new Procedure();
 	}
-	public IfThenElse(Procedure p_then,Procedure p_else){
+	public IfThenElse(List<Action> p_then,List<Action> p_else){
 		this.str_cond = "vrai";
 		this.bool_cond = true;
-		this.proc_then.Procedure(p_then);
-		this.proc_else.Procedure(p_then);
+		this.proc_then = new Procedure(p_then);
+		this.proc_else = new Procedure(p_then);
 	}
-	public IfThenElse(String str, boolean cond, Procedure p_then,Procedure p_else){
+	public IfThenElse(String str, boolean cond, List<Action> p_then,List<Action> p_else){
 		this.str_cond = str;
 		this.bool_cond = cond;
-		this.proc_then.Procedure(p_then);
-		this.proc_else.Procedure(p_then);
+		this.proc_then = new Procedure(p_then);
+		this.proc_else = new Procedure(p_then);
 	}
 	
 	/*---------------------PROCEDURES-&-FONCTIONS-----------------------------*/
@@ -46,7 +48,7 @@ public class IfThenElse {
 	 * Exécute une des 2 procédures en fonction de la condition
 	 */	
 	public void executer(){
-		if (cond) 	{
+		if (bool_cond) 	{
 			Controleur.getBotActif().setCouleur(Couleur.VERT);
 			proc_then.executer();
 		}
@@ -60,17 +62,17 @@ public class IfThenElse {
 		String s = "";
 		s += "Si " + str_cond + "\n";
 		if (this.proc_then.isEmpty()) {
-			s+ = "Alors le Bot n'a rien à faire \n";
+			s += "Alors le Bot n'a rien à faire \n";
 		}
 		else {
-			s += "Alors le Bot doit faire cette liste d'actions : " 
+			s += "Alors le Bot doit faire cette liste d'actions : ";
 			s += this.proc_then.toString() + "\n";
 		}
 		if (this.proc_else.isEmpty()) {
 			s += "Sinon il n'a rien à faire \n";
 		}
 		else {
-			s += "Sinon il doit faire cette liste d'actions : " 
+			s += "Sinon il doit faire cette liste d'actions : "; 
 			s += this.proc_then.toString() + "\n";
 		}
 		return s;
@@ -81,9 +83,9 @@ public class IfThenElse {
 	
 	public String getStrCond (){ return this.str_cond;	}
 	
-	public Fonction getFonctThen(){ return this.proc_then;	}
+	public Procedure getFonctThen(){ return this.proc_then;	}
 	
-	public Fonction getFonctElse(){ return this.proc_else; }
+	public Procedure getFonctElse(){ return this.proc_else; }
 	
 	
 	/*-----------------------------SETTEURS-----------------------------*/
@@ -91,9 +93,9 @@ public class IfThenElse {
 	
 	public void setStrCond (String s){ this.str_cond = s;	}
 	
-	public void setFonctThen(Fonction f){ this.proc_then = f;	}
+	public void setFonctThen(Procedure f){ this.proc_then = f;	}
 	
-	public void setFonctElse(Fonction f){ this.proc_else = f; }
+	public void setFonctElse(Procedure f){ this.proc_else = f; }
 	
 	
 }

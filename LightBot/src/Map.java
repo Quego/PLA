@@ -1,3 +1,4 @@
+package src;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +8,7 @@ public class Map {
 	private int largeur, longueur, niveau, maxActionMain, maxProcedures, maxActionsProcedures;
 	private String nom;
 	private Position positionInit;
+	private List<Action> actionsAutorisees;
 	
 	public Map() {
 		this.map = null;
@@ -18,9 +20,10 @@ public class Map {
 		this.maxActionMain = 0;
 		this.maxProcedures = 0;
 		this.maxActionsProcedures = 0;
+		this.actionsAutorisees = null;
 	}
 	
-	public Map(List<List<Cellule>> m, int la, int lo, int ni, String no, Position p, int ma, int mp, int map) {
+	public Map(List<List<Cellule>> m, int la, int lo, int ni, String no, Position p, int ma, int mp, int map, List<Action> a) {
 		this.map = m;
 		this.largeur = la;
 		this.longueur = lo;
@@ -30,6 +33,7 @@ public class Map {
 		this.maxActionMain = ma;
 		this.maxProcedures = mp;
 		this.maxActionsProcedures = map;
+		this.actionsAutorisees = a;
 	}
 	
 
@@ -45,8 +49,8 @@ public class Map {
 	public int getNiveau() {return this.niveau;}
 	public void setNiveau(int n) {this.niveau = n;}
 
-	public int getMaxActionsMain() {return this.maxActionsMain;}
-	public void setMaxActionsMain(int m) {this.maxActionsMain = m;}
+	public int getMaxActionsMain() {return this.maxActionMain;}
+	public void setMaxActionsMain(int m) {this.maxActionMain = m;}
 
 	public int getMaxProcedures() {return this.maxProcedures;}
 	public void setMaxProcedures(int m) {this.maxProcedures = m;}	
@@ -79,6 +83,10 @@ public class Map {
 			if (!fini) break;
 		}
 		return fini;
+	}
+	
+	public Position getPositionInit() {
+		return this.positionInit;
 	}
 	
 	public String toString() {

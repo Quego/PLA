@@ -1,3 +1,4 @@
+package src;
 import java.util.List;
 
 public class Fonction extends IfThenElse {
@@ -5,7 +6,7 @@ public class Fonction extends IfThenElse {
 	public Fonction() {
 		super();
 	}
-	public Fonction(Procedure p){
+	public Fonction(List<Action> p){
 		super(p);
 	}
 
@@ -17,10 +18,10 @@ public class Fonction extends IfThenElse {
 	public String toString() {
 		String s ="";
 		if (super.proc_then.isEmpty()) {
-			s+ = "Alors le Bot n'a rien à faire \n";
+			s += "Alors le Bot n'a rien à faire \n";
 		}
 		else {
-			s += "Alors le Bot doit faire cette liste d'actions : " 
+			s += "Alors le Bot doit faire cette liste d'actions : " ;
 			s += super.proc_then.toString() + "\n";
 		}
 		return s;
@@ -28,10 +29,10 @@ public class Fonction extends IfThenElse {
 	
 	
 	/*-----------------------------GETTEUR-----------------------------*/
-	public Fonction getFonct(){ return super.proc_then;	}
+	public Procedure getFonct(){ return super.proc_then;	}
 	
 	/*-----------------------------SETTEUR-----------------------------*/
-	public void setFonctThen(Fonction f){ super.proc_then = f;	}
+	public void setFonctThen(Procedure f){ super.proc_then = f;	}
 	
 	
 	

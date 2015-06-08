@@ -1,11 +1,12 @@
+package src;
 
 public class Lacher implements Action {
 	public void executer(){
-		Position p = Controleur.getBot().getPosition();
+		Position p = Controleur.getBotActif().getPosition();
 		Cellule c = Controleur.getMap().getCellule(p);
-		if (!(c.getOccupe())){
-			c.setObjet(Controleur.getBot().getObjet());
-			Controleur.getBot().setObjet(Objet.RIEN);
+		if (!(c.getOccupee())){
+			c.setObjet(Controleur.getBotActif().getObjet().toString());
+			Controleur.getBotActif().setObjet(Objet.RIEN);
 			
 		}
 	}

@@ -1,3 +1,4 @@
+package src;
 
 public class Cellule {
 
@@ -50,7 +51,7 @@ public class Cellule {
 		return "hauteur = " + this.getHauteur() + "\n" +
 			   "objet = " + this.objet + "\n" + 
 			   "couleur = " + this.couleur + "\n" +
-			   "occupee = " + this.occupe + "\n";
+			   "occupee = " + this.occupee + "\n";
 	}
 	
 }

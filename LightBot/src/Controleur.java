@@ -1,34 +1,35 @@
+package src;
 import java.util.List;
 
 
 public class Controleur {
 
-	private List<Map> maps;
-	private Bot bot1, bot2;
-	private Map map;
+	private static List<Map> maps;
+	private static Bot bot1, bot2;
+	private static Map map;
 	
 	public Controleur() {
-		this.maps = null;
-		this.map = maps.get(0);
-		this.bot = new Bot();
-		this.suppleant = new Bot(Etat.BLOQUE);
+		maps = null;
+		map = null;
+		bot1 = new Bot();
+		bot2 = new Bot(Etat.INACTIF);
 	}
 	
-	public List<Map> getMaps() {return this.maps;}
-	public Map getMap() {return this.map;}
-	public void setMap(int i) {this.map = this.maps.get(i);}
-	public void setMaps(List<Map> m) {this.maps = m;}
-	public void addMaps(Map m) {this.maps.add(m);}
+	public static List<Map> getMaps() {return maps;}
+	public static Map getMap() {return map;}
+	public static void setMap(int i) {map = maps.get(i);}
+	public static void setMaps(List<Map> m) {maps = m;}
+	public static void addMaps(Map m) { maps.add(m);}
 	
-	public Bot getBot1() {return this.bot1;}
-	public Bot getBot2() {return this.bot2;}
-	public Bot getBotActif() { 
-		if (this.bot1.getEtat() == Etat.ACTIF) return this.bot1;
-		else return this.bot2;
+	public static Bot getBot1() {return bot1;}
+	public static Bot getBot2() {return bot2;}
+	public static Bot getBotActif() { 
+		if (bot1.getEtat() == Etat.ACTIF) return bot1;
+		else return bot2;
 	}
-	public Bot getBotInactif() { 
-		if (this.bot1.getEtat() == Etat.INACTIF) return this.bot1;
-		else return this.bot2;
+	public static Bot getBotInactif() { 
+		if (bot1.getEtat() == Etat.INACTIF) return bot1;
+		else return bot2;
 	}
 	
 }

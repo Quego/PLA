@@ -1,3 +1,5 @@
+package src;
+
 
 public interface Action {
 	public void executer();
