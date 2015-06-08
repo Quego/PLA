@@ -65,6 +65,9 @@ public class Procedure {
 	 */
 	public void executer() {
 		for (int i=0; i< this.actions.size();i++) {
+			if (actions.get(i).toString().equals("Break")){
+				break;
+			}
 			actions.get(i).executer();
 		}
 	}

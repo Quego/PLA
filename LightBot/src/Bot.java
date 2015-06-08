@@ -146,7 +146,7 @@ public class Bot {
 	 */
 	public void play(){
 		if (etat == Etat.ACTIF){
-			for (int i=0; i< fonctions.size();i++) {
+			for (int i=0; i < fonctions.size();i++) {
 				fonctions.get(i).executer();
 			}
 		}

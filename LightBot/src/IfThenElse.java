@@ -46,8 +46,14 @@ public class IfThenElse {
 	 * Exécute une des 2 procédures en fonction de la condition
 	 */	
 	public void executer(){
-		if (cond) 	proc_then.executer();
-		else		proc_else.executer();
+		if (cond) 	{
+			Controleur.getBotActif().setCouleur(Couleur.VERT);
+			proc_then.executer();
+		}
+		else	{
+			Controleur.getBotActif().setCouleur(Couleur.ROUGE);	
+			proc_else.executer();
+		}
 	}
 	
 	public String toString() {
