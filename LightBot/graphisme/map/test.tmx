@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="15" height="15" tilewidth="68" tileheight="34">
+ <tileset firstgid="1" name="bleu_0" tilewidth="68" tileheight="51">
+  <image source="niveau0_bleu.png" width="68" height="51"/>
+ </tileset>
+ <tileset firstgid="2" name="bleu_1" tilewidth="68" tileheight="102">
+  <image source="niveau1_bleu.png" width="68" height="204"/>
+ </tileset>
+ <tileset firstgid="4" name="bleu_10" tilewidth="68" tileheight="204">
+  <image source="niveau10_bleu.png" width="68" height="204"/>
+ </tileset>
+ <tileset firstgid="5" name="bleu_9" tilewidth="68" tileheight="204">
+  <image source="niveau9_bleu.png" width="68" height="204"/>
+ </tileset>
+ <tileset firstgid="6" name="bleu_8" tilewidth="68" tileheight="204">
+  <image source="niveau8_bleu.png" width="68" height="204"/>
+ </tileset>
+ <tileset firstgid="7" name="bleu_7" tilewidth="68" tileheight="204">
+  <image source="niveau7_bleu.png" width="68" height="204"/>
+ </tileset>
+ <tileset firstgid="8" name="bleu_6" tilewidth="68" tileheight="204">
+  <image source="niveau6_bleu.png" width="68" height="204"/>
+ </tileset>
+ <tileset firstgid="9" name="bleu_4" tilewidth="68" tileheight="204">
+  <image source="niveau4_bleu.png" width="68" height="204"/>
+ </tileset>
+ <tileset firstgid="10" name="bleu_2" tilewidth="68" tileheight="204">
+  <image source="niveau2_bleu.png" width="68" height="204"/>
+ </tileset>
+ <layer name="Calque 1" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NkIB8wjuod1Tuql2K9AKjgCc+EAwAA
+  </data>
+ </layer>
+ <layer name="Calque 2" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgYGBgZCAfjOod1TuqlzK9AL96vGiEAwAA
+  </data>
+ </layer>
+ <layer name="Calque 3" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NggABGBvLBqN5RvaN6ydcLAGIoEPqEAwAA
+  </data>
+ </layer>
+ <layer name="Calque 4" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgQABGBvLBqN5RvaN6ydMLAGw629eEAwAA
+  </data>
+ </layer>
+ <layer name="Calque 15" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgQAWMDOSDUb2jekf1kq4XAG192kuEAwAA
+  </data>
+ </layer>
+ <layer name="Calque 5" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgwASMWMSIBaN6R/WO6iVNLwBMnQxVhAMAAA==
+  </data>
+ </layer>
+ <layer name="Calque 6" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgwA4YcYgTA0b1juod1Uu8XgDnLvmuhAMAAA==
+  </data>
+ </layer>
+ <layer name="Calque 7" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgwA0Y8cgRAqN6R/WO6iVOLwAA0P3+hAMAAA==
+  </data>
+ </layer>
+ <layer name="Calque 8" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgwA8YCciP6h3VO6qXMr0Ag7xHboQDAAA=
+  </data>
+ </layer>
+ <layer name="Calque 9" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIAwYiVAzqndU76he8vQCAJWpvCOEAwAA
+  </data>
+ </layer>
+ <layer name="Calque 10" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIA4wEqluVO+o3lG9pOkFAOepLhWEAwAA
+  </data>
+ </layer>
+ <layer name="Calque 11" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIB4wkqB2OOhlGdVLNBiK8TtY9AIAvmM7w4QDAAA=
+  </data>
+ </layer>
+ <layer name="Calque 12" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIA0wkqh+VO+o3lG9+PUCAO+TmvyEAwAA
+  </data>
+ </layer>
+ <layer name="Calque 13" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIB0wkqFnVO+o3lG92PUCADnLZCiEAwAA
+  </data>
+ </layer>
+ <layer name="Calque 14" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIA8wkqlvVO+o3lG9qHoBG1EzAoQDAAA=
+  </data>
+ </layer>
+</map>
