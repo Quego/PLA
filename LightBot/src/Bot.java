@@ -153,6 +153,10 @@ public class Bot {
 		}
 	}
 	
+	public void executer(Action a){
+		a.executer();
+	}
+	
 	/**
 	 * positionne le Bot à sa position, son orientation et sa couleur de départ
 	 * @ensure le Bot est retourné à la position initiale
