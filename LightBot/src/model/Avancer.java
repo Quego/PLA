@@ -1,4 +1,4 @@
-package src;
+package model;
 import jus.util.assertion.*;
 
 public class Avancer implements Action {

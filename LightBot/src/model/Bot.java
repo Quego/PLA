@@ -1,4 +1,4 @@
-package src;
+package model;
 import java.util.*;
 
 import jus.util.assertion.*;

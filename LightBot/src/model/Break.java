@@ -1,4 +1,4 @@
-package src;
+package model;
 
 public class Break implements Action{
 	public void executer(){	}
