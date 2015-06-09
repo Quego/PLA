@@ -24,19 +24,8 @@ public class IfThenElse implements Action {
 		this.actions_if = null;
 		this.actions_else = null;
 	}
-	public IfThenElse(List<Action> p){
-		this.str_cond = "vrai";
-		this.bool_cond = true;
-		this.actions_if = null;
-		this.actions_else = null;
-	}
-	public IfThenElse(List<Action> p_then,List<Action> p_else){
-		this.str_cond = "vrai";
-		this.bool_cond = true;
-		this.actions_if = null;
-		this.actions_else = null;
-	}
-	public IfThenElse(String str, boolean cond, List<Action> p_then,List<Action> p_else){
+	
+	public IfThenElse(String str, boolean cond){
 		this.str_cond = str;
 		this.bool_cond = cond;
 		this.actions_if = null;
