@@ -2,7 +2,14 @@ package src;
 
 public enum Couleur {
 
-	VIOLETINTH("Violet Interrupteur Haut"), VIOLETINTB("Violet Interrupteur Bas"), VERTINTH("Vert Interrupteur Haut"), VERTINTB("Vert Interrupteur Bas"), ORANGE("Orange"), ORANGEINTH("Orange Interrupteur Haut"), ORANGEINTB("Orange Interrupteur Bas"), INDIGO("Indigo"), INDIGOINTH("Indigo Interrupteur Haut"), INDIGOINTB("Indigo Interrupteur Bas"), BLANC("Blanc"), GRIS("Gris"), BLEU("Bleu"), JAUNE("Jaune"), ROUGE("Rouge"), ROUGEAL("Rouge allumé"), VERT("Vert"), VERTAL("Vert allumé"), VIOLET("Violet"), VIOLETAL("Violet allumé");
+	VIOLET("Violet"), VIOLETAL("Violet allumé"), VIOLETINTH("Violet Interrupteur Haut"), VIOLETINTB("Violet Interrupteur Bas"),
+	VERTINTH("Vert Interrupteur Haut"), VERTINTB("Vert Interrupteur Bas"), 
+	ORANGE("Orange"), ORANGEINTH("Orange Interrupteur Haut"), ORANGEINTB("Orange Interrupteur Bas"), 
+	INDIGO("Indigo"), INDIGOINTH("Indigo Interrupteur Haut"), INDIGOINTB("Indigo Interrupteur Bas"), 
+	BLANC("Blanc"), GRIS("Gris"), 
+	BLEU("Bleu"), JAUNE("Jaune"), 
+	ROUGE("Rouge"), ROUGEAL("Rouge allumé"), 
+	VERT("Vert"), VERTAL("Vert allumé");
 	
 	private String couleur;
 	
