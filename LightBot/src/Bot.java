@@ -16,7 +16,7 @@ public class Bot {
 	private Orientation orientation;
 	private Couleur couleur;
 	private Objet objet;
-	private List<Action> fonctions;
+	private List<Action> actions;
 	private Etat etat;
 	
 	
@@ -32,7 +32,7 @@ public class Bot {
 		orientation = Orientation.SUD;
 		couleur = Couleur.GRIS;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = Etat.ACTIF;
 	}
 	public Bot(Etat e){
@@ -40,7 +40,7 @@ public class Bot {
 		orientation = Orientation.SUD;
 		couleur = Couleur.GRIS;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = e;
 	}
 	public Bot(int l, int c){
@@ -48,7 +48,7 @@ public class Bot {
 		orientation = Orientation.SUD;
 		couleur = Couleur.GRIS;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = Etat.ACTIF;
 	}
 	public Bot(Orientation o){
@@ -56,7 +56,7 @@ public class Bot {
 		orientation = o;
 		couleur = Couleur.GRIS;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = Etat.ACTIF;
 	}
 	public Bot(Couleur c){
@@ -64,7 +64,7 @@ public class Bot {
 		orientation = Orientation.SUD;
 		couleur = c;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = Etat.ACTIF;
 	}
 	public Bot(int l, int c, Orientation o){
@@ -72,7 +72,7 @@ public class Bot {
 		orientation = o;
 		couleur = Couleur.GRIS;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = Etat.ACTIF;
 	}
 	public Bot(int l, int c, Couleur coul){
@@ -80,7 +80,7 @@ public class Bot {
 		orientation = Orientation.SUD;
 		couleur = coul;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = Etat.ACTIF;
 	}
 	public Bot(int l, int c, Orientation o, Couleur coul){
@@ -88,7 +88,7 @@ public class Bot {
 		orientation = o;
 		couleur = coul;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = Etat.ACTIF;
 	}
 	
@@ -97,7 +97,7 @@ public class Bot {
 		orientation = Orientation.SUD;
 		couleur = Couleur.GRIS;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = e;
 	}
 	public Bot(Orientation o, Etat e){
@@ -105,7 +105,7 @@ public class Bot {
 		orientation = o;
 		couleur = Couleur.GRIS;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = e;
 	}
 	public Bot(Couleur c, Etat e){
@@ -113,7 +113,7 @@ public class Bot {
 		orientation = Orientation.SUD;
 		couleur = c;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = e;
 	}
 	public Bot(int l, int c, Orientation o, Etat e){
@@ -121,7 +121,7 @@ public class Bot {
 		orientation = o;
 		couleur = Couleur.GRIS;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = e;
 	}
 	public Bot(int l, int c, Couleur coul, Etat e){
@@ -129,7 +129,7 @@ public class Bot {
 		orientation = Orientation.SUD;
 		couleur = coul;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = e;
 	}
 	public Bot(int l, int c, Orientation o, Couleur coul, Etat e){
@@ -137,7 +137,7 @@ public class Bot {
 		orientation = o;
 		couleur = coul;
 		objet = Objet.RIEN;
-		fonctions.clear();
+		actions.clear();
 		etat = e;
 	}
 	
@@ -147,8 +147,8 @@ public class Bot {
 	 */
 	public void play(){
 		if (etat == Etat.ACTIF){
-			for (int i=0; i < fonctions.size();i++) {
-				fonctions.get(i).executer();
+			for (int i=0; i < actions.size();i++) {
+				actions.get(i).executer();
 			}
 		}
 	}
@@ -167,8 +167,8 @@ public class Bot {
 	 * @ensure la liste d'actions est vide
 	 */
 	public void resetListeFonctions(){
-		fonctions.clear();
-		if (!(fonctions.isEmpty())) throw new Ensure("La liste d'actions n'a pas été vidée");
+		actions.clear();
+		if (!(actions.isEmpty())) throw new Ensure("La liste d'actions n'a pas été vidée");
 	}
 	
 	public String toString(){
@@ -184,11 +184,11 @@ public class Bot {
 		else {
 				obj = "Il ne tient rien dans ses mains \n";
 		}
-		if (this.fonctions.isEmpty()) {
+		if (this.actions.isEmpty()) {
 			fonct = "Il n'a rien à faire \n";
 		}
 		else {
-			fonct = "Il doit faire cette liste d'actions : " + this.fonctions.toString() + "\n";
+			fonct = "Il doit faire cette liste d'actions : " + this.actions.toString() + "\n";
 		}
 		
 		return etat+pos+orient+coul+obj+fonct;
@@ -205,7 +205,7 @@ public class Bot {
 	
 	public Objet getObjet(){ return objet; }
 	
-	public List<Action> getFonctions(){ return fonctions; }
+	public List<Action> getFonctions(){ return actions; }
 
 	public Etat getEtat(){ return etat; }
 	
@@ -235,7 +235,7 @@ public class Bot {
 	
 	public void setObjet(Objet obj){ objet = obj; }
 	
-	public void setFonctions(List<Action> list){ fonctions = list;	}
+	public void setFonctions(List<Action> list){ actions = list;	}
 	
 	public void setEtat(Etat e){ etat = e; }
 	

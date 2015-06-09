@@ -12,8 +12,8 @@ public class IfThenElse implements Action {
 	 */
 	protected String str_cond;
 	protected boolean bool_cond;
-	protected List<Action> proc_then;
-	protected List<Action> proc_else;
+	protected List<Action> actions_if;
+	protected List<Action> actions_else;
 	
 	
 	
@@ -21,26 +21,26 @@ public class IfThenElse implements Action {
 	public IfThenElse(){
 		this.str_cond = "vrai";
 		this.bool_cond = true;
-		this.proc_then = null;
-		this.proc_else = null;
+		this.actions_if = null;
+		this.actions_else = null;
 	}
 	public IfThenElse(List<Action> p){
 		this.str_cond = "vrai";
 		this.bool_cond = true;
-		this.proc_then = null;
-		this.proc_else = null;
+		this.actions_if = null;
+		this.actions_else = null;
 	}
 	public IfThenElse(List<Action> p_then,List<Action> p_else){
 		this.str_cond = "vrai";
 		this.bool_cond = true;
-		this.proc_then = null;
-		this.proc_else = null;
+		this.actions_if = null;
+		this.actions_else = null;
 	}
 	public IfThenElse(String str, boolean cond, List<Action> p_then,List<Action> p_else){
 		this.str_cond = str;
 		this.bool_cond = cond;
-		this.proc_then = null;
-		this.proc_else = null;
+		this.actions_if = null;
+		this.actions_else = null;
 	}
 	
 	/*---------------------PROCEDURES-&-FONCTIONS-----------------------------*/
@@ -50,20 +50,20 @@ public class IfThenElse implements Action {
 	public void executer(){
 		if (bool_cond) 	{
 			Controleur.getBotActif().setCouleur(Couleur.VERT);
-			for (int i=0; i< this.proc_then.size();i++) {
-				if (proc_then.get(i).toString().equals("Break")){
+			for (int i=0; i< this.actions_if.size();i++) {
+				if (actions_if.get(i).toString().equals("Break")){
 					break;
 				}
-				proc_then.get(i).executer();
+				actions_if.get(i).executer();
 			}
 		}
 		else	{
 			Controleur.getBotActif().setCouleur(Couleur.ROUGE);	
-			for (int i=0; i< this.proc_else.size();i++) {
-				if (proc_else.get(i).toString().equals("Break")){
+			for (int i=0; i< this.actions_else.size();i++) {
+				if (actions_else.get(i).toString().equals("Break")){
 					break;
 				}
-				proc_else.get(i).executer();
+				actions_else.get(i).executer();
 			}
 		}
 	}
@@ -71,19 +71,19 @@ public class IfThenElse implements Action {
 	public String toString() {
 		String s = "";
 		s += "Si " + str_cond + "\n";
-		if (this.proc_then.isEmpty()) {
+		if (this.actions_if.isEmpty()) {
 			s += "Alors le Bot n'a rien à faire \n";
 		}
 		else {
 			s += "Alors le Bot doit faire cette liste d'actions : ";
-			s += this.proc_then.toString() + "\n";
+			s += this.actions_if.toString() + "\n";
 		}
-		if (this.proc_else.isEmpty()) {
+		if (this.actions_else.isEmpty()) {
 			s += "Sinon il n'a rien à faire \n";
 		}
 		else {
 			s += "Sinon il doit faire cette liste d'actions : "; 
-			s += this.proc_then.toString() + "\n";
+			s += this.actions_else.toString() + "\n";
 		}
 		return s;
 	}
@@ -93,9 +93,9 @@ public class IfThenElse implements Action {
 	
 	public String getStrCond (){ return this.str_cond;	}
 	
-	public List<Action> getFonctThen(){ return this.proc_then;	}
+	public List<Action> getActionsIf(){ return this.actions_if;	}
 	
-	public List<Action> getFonctElse(){ return this.proc_else; }
+	public List<Action> getActionsElse(){ return this.actions_else; }
 	
 	
 	/*-----------------------------SETTEURS-----------------------------*/
@@ -103,9 +103,9 @@ public class IfThenElse implements Action {
 	
 	public void setStrCond (String s){ this.str_cond = s;	}
 	
-	public void setFonctThen(List<Action> f){ this.proc_then = f;	}
+	public void setActionsIf(List<Action> l){ this.actions_if = l;	}
 	
-	public void setFonctElse(List<Action> f){ this.proc_else = f; }
+	public void setActionsElse(List<Action> l){ this.actions_else = l; }
 	
 	
 }
