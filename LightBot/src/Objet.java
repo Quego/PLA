@@ -1,3 +1,4 @@
+package src;
 
 public enum Objet {
 
@@ -11,6 +12,19 @@ public enum Objet {
 	
 	public String toString() {
 		return this.objet;
+	}
+	
+	public Couleur toCouleur(){
+		if (Objet.FRAISE == this){
+			return Couleur.ROUGE;
+		}
+		if (Objet.PASTEQUE == this){
+			return Couleur.VERT;
+		}
+		if (Objet.MYRTILLE == this){
+			return Couleur.VIOLET;
+		}
+		return Couleur.BLANC;
 	}
 	
 }
