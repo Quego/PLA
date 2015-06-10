@@ -17,9 +17,14 @@ public class Menu extends StateBasedGame {
    public void initStatesList(GameContainer container) {
 	  addState(new Accueil());
       addState(new Choix());
-    /*  addState(new SelectionPerso());*/
+      addState(new ChoixBasic());
+      addState(new ChoixITE());
+      addState(new ChoixFruit());
+      addState(new ChoixCoop());
+      addState(new ChoixHardLevels());    
       addState(new WindowGame());
-     /* addState(new Win ());
+      /*  addState(new SelectionPerso());
+      addState(new Win ());
       addState(new Dead());
       addState(new Difficulte());
       addState(new Free());
