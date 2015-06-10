@@ -20,6 +20,7 @@ public class WindowGame extends BasicGameState {
 	private GameContainer container;
 	private Player player_1;
 	private Player player_2;
+	
 
 	public static final int ID = 2;
 
