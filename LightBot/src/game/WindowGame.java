@@ -22,6 +22,8 @@ public class WindowGame extends BasicGameState {
 	private Player player_2;
 
 	public static final int ID = 2;
+	
+	private Interface interf = new Interface();
 
 	public static int time;
 	private StateBasedGame game;
@@ -45,6 +47,7 @@ public class WindowGame extends BasicGameState {
 		this.player_1.placePlayer(2,3);
 		this.player_2.init();
 		this.player_2.placePlayer(3,2);
+		this.interf.init();
 	}
 	
 	public void enter(GameContainer container, StateBasedGame game) throws SlickException 
@@ -83,6 +86,7 @@ public class WindowGame extends BasicGameState {
 		this.player_1.render(g);
 		this.player_2.render(g);
 		this.map.renderForeground(this.player_1.getLigne());
+		this.interf.render(container, game, g);
 		}
 		
 
