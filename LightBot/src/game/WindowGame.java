@@ -102,18 +102,16 @@ public class WindowGame extends BasicGameState {
 	public void keyPressed(int key, char c) {
 		if(!this.player_1.isRunning()){
 			switch (key) {
-			case Input.KEY_UP:    this.player_1.setDirection(0); this.player_1.start(); break;
-			case Input.KEY_LEFT:  this.player_1.setDirection(1); this.player_1.start(); break;
-			case Input.KEY_DOWN:  this.player_1.setDirection(2); this.player_1.start(); break;
-			case Input.KEY_RIGHT: this.player_1.setDirection(3); this.player_1.start(); break;
+			case Input.KEY_UP:    this.player_1.start(0); break;
+			case Input.KEY_LEFT:  this.player_1.start(1); break;
+			case Input.KEY_DOWN:  this.player_1.start(-1); break;
 			}
 		}
 		if(!this.player_2.isRunning()){
 			switch (key) {
-        case Input.KEY_Z:     this.player_2.setDirection(0); this.player_2.start(); break;
-        case Input.KEY_Q:     this.player_2.setDirection(1); this.player_2.start(); break;
-        case Input.KEY_S:     this.player_2.setDirection(2); this.player_2.start(); break;
-        case Input.KEY_D:     this.player_2.setDirection(3); this.player_2.start(); break;
+        case Input.KEY_Z:     this.player_2.setDirection(0); this.player_2.start(0); break;
+        case Input.KEY_Q:     this.player_2.setDirection(1); this.player_2.start(1); break;
+        case Input.KEY_S:     this.player_2.setDirection(2); this.player_2.start(-1); break;
 			}
 	    }
 		switch (key) {

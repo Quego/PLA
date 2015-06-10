@@ -63,6 +63,8 @@ public class Map {
 		  	return TilesHeight;
 	  }
 	  
+	 
+	  
 	 /* public int coordToLine(float x, float y){
 		  return y;
 		  
