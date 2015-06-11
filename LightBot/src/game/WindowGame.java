@@ -13,6 +13,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
+import org.newdawn.slick.tiled.Layer;
 import org.newdawn.slick.tiled.TiledMap;
 
 
@@ -20,18 +21,11 @@ public class WindowGame extends BasicGameState {
 	private GameContainer container;
 	private Player player_1;
 	private Player player_2;
-	
-
 	public static final int ID = 2;
-	
 	private Interface interf = new Interface();
-
-	public static int time;
 	private StateBasedGame game;
 	private Map map = new Map();
 
-	boolean pause = false;
-	
 	public WindowGame() {
 	}
 
@@ -61,31 +55,23 @@ public class WindowGame extends BasicGameState {
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
 		
-		if(pause)
-		{
-		     // PAUSE.draw(0,0);
-		      g.setColor(Color.white);
-		      g.drawString("Resume (P)", 250, 100);
-		      g.drawString("Main Menu (SPACE)", 250, 150);
-		      g.drawString("Quit Game (ESCAPE)", 250, 200);	
-		}
-		else
-		{
 
 		g.translate(container.getWidth()/3 -this.map.getTilesWidth()/2,
 					(container.getHeight()/2-this.map.getHeight()*this.map.getTilesHeight()/2 -this.map.getTilesHeight()/2));	
 			
 		
-		this.map.renderBackground(this.player_1.getLigne(),this.player_1.getColonne());
-		
-		this.player_1.render(g);
-	//	this.player_2.render(g);
-		this.map.renderForeground(this.player_1.getLigne(),this.player_1.getColonne());
-	//	this.interf.render(container, game, g);
-		}
+	this.map.renderBackground(this.player_1.getLigne(),this.player_1.getColonne());
+	//this.map.renderTest();
+	this.player_1.render(g);
+//	this.player_2.render(g);
+	
+	this.map.renderForeground(this.player_1.getLigne(),this.player_1.getColonne());
+//	this.interf.render(container, game, g);
+	//this.map.renderTest();
 	}
 
 	public void update(GameContainer container, StateBasedGame game, int delta)throws SlickException{
+
 		this.player_1.update(delta);
 	//	this.player_2.update(delta);
 	}
@@ -98,19 +84,18 @@ public class WindowGame extends BasicGameState {
 			case Input.KEY_RIGHT: this.player_1.setNewDirection(-1); break;
 			case Input.KEY_J:     this.player_1.jump(); break;
 			case Input.KEY_K:     this.player_1.down(); break;
+			case Input.KEY_A:     this.map.allume(this.player_1.getColonne(),this.player_1.getLigne()); break;
 			}
 		}
-		if(!this.player_1.isRunning() && !this.player_1.isJumping() && !this.player_1.isFalling() ){
+		/*if(!this.player_2.isRunning() && !this.player_2.isJumping() && !this.player_2.isFalling() ){
 			switch (key) {
         case Input.KEY_Z:     this.player_2.setDirection(0); this.player_2.start(); break;
         case Input.KEY_Q:     this.player_2.setDirection(1); this.player_2.setNewDirection(1); break;
         case Input.KEY_D:     this.player_2.setDirection(2); this.player_2.setNewDirection(-1); break;
 			}
-	    }
+	    }*/
 		switch (key) {
 		case Input.KEY_ESCAPE:this.container.exit(); break;
-		case Input.KEY_M:this.player_1.incLigne(); break;
-		case Input.KEY_L:this.player_1.dincLigne(); break;
 		}
 	}
 	

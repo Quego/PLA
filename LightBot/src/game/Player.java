@@ -389,14 +389,6 @@ public class Player {
 		  this.running = running; 
 	  }
 	  
-	  public void incLigne(){
-		  this.posLigne++;
-	  }
-	  
-	  public void dincLigne(){
-		  this.posLigne--;
-	  }
-	  
 	  public int getLigne(){
 		  return this.posLigne;
 	  }
