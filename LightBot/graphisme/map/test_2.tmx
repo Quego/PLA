@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="15" height="15" tilewidth="64" tileheight="32">
+ <tileset firstgid="1" name="part4_tileset" tilewidth="64" tileheight="32">
+  <tileoffset x="4" y="0"/>
+  <image source="tuiles/Patterns_0/part4_tileset.png" width="640" height="1024"/>
+ </tileset>
+ <tileset firstgid="321" name="part4_tileset" tilewidth="32" tileheight="16">
+  <tileoffset x="4" y="0"/>
+  <image source="tuiles/Patterns_0/part4_tileset.png" width="640" height="1024"/>
+ </tileset>
+ <tileset firstgid="1601" name="part4_tileset" tilewidth="64" tileheight="64">
+  <tileoffset x="4" y="0"/>
+  <image source="tuiles/Patterns_0/part4_tileset.png" width="640" height="1024"/>
+ </tileset>
+ <layer name="Calque de Tile 1" width="15" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA5vGxsAwDYinQmly8FIK9A40DkLCjmh8YvSWI2F/JEyMXheoPkcoXUuCvRFIeh2x6MUVJ+j2wvRG4LFvKpJemJ8ToXoToObhc+9UJL0uSOwIIvTSE6PnAVLyBCV6AQQAO1CEAwAA
+  </data>
+ </layer>
+</map>

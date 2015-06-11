@@ -35,17 +35,17 @@ public class Choix extends BasicGameState {
 	   
     public void init(GameContainer container, StateBasedGame game) throws SlickException { 
     	this.game = game;
-    	background = new Image("graphisme/image/FOND_CHOIX.png");
-    	boutonQuit = new Image("graphisme/image/Quit.png");
+    	background = new Image("graphisme/Images/fond/FOND_CHOIX.png");
+    	boutonQuit = new Image("graphisme/Images/Quit.png");
     	//boutonSolo = new Image("graphisme/image/Solo.png");
     	//boutonMulti = new Image("graphisme/image/Multi.png");
-    	boutonMouse  = new Image("graphisme/image/Mouse.png");
-    	boutonBasic = new Image("graphisme/image/choix/Choix1.png");
-    	boutonITE = new Image("graphisme/image/choix/ChoixITE.jpg");
-    	boutonFruit = new Image("graphisme/image/choix/ChoixFruit.jpg");
-    	boutonCoop = new Image("graphisme/image/choix/ChoixCoop.jpg");
-    	boutonHardLevels = new Image("graphisme/image/choix/Choix5.png");
-    	boutonRetour = new Image("graphisme/image/Retour.png");
+    	boutonMouse  = new Image("graphisme/Images/Mouse.png");
+    	boutonBasic = new Image("graphisme/Images/choix/choix1.png");
+    	boutonITE = new Image("graphisme/Images/choix/ChoixITE.jpg");
+    	boutonFruit = new Image("graphisme/Images/choix/ChoixFruit.jpg");
+    	boutonCoop = new Image("graphisme/Images/choix/ChoixCoop.jpg");
+    	boutonHardLevels = new Image("graphisme/Images/choix/choix5.png");
+    	boutonRetour = new Image("graphisme/Images/Retour.png");
     	//PG_X = (container.getWidth()-(boutonBasic.getWidth()+boutonITE.getWidth()+boutonFruit.getWidth()))/8-boutonMouse.getWidth()/2;
     	//PG_Y = (container.getHeight()-(boutonBasic.getHeight()+boutonCoop.getHeight()))/3+boutonBasic.getHeight()/2-boutonMouse.getWidth()/2;
 	  // 	this.music = new Music("music/Choix_Music.ogg");

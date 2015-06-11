@@ -33,17 +33,17 @@ public class ChoixCoop extends BasicGameState{
 		   
 	    public void init(GameContainer container, StateBasedGame game) throws SlickException { 
 	    	this.game = game;
-	    	background = new Image("graphisme/image/FOND_CHOIX.png");
-	    	boutonQuit = new Image("graphisme/image/Quit.png");
+	    	background = new Image("graphisme/Images/fond/FOND_CHOIX.png");
+	    	boutonQuit = new Image("graphisme/Images/Quit.png");
 	    	//boutonSolo = new Image("graphisme/image/Solo.png");
 	    	//boutonMulti = new Image("graphisme/image/Multi.png");
-	    	boutonMouse  = new Image("graphisme/image/Mouse.png");
-	    	boutonLvl1 = new Image("graphisme/image/choix/ChoixCoop/choix41.png");
-	    	boutonLvl2 = new Image("graphisme/image/choix/ChoixCoop/choix42.png");
-	    	boutonLvl3 = new Image("graphisme/image/choix/ChoixCoop/choix43.png");
-	    	boutonLvl4 = new Image("graphisme/image/choix/ChoixCoop/choix44.jpg");
-	    	boutonLvl5 = new Image("graphisme/image/choix/ChoixCoop/choix45.png");
-	    	boutonRetour = new Image("graphisme/image/Retour.png");
+	    	boutonMouse  = new Image("graphisme/Images/Mouse.png");
+	    	boutonLvl1 = new Image("graphisme/Images/choix/ChoixCoop/choix41.png");
+	    	boutonLvl2 = new Image("graphisme/Images/choix/ChoixCoop/choix42.png");
+	    	boutonLvl3 = new Image("graphisme/Images/choix/ChoixCoop/choix43.png");
+	    	boutonLvl4 = new Image("graphisme/Images/choix/ChoixCoop/choix44.jpg");
+	    	boutonLvl5 = new Image("graphisme/Images/choix/ChoixCoop/choix45.png");
+	    	boutonRetour = new Image("graphisme/Images/Retour.png");
 	    	
 	    	//PG_X = (container.getWidth()-(boutonBasic.getWidth()+boutonITE.getWidth()+boutonFruit.getWidth()))/8-boutonMouse.getWidth()/2;
 	    	//PG_Y = (container.getHeight()-(boutonBasic.getHeight()+boutonCoop.getHeight()))/3+boutonBasic.getHeight()/2-boutonMouse.getWidth()/2;

@@ -120,8 +120,10 @@ public class Player {
 		}
 
 
-		public void start() {
+		public void start(int x) {
+			this.direction = (direction + x)%4;
 			switch (this.direction) {
+			
 			case 0: 
 				this.destinationX = this.x + map.getTilesWidth()/2;
 				this.destinationY = this.y - map.getTilesHeight()/2; 
