@@ -31,14 +31,14 @@ public class Map {
 		TilesHeight = tiledMap.getTileHeight();
 	}
 	
-	public void renderBackground(int ligne){
-		for(int i=0;i<=ligne;i++){
+	public void renderBackground(int ligne, int colonne){
+		for(int i=0;i<=ligne+colonne;i++){
 			this.tiledMap.render(0, 0, i);
 		}
 	}
 	
-	public void renderForeground(int ligne){
-		for(int i=ligne+1;i<this.Height;i++){
+	public void renderForeground(int ligne, int colonne){
+		for(int i=ligne+colonne+1;i<this.Height + this.Width-1;i++){
 			this.tiledMap.render(0, 0, i);
 		}
 	}

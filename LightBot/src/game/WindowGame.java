@@ -56,11 +56,6 @@ public class WindowGame extends BasicGameState {
 		
 		this.game = game;
 		container.setShowFPS(false);
-
-		//PAUSE = new Image("src/graphisme/main/ressources/map/image/Pause.jpeg");
-
-		
-		
 		}
 
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
@@ -77,21 +72,17 @@ public class WindowGame extends BasicGameState {
 		else
 		{
 
-		//g.translate(this.map.getSizeX()/4*map.getTilesWidth()+3*map.getTilesWidth()/2, 0);
-			g.translate(container.getWidth()/3 -this.map.getTilesWidth()/2,
-						(container.getHeight()/2-this.map.getHeight()*this.map.getTilesHeight()/2 -this.map.getTilesHeight()/2));	
+		g.translate(container.getWidth()/3 -this.map.getTilesWidth()/2,
+					(container.getHeight()/2-this.map.getHeight()*this.map.getTilesHeight()/2 -this.map.getTilesHeight()/2));	
 			
 		
-		this.map.renderBackground(this.player_1.getLigne()/*14*/);
+		this.map.renderBackground(this.player_1.getLigne(),this.player_1.getColonne());
 		
 		this.player_1.render(g);
 		this.player_2.render(g);
-		this.map.renderForeground(this.player_1.getLigne());
+		this.map.renderForeground(this.player_1.getLigne(),this.player_1.getColonne());
 		this.interf.render(container, game, g);
 		}
-		
-
-
 	}
 
 	public void update(GameContainer container, StateBasedGame game, int delta)throws SlickException{
@@ -100,18 +91,20 @@ public class WindowGame extends BasicGameState {
 	}
 
 	public void keyPressed(int key, char c) {
-		if(!this.player_1.isRunning()){
+		if(!this.player_1.isRunning() || !this.player_1.isJumping() || !this.player_1.isFalling() ){
 			switch (key) {
-			case Input.KEY_UP:    this.player_1.start(0); break;
-			case Input.KEY_LEFT:  this.player_1.start(1); break;
-			case Input.KEY_DOWN:  this.player_1.start(-1); break;
+			case Input.KEY_UP:    this.player_1.start(); break;
+			case Input.KEY_LEFT:  this.player_1.setNewDirection(1); break;
+			case Input.KEY_RIGHT: this.player_1.setNewDirection(-1); break;
+			case Input.KEY_J:     this.player_1.jump(); break;
+			case Input.KEY_K:     this.player_1.down(); break;
 			}
 		}
 		if(!this.player_2.isRunning()){
 			switch (key) {
-        case Input.KEY_Z:     this.player_2.setDirection(0); this.player_2.start(0); break;
-        case Input.KEY_Q:     this.player_2.setDirection(1); this.player_2.start(1); break;
-        case Input.KEY_S:     this.player_2.setDirection(2); this.player_2.start(-1); break;
+        case Input.KEY_Z:     this.player_2.setDirection(0); this.player_2.start(); break;
+        case Input.KEY_Q:     this.player_2.setDirection(1); this.player_2.setNewDirection(1); break;
+        case Input.KEY_D:     this.player_2.setDirection(2); this.player_2.setNewDirection(-1); break;
 			}
 	    }
 		switch (key) {
@@ -121,10 +114,6 @@ public class WindowGame extends BasicGameState {
 		}
 	}
 	
-	public void keyReleased(int key, char c) {
-	//    this.player_1.setMoving(false);
-	  //  this.player_2.setMoving(false);
-	}
 	
 	
 

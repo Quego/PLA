@@ -8,6 +8,10 @@
   <tileoffset x="4" y="0"/>
   <image source="tuiles_bleues/niveau4_bleu.png" width="68" height="204"/>
  </tileset>
+ <tileset firstgid="3" name="niveau1_bleu" tilewidth="68" tileheight="204">
+  <tileoffset x="4" y="0"/>
+  <image source="tuiles_bleues/niveau1_bleu.png" width="68" height="204"/>
+ </tileset>
  <layer name="Calque de Tile 1" width="7" height="7">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NkGPoAACRjgY3EAAAA
@@ -25,7 +29,7 @@
  </layer>
  <layer name="Calque 4" width="7" height="7">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgQABGBuyAWuK0AgByWH/yxAAAAA==
+   H4sIAAAAAAAAA2NgQABGBuyAiURxXObQCgAAnWoxTcQAAAA=
   </data>
  </layer>
  <layer name="Calque 5" width="7" height="7">
@@ -45,12 +49,12 @@
  </layer>
  <layer name="Calque 8" width="7" height="7">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgIB0wkijORCVzcIkDAATSLCrEAAAA
+   H4sIAAAAAAAAA2NgIB0w4hBnJlE9tcQBwJk6acQAAAA=
   </data>
  </layer>
  <layer name="Calque 9" width="7" height="7">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgoC5gJFGciQrmAADrgcB+xAAAAA==
+   H4sIAAAAAAAAA2NgoC5gHABxAI0phtHEAAAA
   </data>
  </layer>
  <layer name="Calque 10" width="7" height="7">
