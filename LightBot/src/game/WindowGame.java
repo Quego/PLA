@@ -79,19 +79,19 @@ public class WindowGame extends BasicGameState {
 		this.map.renderBackground(this.player_1.getLigne(),this.player_1.getColonne());
 		
 		this.player_1.render(g);
-		this.player_2.render(g);
+	//	this.player_2.render(g);
 		this.map.renderForeground(this.player_1.getLigne(),this.player_1.getColonne());
-		this.interf.render(container, game, g);
+	//	this.interf.render(container, game, g);
 		}
 	}
 
 	public void update(GameContainer container, StateBasedGame game, int delta)throws SlickException{
 		this.player_1.update(delta);
-		this.player_2.update(delta);
+	//	this.player_2.update(delta);
 	}
 
 	public void keyPressed(int key, char c) {
-		if(!this.player_1.isRunning() || !this.player_1.isJumping() || !this.player_1.isFalling() ){
+		if(!this.player_1.isRunning() && !this.player_1.isJumping() && !this.player_1.isFalling() ){
 			switch (key) {
 			case Input.KEY_UP:    this.player_1.start(); break;
 			case Input.KEY_LEFT:  this.player_1.setNewDirection(1); break;
@@ -100,7 +100,7 @@ public class WindowGame extends BasicGameState {
 			case Input.KEY_K:     this.player_1.down(); break;
 			}
 		}
-		if(!this.player_2.isRunning()){
+		if(!this.player_1.isRunning() && !this.player_1.isJumping() && !this.player_1.isFalling() ){
 			switch (key) {
         case Input.KEY_Z:     this.player_2.setDirection(0); this.player_2.start(); break;
         case Input.KEY_Q:     this.player_2.setDirection(1); this.player_2.setNewDirection(1); break;

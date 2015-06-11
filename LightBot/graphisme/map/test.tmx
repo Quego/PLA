@@ -12,67 +12,71 @@
   <tileoffset x="4" y="0"/>
   <image source="tuiles_bleues/niveau1_bleu.png" width="68" height="204"/>
  </tileset>
- <layer name="Calque de Tile 1" width="7" height="7">
+ <tileset firstgid="4" name="niveau2_bleu" tilewidth="68" tileheight="204">
+  <tileoffset x="4" y="0"/>
+  <image source="tuiles_bleues/niveau2_bleu.png" width="68" height="204"/>
+ </tileset>
+ <layer name="1" width="7" height="7">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NkGPoAACRjgY3EAAAA
   </data>
  </layer>
- <layer name="Calque 2" width="7" height="7">
+ <layer name="2" width="7" height="7">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NgYGBgZMAOcIkPNgAA9FnFYsQAAAA=
   </data>
  </layer>
- <layer name="Calque 3" width="7" height="7">
+ <layer name="3" width="7" height="7">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NggABGBuyAVPGBAADGB1ZbxAAAAA==
   </data>
  </layer>
- <layer name="Calque 4" width="7" height="7">
+ <layer name="4" width="7" height="7">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NgQABGBuyAiURxXObQCgAAnWoxTcQAAAA=
   </data>
  </layer>
- <layer name="Calque 5" width="7" height="7">
+ <layer name="5" width="7" height="7">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NgQAWMDNgBrcUpAQBuebbIxAAAAA==
   </data>
  </layer>
- <layer name="Calque 6" width="7" height="7">
+ <layer name="6" width="7" height="7">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NgwASMWMQGUpwQAACiLLgexAAAAA==
   </data>
  </layer>
- <layer name="Calque 7" width="7" height="7">
+ <layer name="7" width="7" height="7">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NgwA4Yh4g4CAAAQkucj8QAAAA=
   </data>
  </layer>
- <layer name="Calque 8" width="7" height="7">
+ <layer name="8" width="7" height="7">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NgIB0w4hBnJlE9tcQBwJk6acQAAAA=
   </data>
  </layer>
- <layer name="Calque 9" width="7" height="7">
+ <layer name="9" width="7" height="7">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgoC5gHABxAI0phtHEAAAA
+   H4sIAAAAAAAAA2NgoC5gwSHOSENxAMXUf9bEAAAA
   </data>
  </layer>
- <layer name="Calque 10" width="7" height="7">
+ <layer name="10" width="7" height="7">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgoB9gpJE4AAiRqjPEAAAA
+   H4sIAAAAAAAAA2NgoB9gwSHOjEOckUhxAF+iECXEAAAA
   </data>
  </layer>
- <layer name="Calque 11" width="7" height="7">
+ <layer name="11" width="7" height="7">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgGByAkQJxACfhcC7EAAAA
+   H4sIAAAAAAAAA2NgGByABYc4IxHiABZZD3nEAAAA
   </data>
  </layer>
- <layer name="Calque 12" width="7" height="7">
+ <layer name="12" width="7" height="7">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NgGPyAkYA4AGbyBtfEAAAA
   </data>
  </layer>
- <layer name="Calque 13" width="7" height="7">
+ <layer name="13" width="7" height="7">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NgGNqAEYgBN5DKUsQAAAA=
   </data>

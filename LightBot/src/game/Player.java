@@ -74,17 +74,6 @@ public class Player {
 	    g.drawAnimation(animations[direction + (running ? 4 : 0)], x-32, y-60);
 	 }
 	  
-	/*  public void update(int delta)
-			  throws SlickException {
-		    	if (this.moving) {
-		    		switch (this.direction) {
-		            	case 0: this.y -= 0.5* .1f * delta; this.x += .1f * delta; break;
-		            	case 1: this.x -= .1f * delta; this.y -= 0.5 * .1f * delta; break;
-		            	case 2: this.y += 0.5* .1f * delta; this.x -= .1f * delta; break;
-		            	case 3: this.x += .1f * delta; this.y += 0.5 * .1f * delta; break;
-		    		}
-		    	}		  
-	  }*/
 	  
 	public void update(int delta) {
 		
@@ -93,7 +82,7 @@ public class Player {
 		updateDown(delta);
 		}
 	
-	public void updateRun(int delta){
+	private void updateRun(int delta){
 		if (running) {
     		switch (this.direction) {
         	case 0:  this.x += .1f * delta;this.y -= 0.5* .1f * delta;
@@ -132,7 +121,7 @@ public class Player {
 		
 	}
 	
-	public void updateJump(int delta){
+	private void updateJump(int delta){
 		if (jumping) {
     		switch (this.direction) {
         	
@@ -140,7 +129,7 @@ public class Player {
         		if(this.y >= destinationY)
         			this.y -= .1f * delta;
         		if (this.y <= destinationY) {
-					this.x += 0.5* .1f * delta;
+					this.x += .1f * delta;
 					if (this.x > destinationX) {	
 						this.x = destinationX;
 						this.y = destinationY;
@@ -152,7 +141,7 @@ public class Player {
         	
     		case 1: 
         		if(this.y >= destinationY)	
-        			this.y -= 0.5 * .1f * delta;
+        			this.y -= .1f * delta;
         		if (this.y <= destinationY) {
         			this.x -= .1f * delta;
         			if (this.x < destinationX){ 
@@ -168,7 +157,7 @@ public class Player {
     			if(!topJump)
     			{
     				if(this.y >= destinationY - map.getTilesHeight()/2)	
-    					this.y -= 0.5 * .1f * delta;
+    					this.y -= .1f * delta;
     				else
     					topJump = true;
     			}
@@ -188,7 +177,7 @@ public class Player {
        			if(!topJump)
     			{
     				if(this.y >= destinationY - map.getTilesHeight()/2)	
-    					this.y -= 0.5 * .1f * delta;
+    					this.y -= .1f * delta;
     				else
     					topJump = true;
     			}
@@ -209,7 +198,7 @@ public class Player {
 	
 	}
 	
-	public void updateDown(int delta){
+	void updateDown(int delta){
 		if (falling) {
     		switch (this.direction) {
         	
@@ -225,7 +214,7 @@ public class Player {
     			}
     			if(topDown){
     				if(this.y <= destinationY)	
-    					this.y += 0.5 * .1f * delta;
+    					this.y += .1f * delta;
     				else{
     					this.y = destinationY;
     					topDown = false;
@@ -247,7 +236,7 @@ public class Player {
     			}
     			if(topDown){
     				if(this.y <= destinationY)	
-    					this.y += 0.5 * .1f * delta;
+    					this.y += .1f * delta;
     				else{
     					this.y = destinationY;
     					topDown = false;
@@ -263,7 +252,7 @@ public class Player {
     			if (this.x >= destinationX)
     				this.x -= .1f * delta;
     			if (this.x <= destinationX ){
-    				this.y += 0.5* .1f * delta;
+    				this.y += .1f * delta;
     				if (this.y > destinationY) {
     					this.x = destinationX;
     					this.y = destinationY;
@@ -277,7 +266,7 @@ public class Player {
         		if (this.x <= destinationX)
        				this.x += .1f * delta;
         		if (this.x >= destinationX){
-        			this.y += 0.5 * .1f * delta;
+        			this.y += .1f * delta;
        				if (this.y > destinationY) {
        					this.x = destinationX;
        					this.y = destinationY;
@@ -290,7 +279,6 @@ public class Player {
 		}
 		
 	}
-
 
 	public void start() {
 		switch (this.direction) {
@@ -360,9 +348,6 @@ public class Player {
 		falling = true;
 		
 	}
-	  
-	  public void avancerGauche(){};
-	  
 	  
 	  public float getX(){
 		  	return x;
