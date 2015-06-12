@@ -48,12 +48,11 @@ public class Player {
 		this.animations[5] = loadAnimation(spriteSheet, 1, 7, 1);
 		this.animations[6] = loadAnimation(spriteSheet, 1, 7, 2);
 		this.animations[7] = loadAnimation(spriteSheet, 1, 7, 3);
-
 	  }
 	  
 	public void placePlayer(int ligne, int colonne, int hauteur){
 		this.x = map.getTilesWidth()/2*(1-ligne+colonne ); 
-		this.y =  map.getTilesHeight()/2*(1+ligne+colonne) -hauteur*(map.getTilesHeight()/2);
+		this.y =  map.getTilesHeight()/2*(1+ligne+colonne) - hauteur*(map.getTilesHeight()/2);
 		this.posLigne = ligne;
 		this.posColonne = colonne;
 				  
@@ -69,6 +68,8 @@ public class Player {
 	}
 	  
 	public void render(Graphics g) throws SlickException {
+	 //   g.setColor(new Color(0, 0, 0, .5f));
+	  //  g.fillOval(x - 16, y - 8, 32, 16);
 	    g.drawAnimation(animations[direction + (running ? 4 : 0)], x-32, y-60);
 	 }
 	  
@@ -151,7 +152,7 @@ public class Player {
 			}
         	break;
         	
-    		case 2: 
+    		case 2:
     			if(!topJump)
     			{
     				if(this.y >= destinationY - map.getTilesHeight()/2)	
@@ -314,10 +315,12 @@ public class Player {
 			break;
 		case 2: 
 			this.destinationX = this.x - map.getTilesWidth()/2;
+			this.destinationY = this.y;
 			this.posLigne++;
 			break;
 		case 3:
 			this.destinationX = this.x + map.getTilesWidth()/2;
+			this.destinationY = this.y;
 			this.posColonne++;
 			break;
 		}
@@ -328,9 +331,11 @@ public class Player {
 		switch (this.direction) {
 		case 0: 
 			this.destinationX = this.x + map.getTilesWidth()/2;
+			this.destinationY = this.y;
 			break;
 		case 1: 
 			this.destinationX = this.x - map.getTilesWidth()/2;
+			this.destinationY = this.y;
 			break;
 		case 2: 
 			this.destinationX = this.x - map.getTilesWidth()/2;
