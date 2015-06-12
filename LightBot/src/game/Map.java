@@ -40,13 +40,13 @@ public class Map {
 	public void renderForeground(int ligne, int colonne){
 		for(int i=ligne+colonne+1;i<this.Height + this.Width-1;i++){
 			this.tiledMap.render(0, 0, i);
-			System.out.println(this.tiledMap.getLayerIndex("lampe1"));
-			System.out.println(this.tiledMap.getLayerProperty(13, "tet", "reutgerg"));
+			//System.out.println(this.tiledMap.getLayerIndex("lampe1"));
+			//System.out.println(this.tiledMap.getLayerProperty(13, "tet", "reutgerg"));
 			this.tiledMap.setTileId(0, 1, 1, 3);
-			System.out.println(this.tiledMap.getTileId(0,1,1));
-			System.out.println(this.tiledMap.getTileId(1,0,1));
-			System.out.println(this.tiledMap.getTileId(2,0,2));
-			System.out.println(this.tiledMap.getTileId(1,1,2));
+			//System.out.println(this.tiledMap.getTileId(0,1,1));
+			//System.out.println(this.tiledMap.getTileId(1,0,1));
+			//System.out.println(this.tiledMap.getTileId(2,0,2));
+			//System.out.println(this.tiledMap.getTileId(1,1,2));
 		}
 	}
 	

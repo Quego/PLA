@@ -113,7 +113,7 @@ public class Interface {
 		this.SON.draw(container.getWidth()-this.SON.getWidth(), 0,container.getHeight()/20,container.getHeight()/20);
 		
 		
-		g.setColor(Color.blue);
+		g.setColor(Color.black);
 		g.drawString("Menu",5,5);
 		//emplacement MAIN//
     	g.drawString("Main", 2*container.getWidth()/3+5,container.getHeight()/20+ decalage + 5);
