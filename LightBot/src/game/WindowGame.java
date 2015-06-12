@@ -21,8 +21,8 @@ public class WindowGame extends BasicGameState {
 	private Player player_1;
 	private Player player_2;
 	private Action copie;
-	private Image background;
-	private boolean running = false;
+	private Image background,menu;
+	private boolean running = false, menu_ouvert = false;
 	public static final int ID = 2;
 	private Interface interf = new Interface();
 	private StateBasedGame game;
@@ -47,6 +47,7 @@ public class WindowGame extends BasicGameState {
 		this.interf.init();
 		copie = new Action();
 		background = new Image("graphisme/Images/fond/fond_jeu.png");
+		menu = new Image("graphisme/Images/menu.png");
 		
 	}
 	
@@ -76,6 +77,7 @@ public class WindowGame extends BasicGameState {
 	this.interf.render(container, game, g);
 	//this.map.renderTest();
 	copie.render(container,game,g);
+	if(menu_ouvert) menu.draw(1, container.getHeight()/20+1);
 
 	}
 
@@ -106,6 +108,23 @@ public class WindowGame extends BasicGameState {
 		h = this.interf.getAvancer().getImage().getHeight()+10;
 		running = true;
 		if (button == Input.MOUSE_LEFT_BUTTON){
+		if (x>0 && y>0 && x<50 && y<(container.getHeight()/20)) {
+			this.menu_ouvert = !this.menu_ouvert;
+		}
+		if (menu_ouvert){
+			if(x>0 && x<this.menu.getWidth() && y>(container.getHeight()/20)+1 && y<(container.getHeight()/20+1+this.menu.getHeight()/3)){
+				game.enterState(Choix.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+			}
+			else if (x>0 && x<this.menu.getWidth() && y>(container.getHeight()/20+1+this.menu.getHeight()/3-1) && y<(container.getHeight()/20+1+this.menu.getHeight()*2/3)){
+				game.enterState(Accueil.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+			}
+			else if(x>0 && x<this.menu.getWidth() && y>(container.getHeight()/20+1+this.menu.getHeight()*2/3-1) && y<(container.getHeight()/20+1+this.menu.getHeight())){
+				container.exit();
+			}
+			else {
+				this.menu_ouvert = !this.menu_ouvert;
+			}
+		}
 		if (x>(container.getWidth()-this.interf.getSon().getWidth())  && y<this.interf.getSon().getHeight()){
 			this.interf.setSon();
 		}
@@ -314,40 +333,169 @@ public class WindowGame extends BasicGameState {
 				e.printStackTrace();
 			} break;
 		}
+    	}
+		if(x>(2*container.getWidth()/3+20) && x<(2*container.getWidth()/3+20+lg) && y>(7*container.getHeight()/20+2*decalage+5) && y<(7*container.getHeight()/20+2*decalage+5+ h)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement13(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement13(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
 		}
-
-    	
-    	/*
-		//emplacement P1//
-		g.drawString("P1", 2*container.getWidth()/3+5, 7*container.getHeight()/20+2*decalage+5);
+		}
+		if(x>(2*container.getWidth()/3+20) && x<(2*container.getWidth()/3+20+lg) && y>( 7*container.getHeight()/20+2*decalage+ 30 + h + 5) && y<( 7*container.getHeight()/20+2*decalage+ 30 + h + 5+ h)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement17(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement17(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20+lg+decalage2) && x<(2*container.getWidth()/3+20+lg+decalage2+lg) && y>(7*container.getHeight()/20+2*decalage+30) && y<(7*container.getHeight()/20+2*decalage+30+ h)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement14(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement14(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20+lg+decalage2) && x<(2*container.getWidth()/3+20+lg+decalage2+lg) && y>(7*container.getHeight()/20+2*decalage+ 30 + h + 5) && y<(7*container.getHeight()/20+2*decalage+ 30 + h + 5 + h)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement18(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement18(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20+2*lg+2*decalage2) && x<(2*container.getWidth()/3+20+2*lg+2*decalage2+lg) && y>(7*container.getHeight()/20+2*decalage+ 30) && y<(7*container.getHeight()/20+2*decalage+ 30 + h )){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement15(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement15(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20+2*lg+2*decalage2) && x<(2*container.getWidth()/3+20+2*lg+2*decalage2+lg) && y>(7*container.getHeight()/20+2*decalage+ 30+ h + 5) && y<(7*container.getHeight()/20+2*decalage+ 30 + h + h +5)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement19(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement19(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20+3*lg+3*decalage2) && x<(2*container.getWidth()/3+20+3*lg+3*decalage2+lg) && y>(7*container.getHeight()/20+2*decalage+30) && y<(7*container.getHeight()/20+2*decalage+30 + h)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement16(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement16(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20+3*lg+3*decalage2) && x<(2*container.getWidth()/3+20+3*lg+3*decalage2+lg) && y>(7*container.getHeight()/20+2*decalage+ 30 + h + 5) && y<(7*container.getHeight()/20+2*decalage+ 30 + h + 5 + h)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement20(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement20(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20) && x<(2*container.getWidth()/3+20+lg) && y>(11*container.getHeight()/20+2*decalage+5) && y<(11*container.getHeight()/20+2*decalage+5+ h)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement21(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement21(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20) && x<(2*container.getWidth()/3+20+lg) && y>(11*container.getHeight()/20+2*decalage+ 30 + h + 5) && y<(11*container.getHeight()/20+2*decalage+ 30 + h + 5+ h)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement25(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement25(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20+lg+decalage2) && x<(2*container.getWidth()/3+20+lg+decalage2+lg) && y>(11*container.getHeight()/20+2*decalage+30) && y<(11*container.getHeight()/20+2*decalage+30+ h)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement22(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement22(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20+lg+decalage2) && x<(2*container.getWidth()/3+20+lg+decalage2+lg) && y>(11*container.getHeight()/20+2*decalage+ 30 + h + 5) && y<(11*container.getHeight()/20+2*decalage+ 30 + h + 5 + h)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement26(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement26(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20+2*lg+2*decalage2) && x<(2*container.getWidth()/3+20+2*lg+2*decalage2+lg) && y>(11*container.getHeight()/20+2*decalage+ 30) && y<(11*container.getHeight()/20+2*decalage+ 30 + h )){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement23(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement23(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20+2*lg+2*decalage2) && x<(2*container.getWidth()/3+20+2*lg+2*decalage2+lg) && y>(11*container.getHeight()/20+2*decalage+ 30+ h + 5) && y<(11*container.getHeight()/20+2*decalage+ 30 + h + h +5)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement27(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement27(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20+3*lg+3*decalage2) && x<(2*container.getWidth()/3+20+3*lg+3*decalage2+lg) && y>(11*container.getHeight()/20+2*decalage+30) && y<(11*container.getHeight()/20+2*decalage+30 + h)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement24(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement24(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
+		if(x>(2*container.getWidth()/3+20+3*lg+3*decalage2) && x<(2*container.getWidth()/3+20+3*lg+3*decalage2+lg) && y>(11*container.getHeight()/20+2*decalage+ 30 + h + 5) && y<(11*container.getHeight()/20+2*decalage+ 30 + h + 5 + h)){
+			switch (button){
+			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement28(copie.getImage()); break;
+			case Input.MOUSE_RIGHT_BUTTON  : try {
+				this.interf.setEmplacement28(new Image("graphisme/Images/actions/emplacement.bmp"));
+			} catch (SlickException e) {
+				e.printStackTrace();
+			} break;
+		}
+		}
 		
-		this.emplacement13.draw(2*container.getWidth()/3+20, 7*container.getHeight()/20+2*decalage+30);
-		this.emplacement17.draw(2*container.getWidth()/3+20, 7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
-	
-		this.emplacement14.draw(2*container.getWidth()/3+20+this.emplacement1.getWidth()+decalage2 ,7*container.getHeight()/20+2*decalage+30);
-		this.emplacement18.draw(2*container.getWidth()/3+20+this.emplacement1.getWidth()+decalage2 ,7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
 		
-		this.emplacement15.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,7*container.getHeight()/20+2*decalage+30);
-		this.emplacement19.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
-		
-		this.emplacement16.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,7*container.getHeight()/20+2*decalage+30);
-		this.emplacement20.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
-		
-		//emplacement P2//
-		g.drawString("P2", 2*container.getWidth()/3+5, 11*container.getHeight()/20+2*decalage+5);
-		
-		this.emplacement21.draw(2*container.getWidth()/3+20, 11*container.getHeight()/20+2*decalage+30);
-		this.emplacement25.draw(2*container.getWidth()/3+20, 11*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
-	
-		this.emplacement22.draw(2*container.getWidth()/3+20+this.emplacement1.getWidth()+decalage2 ,11*container.getHeight()/20+2*decalage+30);
-		this.emplacement26.draw(2*container.getWidth()/3+20+this.emplacement1.getWidth()+decalage2 ,11*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
-		
-		this.emplacement23.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,11*container.getHeight()/20+2*decalage+30);
-		this.emplacement27.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,11*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
-		
-		this.emplacement24.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,11*container.getHeight()/20+2*decalage+30);
-		this.emplacement28.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,11*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
-		*/
     }
 
 	public void keyPressed(int key, char c) {
@@ -370,7 +518,8 @@ public class WindowGame extends BasicGameState {
 			}
 	    }*/
 		switch (key) {
-		case Input.KEY_ESCAPE:this.container.exit(); break;
+		case Input.KEY_S:	  this.interf.setSon(); break;
+		case Input.KEY_ESCAPE: this.menu_ouvert = !this.menu_ouvert; break;
 		}
 	}
 	
