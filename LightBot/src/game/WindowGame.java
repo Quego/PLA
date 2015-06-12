@@ -359,6 +359,7 @@ public class WindowGame extends BasicGameState {
 			case Input.KEY_J:     this.player_1.jump(); break;
 			case Input.KEY_K:     this.player_1.down(); break;
 			case Input.KEY_A:     this.map.allume(this.player_1.getColonne(),this.player_1.getLigne()); break;
+			case Input.KEY_I:     this.map.interrup(this.player_1.getColonne(),this.player_1.getLigne()); break;
 			}
 		}
 		/*if(!this.player_2.isRunning() && !this.player_2.isJumping() && !this.player_2.isFalling() ){

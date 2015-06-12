@@ -4,13 +4,17 @@
   <tileoffset x="4" y="0"/>
   <image source="tuiles/couleurs_plates.png" width="476" height="102"/>
  </tileset>
- <tileset firstgid="22" name="Mur" tilewidth="68" tileheight="34">
+ <tileset firstgid="22" name="Niveaux" tilewidth="68" tileheight="102">
+  <tileoffset x="4" y="0"/>
+  <image source="tuiles/4niv.png" width="476" height="102"/>
+ </tileset>
+ <tileset firstgid="29" name="barrieres" tilewidth="68" tileheight="85">
   <tileoffset x="4" y="0"/>
   <image source="tuiles/barrieres.png" width="544" height="102"/>
  </tileset>
- <tileset firstgid="46" name="Niveaux" tilewidth="68" tileheight="102">
+ <tileset firstgid="37" name="interrupteurs" tilewidth="68" tileheight="34">
   <tileoffset x="4" y="0"/>
-  <image source="tuiles/4niv.png" width="476" height="102"/>
+  <image source="tuiles/interrupteurs.png" width="544" height="51"/>
  </tileset>
  <layer name="Calque 1" width="7" height="7">
   <data encoding="base64" compression="gzip">
@@ -24,7 +28,7 @@
  </layer>
  <layer name="Calque 3" width="7" height="7">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NggAB2BuyAVPGBAAA8KHZLxAAAAA==
+   H4sIAAAAAAAAA2NggAB2BuxAGYc4LvUDAQCyvG2pxAAAAA==
   </data>
  </layer>
  <layer name="Calque 4" width="7" height="7">
@@ -34,7 +38,7 @@
  </layer>
  <layer name="Calque 5" width="7" height="7">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgQAXsDNgBrcUpAQDmXTUGxAAAAA==
+   H4sIAAAAAAAAA2NgQAVqDNgBO43FKQEATD8KD8QAAAA=
   </data>
  </layer>
  <layer name="Calque 6" width="7" height="7">
@@ -54,7 +58,7 @@
  </layer>
  <layer name="Calque 9" width="7" height="7">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgoC5gxyGuj0OclURzsIkDAGCq2W3EAAAA
+   H4sIAAAAAAAAA2NgoC5gxyEujkOclURzsIkDAFrqDFnEAAAA
   </data>
  </layer>
  <layer name="Calque 10" width="7" height="7">
@@ -75,11 +79,6 @@
  <layer name="Calque 13" width="7" height="7">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NgGNqAHYgB68+hd8QAAAA=
-  </data>
- </layer>
- <layer name="Calque 14" width="7" height="7" visible="0">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgGFjAQgUzAJuR8aXEAAAA
   </data>
  </layer>
 </map>

@@ -24,7 +24,7 @@ public class Map {
 	
 
 	public void init() throws SlickException {
-		this.tiledMap = new TiledMap("graphisme/map/test.tmx");
+		this.tiledMap = new TiledMap("graphisme/map/coop_niv4.tmx");
 		Height = tiledMap.getHeight();
 		Width = tiledMap.getWidth();
 		TilesWidth = tiledMap.getTileWidth();	
@@ -40,19 +40,44 @@ public class Map {
 	public void renderForeground(int ligne, int colonne){
 		for(int i=ligne+colonne+1;i<this.Height + this.Width-1;i++){
 			this.tiledMap.render(0, 0, i);
-			System.out.println(this.tiledMap.getLayerIndex("lampe1"));
-			System.out.println(this.tiledMap.getLayerProperty(13, "tet", "reutgerg"));
-			this.tiledMap.setTileId(0, 1, 1, 3);
-			System.out.println(this.tiledMap.getTileId(0,1,1));
-			System.out.println(this.tiledMap.getTileId(1,0,1));
-			System.out.println(this.tiledMap.getTileId(2,0,2));
-			System.out.println(this.tiledMap.getTileId(1,1,2));
 		}
 	}
 	
 	public void allume(int colonne, int ligne)
 	{
-		this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 4);
+		System.out.println(+this.tiledMap.getTileId(colonne,ligne, ligne + colonne));
+		if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 4)
+			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 5);
+		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 5)
+			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 4);
+	}
+	
+	public void interrup(int colonne, int ligne)
+	{
+		System.out.println(+this.tiledMap.getTileId(colonne,ligne, ligne + colonne));
+		if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 38){
+			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 37);
+			
+			for (int i=0; i< this.tiledMap.getHeight(); i++){
+				for (int j = 0; j < this.tiledMap.getWidth();j++ ){
+					if (this.tiledMap.getTileId(i, j, i+j) == 35){
+						this.tiledMap.setTileId(i, j, i+j, 36	);
+					}
+				}
+			}
+			
+		}
+		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 37){
+			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 38);
+			for (int i=0; i< this.tiledMap.getHeight(); i++){
+				for (int j = 0; j < this.tiledMap.getWidth();j++ ){
+					if (this.tiledMap.getTileId(i, j, i+j) == 36){
+						this.tiledMap.setTileId(i, j, i+j, 35	);
+					}
+				}
+			}
+			
+		}
 	}
 		
 	public void changeMap(String file) throws SlickException {
