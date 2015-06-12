@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="10" height="10" tilewidth="68" tileheight="34">
+ <tileset firstgid="1" name="allume_eteins_niv0" tilewidth="68" tileheight="102">
+  <image source="textures/tuilesQuentin/allume_eteins_niv0.png" width="136" height="102"/>
+ </tileset>
+ <tileset firstgid="3" name="allume_eteins_niv1" tilewidth="68" tileheight="119">
+  <image source="textures/tuilesQuentin/allume_eteins_niv1.png" width="136" height="204"/>
+ </tileset>
+ <tileset firstgid="5" name="barriere_up_down_niv0_bleu" tilewidth="68" tileheight="102">
+  <image source="textures/tuilesQuentin/barriere_up_down_niv0_bleu.png" width="136" height="102"/>
+ </tileset>
+ <tileset firstgid="7" name="barriere_up_down_niv0_verte" tilewidth="68" tileheight="102">
+  <image source="textures/tuilesQuentin/barriere_up_down_niv0_verte.png" width="136" height="102"/>
+ </tileset>
+ <tileset firstgid="9" name="barriere_up_down_niv0_violet" tilewidth="68" tileheight="102">
+  <image source="textures/tuilesQuentin/barriere_up_down_niv0_violet.png" width="136" height="102"/>
+ </tileset>
+ <tileset firstgid="11" name="barriere_up_down_niv1_rouge" tilewidth="68" tileheight="119">
+  <image source="textures/tuilesQuentin/barriere_up_down_niv1_rouge.png" width="136" height="204"/>
+ </tileset>
+ <tileset firstgid="13" name="inter_down_up_niv1_bleu" tilewidth="68" tileheight="119">
+  <image source="textures/tuilesQuentin/inter_down_up_niv1_bleu.png" width="136" height="204"/>
+ </tileset>
+ <tileset firstgid="15" name="4niv" tilewidth="68" tileheight="102">
+  <image source="textures/4niv.png" width="476" height="102"/>
+ </tileset>
+ <tileset firstgid="22" name="inter_down_up_niv1_rouge" tilewidth="68" tileheight="119">
+  <image source="textures/tuilesQuentin/inter_down_up_niv1_rouge.png" width="136" height="204"/>
+ </tileset>
+ <tileset firstgid="24" name="inter_down_up_niv1_vert" tilewidth="68" tileheight="119">
+  <image source="textures/tuilesQuentin/inter_down_up_niv1_vert.png" width="136" height="204"/>
+ </tileset>
+ <tileset firstgid="26" name="inter_down_up_niv1_violet" tilewidth="68" tileheight="119">
+  <image source="textures/tuilesQuentin/inter_down_up_niv1_violet.png" width="136" height="204"/>
+ </tileset>
+ <layer name="Calque 13" width="10" height="10" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWDCQAADA0iRpABAAA=
+  </data>
+ </layer>
+ <layer name="Calque 16" width="10" height="10" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWDCQAADA0iRpABAAA=
+  </data>
+ </layer>
+ <layer name="Calque 14" width="10" height="10" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWDCQAADA0iRpABAAA=
+  </data>
+ </layer>
+ <layer name="Calque 15" width="10" height="10" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWDCQAADA0iRpABAAA=
+  </data>
+ </layer>
+ <layer name="Calque 1" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIB0wEaGGhQxzRwEDAwAhZUyDkAEAAA==
+  </data>
+ </layer>
+ <layer name="Calque 2" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoB3gJEINExFq+Ch1yBACAJBml8CQAQAA
+  </data>
+ </layer>
+ <layer name="Calque 3" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGBqAnwg17DR3Be0BAPRG0A+QAQAA
+  </data>
+ </layer>
+ <layer name="Calque 4" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGHmAiQg14jR3BXYAAF3S8ZuQAQAA
+  </data>
+ </layer>
+ <layer name="Calque 5" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAW4AD+V1JACABcC4vuQAQAA
+  </data>
+ </layer>
+ <layer name="Calque 6" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGFxAcqAdMMAAAKHJExqQAQAA
+  </data>
+ </layer>
+ <layer name="Calque 7" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGHyAmwg1/DR3xcAAAK1qMlCQAQAA
+  </data>
+ </layer>
+ <layer name="Calque 8" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGJyAn0rmMFHJHHoBAK6SNiaQAQAA
+  </data>
+ </layer>
+ <layer name="Calque 9" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAUgwDrQDoACAJ6EZ4SQAQAA
+  </data>
+ </layer>
+ <layer name="Calque 10" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGBmAiUrm8FPJHFwAANuX7gCQAQAA
+  </data>
+ </layer>
+ <layer name="Calque 11" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAXIgJ8INQI0tB8AHVyAQ5ABAAA=
+  </data>
+ </layer>
+ <layer name="Calque 12" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAXkAGkamQsAew3XEZABAAA=
+  </data>
+ </layer>
+ <layer name="Calque 17" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWDCQAADA0iRpABAAA=
+  </data>
+ </layer>
+ <layer name="Calque 18" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWDCQAADA0iRpABAAA=
+  </data>
+ </layer>
+ <layer name="Calque 19" width="10" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWDCQAADA0iRpABAAA=
+  </data>
+ </layer>
+</map>
