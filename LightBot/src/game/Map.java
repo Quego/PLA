@@ -46,22 +46,35 @@ public class Map {
 	public void allume(int colonne, int ligne)
 	{
 		System.out.println(+this.tiledMap.getTileId(colonne,ligne, ligne + colonne));
-		if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 4)
-			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 5);
-		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 5)
-			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 4);
+		if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) ==8 )
+			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 9);
+		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 9)
+			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 8);
+		if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 10 )
+			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 11);
+		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) ==11)
+			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 10);
 	}
 	
 	public void interrup(int colonne, int ligne)
 	{
 		System.out.println(+this.tiledMap.getTileId(colonne,ligne, ligne + colonne));
-		if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 38){
-			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 37);
+		int ID = this.tiledMap.getTileId(colonne,ligne, ligne + colonne);
+		if ( (ID > 11) && (ID < 20)){
+			if ((ID%2 == 1))
+				this.tiledMap.setTileId(colonne, ligne, ligne + colonne, ID - 1 );
+			else 
+				this.tiledMap.setTileId(colonne, ligne, ligne + colonne, ID + 1 );
 			
 			for (int i=0; i< this.tiledMap.getHeight(); i++){
 				for (int j = 0; j < this.tiledMap.getWidth();j++ ){
-					if (this.tiledMap.getTileId(i, j, i+j) == 35){
-						this.tiledMap.setTileId(i, j, i+j, 36	);
+					if ((ID%2 == 1)){
+						if (this.tiledMap.getTileId(i, j, i+j) == ID + 7)
+								this.tiledMap.setTileId(i, j, i+j, ID + 8 );
+					}
+					else {
+						if (this.tiledMap.getTileId(i, j, i+j) == ID + 9)
+								this.tiledMap.setTileId(i, j, i+j, ID +8 );
 					}
 				}
 			}

@@ -41,9 +41,9 @@ public class WindowGame extends BasicGameState {
 		player_1 = new Player(map); 
 		player_2 = new Player(map);
 		this.player_1.init();
-		this.player_1.placePlayer(2,3);
+		this.player_1.placePlayer(2,3,1);
 		this.player_2.init();
-		this.player_2.placePlayer(3,2);
+		this.player_2.placePlayer(3,2,1);
 		this.interf.init();
 		copie = new Action();
 		background = new Image("graphisme/Images/fond/fond_jeu.png");

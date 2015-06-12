@@ -51,9 +51,9 @@ public class Player {
 
 	  }
 	  
-	public void placePlayer(int ligne, int colonne){
+	public void placePlayer(int ligne, int colonne, int hauteur){
 		this.x = map.getTilesWidth()/2*(1-ligne+colonne ); 
-		this.y =  map.getTilesHeight()/2*(1+ligne+colonne);
+		this.y =  map.getTilesHeight()/2*(1+ligne+colonne) -hauteur*(map.getTilesHeight()/2);
 		this.posLigne = ligne;
 		this.posColonne = colonne;
 				  
@@ -69,8 +69,6 @@ public class Player {
 	}
 	  
 	public void render(Graphics g) throws SlickException {
-	    g.setColor(new Color(0, 0, 0, .5f));
-	    g.fillOval(x - 16, y - 8, 32, 16);
 	    g.drawAnimation(animations[direction + (running ? 4 : 0)], x-32, y-60);
 	 }
 	  
