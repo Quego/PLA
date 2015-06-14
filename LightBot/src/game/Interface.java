@@ -1,5 +1,8 @@
 package game;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -10,10 +13,13 @@ import org.newdawn.slick.tiled.TiledMap;
 
 public class Interface {
 	
-	private Image MAIN,P1,P2,MENU,ACTIONS,SON, SON_ON,SON_OFF;
+	private Image MAIN,P1,P2,MENU,ACTIONS,SON, SON_ON,SON_OFF,MUSIC,MUSIC_ON,MUSIC_OFF,PLAY,STOP;
 	
 	private Image emplacement1,emplacement2,emplacement3,emplacement4,emplacement5,emplacement6,emplacement7,emplacement8,emplacement9,emplacement10,emplacement11,emplacement12,emplacement13,emplacement14,emplacement15,emplacement16,emplacement17,emplacement18,emplacement19,emplacement20,emplacement21,emplacement22,emplacement23,emplacement24,emplacement25,emplacement26,emplacement27,emplacement28;
+	
 	private Action allumer,avancer,tournerG,tournerD,sauter,appuyer,prendre,lacher,lockUnlock,myBreak,testCouleurCase,testCaseDevant;
+	
+	private boolean running;
 	
 	public void init() throws SlickException {
 		
@@ -25,6 +31,11 @@ public class Interface {
 		this.SON = new Image("graphisme/Images/sonON.png");
 		SON_ON = new Image("graphisme/Images/sonON.png");
 		SON_OFF = new Image("graphisme/Images/sonOFF.png");
+		MUSIC = new Image("graphisme/Images/musiqueON.png");
+		MUSIC_ON = new Image("graphisme/Images/musiqueON.png");
+		MUSIC_OFF = new Image("graphisme/Images/musiqueOFF.png");
+		PLAY = new Image("graphisme/Images/play.jpg");
+		STOP = new Image("graphisme/Images/Stop.png");
 		this.emplacement1 = new Image("graphisme/Images/actions/emplacement.bmp");
 		this.emplacement2 = new Image("graphisme/Images/actions/emplacement.bmp");
 		this.emplacement3 = new Image("graphisme/Images/actions/emplacement.bmp");
@@ -77,13 +88,15 @@ public class Interface {
 		myBreak.setImage(new Image("graphisme/Images/actions/Break.png"));
 		testCouleurCase.setImage(new Image("graphisme/Images/actions/Allumer.png"));
 		testCaseDevant.setImage(new Image("graphisme/Images/actions/TestCaseDevant.png"));
-		
+		running = false;
 	}
 	
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
 		g.resetTransform();
 		float decalage = container.getHeight()/100;
 		float decalage2 = 28;
+		g.setColor(Color.black);
+		
 		
 		this.MAIN.draw(2*container.getWidth()/3, 
 						container.getHeight()/20+decalage,
@@ -109,12 +122,19 @@ public class Interface {
 						16*container.getHeight()/20-decalage,
 						2*container.getWidth()/3-2*decalage,
 						4*container.getHeight()/20);
-		
+		g.drawString("S",container.getWidth()-this.SON.getWidth()-15,5);
 		this.SON.draw(container.getWidth()-this.SON.getWidth(), 0,container.getHeight()/20,container.getHeight()/20);
+		g.drawString("M",container.getWidth()-this.MUSIC.getWidth()-2*this.SON.getWidth()-5,5);
+		this.MUSIC.draw(container.getWidth()-this.MUSIC.getWidth()-2*this.SON.getWidth(), 0,container.getHeight()/20,container.getHeight()/20);
 		
-		
-		g.setColor(Color.black);
+		if (!running) {
+			this.PLAY.draw(container.getWidth()*5/6-PLAY.getWidth()/2-decalage,16*container.getHeight()/20-decalage,4*container.getHeight()/20,4*container.getHeight()/20);
+		}
+		else {
+			this.STOP.draw(container.getWidth()*5/6-PLAY.getWidth()/2-decalage,16*container.getHeight()/20-decalage,4*container.getHeight()/20,4*container.getHeight()/20);
+		}
 		g.drawString("Menu",5,5);
+		
 		//emplacement MAIN//
     	g.drawString("Main", 2*container.getWidth()/3+5,container.getHeight()/20+ decalage + 5);
 
@@ -133,6 +153,8 @@ public class Interface {
 		this.emplacement4.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,container.getHeight()/20+decalage + 30);
 		this.emplacement8.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,container.getHeight()/20+decalage + 30 + this.emplacement1.getHeight() + 10);
 		this.emplacement12.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,container.getHeight()/20+decalage + 30 + 2*this.emplacement1.getHeight() + 2*10);
+		
+		
 		//emplacement P1//
 		g.drawString("P1", 2*container.getWidth()/3+5, 7*container.getHeight()/20+2*decalage+5);
 		
@@ -147,6 +169,7 @@ public class Interface {
 		
 		this.emplacement16.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,7*container.getHeight()/20+2*decalage+30);
 		this.emplacement20.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
+		
 		
 		//emplacement P2//
 		g.drawString("P2", 2*container.getWidth()/3+5, 11*container.getHeight()/20+2*decalage+5);
@@ -169,8 +192,8 @@ public class Interface {
 		lg = this.avancer.getImage().getWidth();
 		lar = this.avancer.getImage().getHeight()+10;
 		g.drawString("Actions", decalage+5, 16*container.getHeight()/20-decalage);
-		this.allumer.getImage().draw(decalage+20, 16*container.getHeight()/20-decalage+20);
-		this.avancer.getImage().draw(decalage+20+lg+decalage2, 16*container.getHeight()/20-decalage+20);
+		this.avancer.getImage().draw(decalage+20, 16*container.getHeight()/20-decalage+20);
+		this.allumer.getImage().draw(decalage+20+lg+decalage2, 16*container.getHeight()/20-decalage+20);
 		this.tournerG.getImage().draw(decalage+20+2*lg+2*decalage2, 16*container.getHeight()/20-decalage+20);
 		this.tournerD.getImage().draw(decalage+20+3*lg+3*decalage2, 16*container.getHeight()/20-decalage+20);
 		this.sauter.getImage().draw(decalage+20+4*lg+4*decalage2, 16*container.getHeight()/20-decalage+20);
@@ -226,6 +249,9 @@ public class Interface {
 	
 	public Image getSon() { return this.SON; }
 	public void setSon() { if (this.SON.equals(SON_ON)) this.SON = SON_OFF; else this.SON = SON_ON; }
+	public Image getMusic() { return this.MUSIC; }
+	public void setMusic() { if (this.MUSIC.equals(MUSIC_ON)) this.MUSIC = MUSIC_OFF; else this.MUSIC = MUSIC_ON; }
 	
+	public void setRunning() { running = !running; }
 	
 }

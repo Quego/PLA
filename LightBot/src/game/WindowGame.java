@@ -27,7 +27,8 @@ public class WindowGame extends BasicGameState {
 	private Interface interf = new Interface();
 	private StateBasedGame game;
 	private Map map = new Map();
-
+	private int X, Y;
+	private String S;
 	public WindowGame() {
 	}
 
@@ -48,6 +49,9 @@ public class WindowGame extends BasicGameState {
 		copie = new Action();
 		background = new Image("graphisme/Images/fond/fond_jeu.png");
 		menu = new Image("graphisme/Images/menu.png");
+		X = 1000;
+		Y = 700;
+		S = "";
 		
 	}
 	
@@ -60,7 +64,6 @@ public class WindowGame extends BasicGameState {
 
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		
 		background.draw(0,0);
 		g.translate(container.getWidth()/3 -this.map.getTilesWidth()/2,
 					(container.getHeight()/2-this.map.getHeight()*this.map.getTilesHeight()/2 -this.map.getTilesHeight()/2));	
@@ -78,7 +81,9 @@ public class WindowGame extends BasicGameState {
 	//this.map.renderTest();
 	copie.render(container,game,g);
 	if(menu_ouvert) menu.draw(1, container.getHeight()/20+1);
-
+	g.resetTransform();
+	g.setColor(Color.red);
+	g.drawString(S,X,Y);
 	}
 
 	public void update(GameContainer container, StateBasedGame game, int delta)throws SlickException{
@@ -100,17 +105,14 @@ public class WindowGame extends BasicGameState {
 		this.interf.getTestCaseDevant().update();
 	}
 	
-	public void mouseClicked(int button, int x, int y, int clickCount){
+	public void mousePressed(int button, int x, int y){
 		int decalage = 7;
     	int decalage2 = 28;
     	int lg,h;
 		lg = this.interf.getAvancer().getImage().getWidth();
 		h = this.interf.getAvancer().getImage().getHeight()+10;
-		running = true;
 		if (button == Input.MOUSE_LEFT_BUTTON){
-		if (x>0 && y>0 && x<50 && y<(container.getHeight()/20)) {
-			this.menu_ouvert = !this.menu_ouvert;
-		}
+		//menu//
 		if (menu_ouvert){
 			if(x>0 && x<this.menu.getWidth() && y>(container.getHeight()/20)+1 && y<(container.getHeight()/20+1+this.menu.getHeight()/3)){
 				game.enterState(Choix.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
@@ -125,18 +127,31 @@ public class WindowGame extends BasicGameState {
 				this.menu_ouvert = !this.menu_ouvert;
 			}
 		}
+		if (x>0 && y>0 && x<50 && y<(container.getHeight()/20)) {
+			this.menu_ouvert = !this.menu_ouvert;
+		}
+		//bouton play stop//
+		if (x > container.getWidth()*5/6-70-decalage && y>16*container.getHeight()/20-decalage && x< container.getWidth()*5/6-70-decalage + 4*container.getHeight()/20 && y < 16*container.getHeight()/20-decalage + 4*container.getHeight()/20){
+			this.interf.setRunning();
+		}
+		//Son//
 		if (x>(container.getWidth()-this.interf.getSon().getWidth())  && y<this.interf.getSon().getHeight()){
 			this.interf.setSon();
 		}
-		if(x>(decalage+20) && x < (decalage+20 + lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + h)){
-			copie.setImage(this.interf.getAllumer().getImage().copy());
-			copie.setX(x-this.interf.getAllumer().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getAllumer().getImage().getHeight()/2);
+		//Musique//
+		if (x>container.getWidth()-this.interf.getMusic().getWidth()-2*this.interf.getSon().getWidth() && y> 0 && x< container.getWidth()-this.interf.getMusic().getWidth()-2*this.interf.getSon().getWidth() +container.getHeight()/20 && y < container.getHeight()/20){
+			this.interf.setMusic();
 		}
-		if(x>(decalage+20+lg+decalage2) && x<(decalage+20+lg+decalage2+lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20+h)){
+		//choix de l'action//
+		if(x>(decalage+20) && x < (decalage+20 + lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + h)){
 			copie.setImage(this.interf.getAvancer().getImage().copy());
 			copie.setX(x-this.interf.getAvancer().getImage().getWidth()/2);
 	    	copie.setY(y-this.interf.getAvancer().getImage().getHeight()/2);
+		}
+		if(x>(decalage+20+lg+decalage2) && x<(decalage+20+lg+decalage2+lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20+h)){
+			copie.setImage(this.interf.getAllumer().getImage().copy());
+			copie.setX(x-this.interf.getAllumer().getImage().getWidth()/2);
+	    	copie.setY(y-this.interf.getAllumer().getImage().getHeight()/2);
 		}
 		if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+2*lg+2*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
 			copie.setImage(this.interf.getTournerG().getImage().copy());
@@ -188,16 +203,15 @@ public class WindowGame extends BasicGameState {
 			copie.setX(x-this.interf.getLockUnlock().getImage().getWidth()/2);
 	    	copie.setY(y-this.interf.getLockUnlock().getImage().getHeight()/2);
 		}
-		}
+	  }
 		
 	}
 	
     public void mouseDragged(int oldx, int oldy, int newx, int newy){
-    	if (running){
+    	//se souvenir de l action selectionnée//
     		this.copie.setdestX(newx-this.copie.getImage().getWidth()/2);
     		this.copie.setdestY(newy-this.copie.getImage().getHeight()/2);
-    	}
-			copie.setdestX(newx-this.copie.getImage().getWidth()/2);
+    		copie.setdestX(newx-this.copie.getImage().getWidth()/2);
 			copie.setdestY(newy-this.copie.getImage().getHeight()/2);
 			copie.getImage().draw(newx-this.copie.getImage().getWidth()/2,newy-this.copie.getImage().getHeight()/2);
 	
@@ -208,11 +222,11 @@ public class WindowGame extends BasicGameState {
     	int decalage = 7;
     	int decalage2 = 28;
     	int lg,h;
-    	running = false;
     	this.copie.setdestX(1000);
 		this.copie.setdestY(700);
 		lg = this.interf.getAvancer().getImage().getWidth();
 		h = this.interf.getAvancer().getImage().getHeight()+10;
+		//main//
     	if(x>(2*container.getWidth()/3+20) && x<(2*container.getWidth()/3+20+lg) && y>(container.getHeight()/20+decalage + 30) && y<(container.getHeight()/20+decalage + 30 + h)){
 			switch (button){
 				case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement1(copie.getImage()); break;
@@ -334,6 +348,7 @@ public class WindowGame extends BasicGameState {
 			} break;
 		}
     	}
+    	//P1//
 		if(x>(2*container.getWidth()/3+20) && x<(2*container.getWidth()/3+20+lg) && y>(7*container.getHeight()/20+2*decalage+5) && y<(7*container.getHeight()/20+2*decalage+5+ h)){
 			switch (button){
 			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement13(copie.getImage()); break;
@@ -414,6 +429,7 @@ public class WindowGame extends BasicGameState {
 			} break;
 		}
 		}
+		//P2//
 		if(x>(2*container.getWidth()/3+20) && x<(2*container.getWidth()/3+20+lg) && y>(11*container.getHeight()/20+2*decalage+5) && y<(11*container.getHeight()/20+2*decalage+5+ h)){
 			switch (button){
 			case Input.MOUSE_LEFT_BUTTON : this.interf.setEmplacement21(copie.getImage()); break;
@@ -518,9 +534,85 @@ public class WindowGame extends BasicGameState {
 			}
 	    }*/
 		switch (key) {
-		case Input.KEY_S:	  this.interf.setSon(); break;
-		case Input.KEY_ESCAPE: this.menu_ouvert = !this.menu_ouvert; break;
+		case Input.KEY_M:		this.interf.setMusic();break;
+		case Input.KEY_S:	  	this.interf.setSon(); break;
+		case Input.KEY_ESCAPE: 	this.menu_ouvert = !this.menu_ouvert; break;
 		}
+		
+		
+		
+		
+	}
+	
+	public void mouseMoved(int oldx, int oldy, int x, int y){
+		int decalage = 7;
+		int decalage2 = 28;
+		int lg = this.interf.getAvancer().getImage().getWidth();
+		int h = this.interf.getAvancer().getImage().getHeight();
+		S = "";
+		X = 1000;
+		Y = 700;
+		if(x>(decalage+20) && x < (decalage+20 + lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + h)){
+			S = "Avancer";
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20+lg+decalage2) && x<(decalage+20+lg+decalage2+lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20+h)){
+			S = "Allumer la case bleue";
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+2*lg+2*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+			S = "Tourner à gauche";
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+3*lg+3*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+			S = "Tourner à droite";
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20+4*lg+4*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+			S = "Sauter";
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20+5*lg+5*decalage2) && x < (decalage+20+5*lg+5*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+			S = "Appuyer sur l'interrupteur";
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20) && x < (decalage+20+ h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+			S = "Prendre l'objet";
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20+lg+decalage2) && x < (decalage+20+lg+decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20 +h+ lg)){
+			S = "Lacher l'objet";
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+3*lg+3*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+			S = "Arreter la boucle programmée";
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+			S = "La case devant est-elle vide?";
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20+4*lg+4*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+			S = "La case est-elle bleue?";
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20+5*lg+5*decalage2) && x < (decalage+20+5*lg+5*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+			S = "Changement de Bot";
+			X = x;
+			Y = y;
+		}
+		Y -= 17; 
 	}
 	
 }

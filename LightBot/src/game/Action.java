@@ -24,7 +24,7 @@ public class Action {
 		  this.y = 700;
 		  this.destX = 1000;
 		  this.destY = 700;
-		  this.logo = new Image("graphisme/Images/actions/Allumer.png");
+		  this.logo = new Image("graphisme/Images/actions/Avancer.png");
 	  }
 	  
 	  public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
