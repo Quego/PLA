@@ -19,7 +19,7 @@ public class Accueil extends BasicGameState {
 		public static final int ID = 1;
 		private Image background;
 		private StateBasedGame game;
-		protected static Music music;
+		//protected static Music music;
 	   
 		public int getID() {
 			return ID;
@@ -28,9 +28,8 @@ public class Accueil extends BasicGameState {
 	   public void init(GameContainer container, StateBasedGame game) throws SlickException {
 		   	this.game = game;
 		   	this.background = new Image("graphisme/Images/fond/FOND_ACCUEIL.png");
-		   	//this.music = new Music("music/Accueil_Music.ogg");
-		   //	music.loop();
-
+		   	//this.music = new Music("music/OMFG.ogg");
+		   	//this.music.loop((float) 0.75, 1);
 	   }
 
 	   
@@ -54,6 +53,10 @@ public class Accueil extends BasicGameState {
 	   public void update(GameContainer container, StateBasedGame game, int delta) {
 	   }
 	   
+	   public void mouseClicked(int button, int x, int y, int ClickCount){
+		   this.game.enterState(Choix.ID, new FadeOutTransition(Color.white), new FadeInTransition(Color.white));
+	   }
+	   
 	   public void keyReleased(int key, char c) {
 	      switch (key) {
 	    	  case Input.KEY_ENTER: 
@@ -61,7 +64,7 @@ public class Accueil extends BasicGameState {
 	    		/*  Music_Choix.loop(); if(MusicManager.mute) Music_Choix.pause(); */
 	    		  this.game.enterState(Choix.ID, new FadeOutTransition(Color.white), new FadeInTransition(Color.white));break;
 	    	  }
-	    	  case Input.KEY_M: if(music.playing()){ music.pause(); }else {music.resume();}break;
+	    	//  case Input.KEY_M: if(music.playing()){ music.pause(); }else {music.resume();}break;
 	    	  case Input.KEY_ESCAPE:Menu.container.exit(); break;
 
 	      }

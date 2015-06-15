@@ -117,17 +117,6 @@ public class Choix extends BasicGameState {
     }
     
     
-    
-    public void keyReleased(int key, char c) {  
-    	switch (key) {
-    	case Input.KEY_ENTER :
-    		if (quit) Menu.container.exit(); 
-    		else  {
-    			game.enterState(ChoixBasic.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));break;
-    		}    		
-    	case Input.KEY_ESCAPE: Menu.container.exit(); break;
-    	//case Input.KEY_M: if(Accueil.Music_Choix.playing()){ Accueil.Music_Choix.pause(); MusicManager.mute=true; }else {Accueil.Music_Choix.resume(); MusicManager.mute=false;}break;
-    	}
-    }	
+   
     
 }

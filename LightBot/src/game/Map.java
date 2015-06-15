@@ -24,7 +24,7 @@ public class Map {
 	
 
 	public void init() throws SlickException {
-		this.tiledMap = new TiledMap("graphisme/map/coop_niv1.tmx");
+		this.tiledMap = new TiledMap("graphisme/map/base_niv1.tmx");
 		Height = tiledMap.getHeight();
 		Width = tiledMap.getWidth();
 		TilesWidth = tiledMap.getTileWidth();	

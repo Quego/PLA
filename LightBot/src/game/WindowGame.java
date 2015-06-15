@@ -6,6 +6,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.state.BasicGameState;
@@ -18,6 +19,7 @@ import org.newdawn.slick.tiled.TiledMap;
 
 public class WindowGame extends BasicGameState {
 	private GameContainer container;
+	public static int precedent;
 	private Player player_1;
 	private Player player_2;
 	private Action copie;
@@ -38,7 +40,7 @@ public class WindowGame extends BasicGameState {
 
 	public void init(GameContainer container, StateBasedGame game) throws SlickException{	
 		this.container = container;
-		this.map.init(); 
+		map.init();
 		player_1 = new Player(map); 
 		player_2 = new Player(map);
 		this.player_1.init();
@@ -57,10 +59,37 @@ public class WindowGame extends BasicGameState {
 	
 	public void enter(GameContainer container, StateBasedGame game) throws SlickException 
 		{
-		
 		this.game = game;
 		container.setShowFPS(false);
+		switch (precedent) {
+			case 11 : this.map.changeMap("graphisme/map/base_niv1.tmx"); break;
+			case 12 : this.map.changeMap("graphisme/map/base_niv2.tmx"); break;
+			case 13 : this.map.changeMap("graphisme/map/base_niv3.tmx"); break;
+			case 14 : this.map.changeMap("graphisme/map/base_niv4.tmx"); break;
+			case 15 : this.map.changeMap("graphisme/map/base_niv5.tmx"); break;
+			case 21 : this.map.changeMap("graphisme/map/if_niv1.tmx"); break;
+			case 22 : this.map.changeMap("graphisme/map/if_niv2.tmx"); break;
+			case 23 : this.map.changeMap("graphisme/map/if_niv3.tmx"); break;
+			case 24 : this.map.changeMap("graphisme/map/base_niv4.tmx"); break;
+			case 25 : this.map.changeMap("graphisme/map/base_niv5.tmx"); break;
+			case 31 : this.map.changeMap("graphisme/map/base_niv1.tmx"); break;
+			case 32 : this.map.changeMap("graphisme/map/base_niv2.tmx"); break;
+			case 33 : this.map.changeMap("graphisme/map/base_niv3.tmx"); break;
+			case 34 : this.map.changeMap("graphisme/map/base_niv4.tmx"); break;
+			case 35 : this.map.changeMap("graphisme/map/base_niv5.tmx"); break;
+			case 41 : this.map.changeMap("graphisme/map/coop_niv1.tmx"); break;
+			case 42 : this.map.changeMap("graphisme/map/coop_niv2.tmx"); break;
+			case 43 : this.map.changeMap("graphisme/map/coop_niv3.tmx"); break;
+			case 44 : this.map.changeMap("graphisme/map/coop_niv4.tmx"); break;
+			case 45 : this.map.changeMap("graphisme/map/base_niv5.tmx"); break;
+			case 51 : this.map.changeMap("graphisme/map/base_niv1.tmx"); break;
+			case 52 : this.map.changeMap("graphisme/map/base_niv2.tmx"); break;
+			case 53 : this.map.changeMap("graphisme/map/base_niv3.tmx"); break;
+			case 54 : this.map.changeMap("graphisme/map/base_niv4.tmx"); break;
+			case 55 : this.map.changeMap("graphisme/map/base_niv5.tmx"); break;
+			default : this.map.changeMap("graphisme/map/base_niv1.tmx"); break;
 		}
+	}
 
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
@@ -91,19 +120,8 @@ public class WindowGame extends BasicGameState {
 		this.player_1.update(delta);
 //		this.player_2.update(delta);
 		this.copie.update();
-		this.interf.getAllumer().update();
-		this.interf.getAvancer().update();
-		this.interf.getTournerG().update();
-		this.interf.getTournerD().update();
-		this.interf.getSauter().update();
-		this.interf.getAppuyer().update();
-		this.interf.getPrendre().update();
-		this.interf.getLacher().update();
-		this.interf.getLockUnlock().update();
-		this.interf.getMyBreak().update();
-		this.interf.getTestCouleurCase().update();
-		this.interf.getTestCaseDevant().update();
 		this.map.randomCase(/*colonne*/ 0, /*ligne*/ 0);
+
 	}
 	
 	public void mousePressed(int button, int x, int y){
@@ -116,10 +134,36 @@ public class WindowGame extends BasicGameState {
 		//menu//
 		if (menu_ouvert){
 			if(x>0 && x<this.menu.getWidth() && y>(container.getHeight()/20)+1 && y<(container.getHeight()/20+1+this.menu.getHeight()/3)){
-				game.enterState(Choix.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+				switch (precedent) {
+					case 11 : 
+					case 12 : 
+					case 13 : 
+					case 14 : 
+					case 15 : game.enterState(ChoixBasic.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
+					case 21 : 
+					case 22 : 
+					case 23 : 
+					case 24 : 
+					case 25 : game.enterState(ChoixITE.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
+					case 31 : 
+					case 32 : 
+					case 33 : 
+					case 34 : 
+					case 35 : game.enterState(ChoixFruit.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
+					case 41 : 
+					case 42 : 
+					case 43 : 
+					case 44 : 
+					case 45 : game.enterState(ChoixCoop.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
+					case 51 : 
+					case 52 : 
+					case 53 : 
+					case 54 : 
+					case 55 : game.enterState(ChoixHardLevels.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
+				}
 			}
 			else if (x>0 && x<this.menu.getWidth() && y>(container.getHeight()/20+1+this.menu.getHeight()/3-1) && y<(container.getHeight()/20+1+this.menu.getHeight()*2/3)){
-				game.enterState(Accueil.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+				game.enterState(Choix.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 			}
 			else if(x>0 && x<this.menu.getWidth() && y>(container.getHeight()/20+1+this.menu.getHeight()*2/3-1) && y<(container.getHeight()/20+1+this.menu.getHeight())){
 				container.exit();
@@ -132,16 +176,13 @@ public class WindowGame extends BasicGameState {
 			this.menu_ouvert = !this.menu_ouvert;
 		}
 		//bouton play stop//
-		if (x > container.getWidth()*5/6-70-decalage && y>16*container.getHeight()/20-decalage && x< container.getWidth()*5/6-70-decalage + 4*container.getHeight()/20 && y < 16*container.getHeight()/20-decalage + 4*container.getHeight()/20){
+		if (x > 2*container.getWidth()/3+20 && y>16*container.getHeight()/20-decalage && x< 2*container.getWidth()/3+20 + 4*container.getHeight()/20 && y < 16*container.getHeight()/20-decalage + 4*container.getHeight()/20){
 			this.interf.setRunning();
 		}
-		//Son//
-		if (x>(container.getWidth()-this.interf.getSon().getWidth())  && y<this.interf.getSon().getHeight()){
-			this.interf.setSon();
-		}
 		//Musique//
-		if (x>container.getWidth()-this.interf.getMusic().getWidth()-2*this.interf.getSon().getWidth() && y> 0 && x< container.getWidth()-this.interf.getMusic().getWidth()-2*this.interf.getSon().getWidth() +container.getHeight()/20 && y < container.getHeight()/20){
-			this.interf.setMusic();
+		if (x>container.getWidth()-this.interf.getMusic().getWidth()-decalage2 && y> 0 && x< container.getWidth()-decalage2-this.interf.getMusic().getWidth() +container.getHeight()/20 && y < container.getHeight()/20){
+			this.interf.setMusic(); 
+			//if(m.playing()) m.pause(); else m.resume();
 		}
 		//choix de l'action//
 		if(x>(decalage+20) && x < (decalage+20 + lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + h)){
@@ -174,6 +215,11 @@ public class WindowGame extends BasicGameState {
 			copie.setX(x-this.interf.getAppuyer().getImage().getWidth()/2);
 	    	copie.setY(y-this.interf.getAppuyer().getImage().getHeight()/2);
 		}
+		if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+			copie.setImage(this.interf.getP1().getImage().copy());
+			copie.setX(x-this.interf.getP1().getImage().getWidth()/2);
+	    	copie.setY(y-this.interf.getP1().getImage().getHeight()/2);
+		}
 		if(x>(decalage+20) && x < (decalage+20+ h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
 			copie.setImage(this.interf.getPrendre().getImage().copy());
 			copie.setX(x-this.interf.getPrendre().getImage().getWidth()/2);
@@ -190,26 +236,47 @@ public class WindowGame extends BasicGameState {
 	    	copie.setY(y-this.interf.getMyBreak().getImage().getHeight()/2);
 		}
 		if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			copie.setImage(this.interf.getTestCaseDevant().getImage().copy());
-			copie.setX(x-this.interf.getTestCaseDevant().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getTestCaseDevant().getImage().getHeight()/2);
+			copie.setImage(this.interf.getTestAvancer().getImage().copy());
+			copie.setX(x-this.interf.getTestAvancer().getImage().getWidth()/2);
+	    	copie.setY(y-this.interf.getTestAvancer().getImage().getHeight()/2);
 		}
 		if(x>(decalage+20+4*lg+4*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			copie.setImage(this.interf.getTestCouleurCase().getImage().copy());
-			copie.setX(x-this.interf.getTestCouleurCase().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getTestCouleurCase().getImage().getHeight()/2);
+			copie.setImage(this.interf.getTestCaseBleue().getImage().copy());
+			copie.setX(x-this.interf.getTestCaseBleue().getImage().getWidth()/2);
+	    	copie.setY(y-this.interf.getTestCaseBleue().getImage().getHeight()/2);
 		}
 		if(x>(decalage+20+5*lg+5*decalage2) && x < (decalage+20+5*lg+5*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
 			copie.setImage(this.interf.getLockUnlock().getImage().copy());
 			copie.setX(x-this.interf.getLockUnlock().getImage().getWidth()/2);
 	    	copie.setY(y-this.interf.getLockUnlock().getImage().getHeight()/2);
 		}
+		if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+			copie.setImage(this.interf.getP2().getImage().copy());
+			copie.setX(x-this.interf.getP2().getImage().getWidth()/2);
+	    	copie.setY(y-this.interf.getP2().getImage().getHeight()/2);
+		}
+		if(x>(decalage+20+7*lg+7*decalage2) && x < (decalage+20+7*lg+7*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+			copie.setImage(this.interf.getTestSauter().getImage().copy());
+			copie.setX(x-this.interf.getTestSauter().getImage().getWidth()/2);
+	    	copie.setY(y-this.interf.getTestSauter().getImage().getHeight()/2);
+		}
+		if(x>2*container.getWidth()/3+20+2*lg+2*decalage2 && y > 16*container.getHeight()/20-decalage && x< 2*container.getWidth()/3+20+2*lg+2*decalage2 + 4*container.getHeight()/20 && y<  16*container.getHeight()/20-decalage + 4*container.getHeight()/20){
+			try {
+				this.interf.effacer();
+			} catch (SlickException e) {
+				e.printStackTrace();
+			}
+		}
 	  }
 		
 	}
 	
     public void mouseDragged(int oldx, int oldy, int newx, int newy){
-    	//se souvenir de l action selectionn�e//
+
+	    	S = "";
+			X = 1000;
+			Y = 700;
+			//se souvenir de l action selectionn�e//
     		this.copie.setdestX(newx-this.copie.getImage().getWidth()/2);
     		this.copie.setdestY(newy-this.copie.getImage().getHeight()/2);
     		copie.setdestX(newx-this.copie.getImage().getWidth()/2);
@@ -537,8 +604,7 @@ public class WindowGame extends BasicGameState {
 			}
 	    }*/
 		switch (key) {
-		case Input.KEY_M:		this.interf.setMusic();break;
-		case Input.KEY_S:	  	this.interf.setSon(); break;
+		case Input.KEY_M:		/*this.interf.setMusic(); if(m.playing()) m.pause(); else m.resume();*/ break;
 		case Input.KEY_ESCAPE: 	this.menu_ouvert = !this.menu_ouvert; break;
 		}
 		
@@ -585,6 +651,11 @@ public class WindowGame extends BasicGameState {
 			X = x;
 			Y = y;
 		}
+		if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+			S = "Lancer la proc�dure P1";
+			X = x;
+			Y = y;
+		}
 		if(x>(decalage+20) && x < (decalage+20+ h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
 			S = "Prendre l'objet";
 			X = x;
@@ -601,12 +672,12 @@ public class WindowGame extends BasicGameState {
 			Y = y;
 		}
 		if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			S = "La case devant est-elle vide?";
+			S = "Avancer ???";
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+4*lg+4*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			S = "La case est-elle bleue?";
+			S = "Case bleue ???";
 			X = x;
 			Y = y;
 		}
@@ -615,7 +686,23 @@ public class WindowGame extends BasicGameState {
 			X = x;
 			Y = y;
 		}
+		if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+			S = "Lancer la proc�dure P2";
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20+7*lg+7*decalage2) && x < (decalage+20+7*lg+7*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+			S = "Sauter ???";
+			X = x;
+			Y = y;
+		}
+		if(x>2*container.getWidth()/3+20+2*lg+2*decalage2 && y > 16*container.getHeight()/20-decalage && x< 2*container.getWidth()/3+20+2*lg+2*decalage2 + 4*container.getHeight()/20 && y<  16*container.getHeight()/20-decalage + 4*container.getHeight()/20){
+			S = "Effacer les actions donn�es";
+			X = x;
+			Y = y;
+		}
 		Y -= 17; 
 	}
+	
 	
 }
