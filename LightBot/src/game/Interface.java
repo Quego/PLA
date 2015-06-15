@@ -83,7 +83,7 @@ public class Interface {
 		tournerD.setImage(new Image("graphisme/Images/actions/TournerDroite.png"));
 		sauter.setImage(new Image("graphisme/Images/actions/Sauter.png"));
 		appuyer.setImage(new Image("graphisme/Images/actions/appuie.png"));
-		prendre.setImage(new Image("graphisme/Images/actions/Prendre.png"));
+		prendre.setImage(new Image("graphisme/Images/actions/prendre.png"));
 		lacher.setImage(new Image("graphisme/Images/actions/poser.png"));
 		lockUnlock.setImage(new Image("graphisme/Images/actions/Allumer.png"));///////////////
 		myBreak.setImage(new Image("graphisme/Images/actions/break.png"));

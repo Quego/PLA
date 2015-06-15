@@ -120,6 +120,8 @@ public class WindowGame extends BasicGameState {
 		this.player_1.update(delta);
 //		this.player_2.update(delta);
 		this.copie.update();
+		this.map.randomCase(/*colonne*/ 0, /*ligne*/ 0);
+
 	}
 	
 	public void mousePressed(int button, int x, int y){
@@ -274,7 +276,7 @@ public class WindowGame extends BasicGameState {
 	    	S = "";
 			X = 1000;
 			Y = 700;
-			//se souvenir de l action selectionnée//
+			//se souvenir de l action selectionnï¿½e//
     		this.copie.setdestX(newx-this.copie.getImage().getWidth()/2);
     		this.copie.setdestY(newy-this.copie.getImage().getHeight()/2);
     		copie.setdestX(newx-this.copie.getImage().getWidth()/2);
@@ -650,7 +652,7 @@ public class WindowGame extends BasicGameState {
 			Y = y;
 		}
 		if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-			S = "Lancer la procédure P1";
+			S = "Lancer la procï¿½dure P1";
 			X = x;
 			Y = y;
 		}
@@ -685,7 +687,7 @@ public class WindowGame extends BasicGameState {
 			Y = y;
 		}
 		if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			S = "Lancer la procédure P2";
+			S = "Lancer la procï¿½dure P2";
 			X = x;
 			Y = y;
 		}
@@ -695,7 +697,7 @@ public class WindowGame extends BasicGameState {
 			Y = y;
 		}
 		if(x>2*container.getWidth()/3+20+2*lg+2*decalage2 && y > 16*container.getHeight()/20-decalage && x< 2*container.getWidth()/3+20+2*lg+2*decalage2 + 4*container.getHeight()/20 && y<  16*container.getHeight()/20-decalage + 4*container.getHeight()/20){
-			S = "Effacer les actions données";
+			S = "Effacer les actions donnï¿½es";
 			X = x;
 			Y = y;
 		}
