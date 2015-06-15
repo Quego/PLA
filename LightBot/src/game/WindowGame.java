@@ -62,32 +62,32 @@ public class WindowGame extends BasicGameState {
 		this.game = game;
 		container.setShowFPS(false);
 		switch (precedent) {
-			case 11 : this.map.changeMap("graphisme/map/base_niv1.tmx"); break;
-			case 12 : this.map.changeMap("graphisme/map/base_niv2.tmx"); break;
-			case 13 : this.map.changeMap("graphisme/map/base_niv3.tmx"); break;
-			case 14 : this.map.changeMap("graphisme/map/base_niv4.tmx"); break;
-			case 15 : this.map.changeMap("graphisme/map/base_niv5.tmx"); break;
-			case 21 : this.map.changeMap("graphisme/map/if_niv1.tmx"); break;
-			case 22 : this.map.changeMap("graphisme/map/if_niv2.tmx"); break;
-			case 23 : this.map.changeMap("graphisme/map/if_niv3.tmx"); break;
-			case 24 : this.map.changeMap("graphisme/map/base_niv4.tmx"); break;
-			case 25 : this.map.changeMap("graphisme/map/base_niv5.tmx"); break;
-			case 31 : this.map.changeMap("graphisme/map/base_niv1.tmx"); break;
-			case 32 : this.map.changeMap("graphisme/map/base_niv2.tmx"); break;
-			case 33 : this.map.changeMap("graphisme/map/base_niv3.tmx"); break;
-			case 34 : this.map.changeMap("graphisme/map/base_niv4.tmx"); break;
-			case 35 : this.map.changeMap("graphisme/map/base_niv5.tmx"); break;
-			case 41 : this.map.changeMap("graphisme/map/coop_niv1.tmx"); break;
-			case 42 : this.map.changeMap("graphisme/map/coop_niv2.tmx"); break;
-			case 43 : this.map.changeMap("graphisme/map/coop_niv3.tmx"); break;
-			case 44 : this.map.changeMap("graphisme/map/coop_niv4.tmx"); break;
-			case 45 : this.map.changeMap("graphisme/map/base_niv5.tmx"); break;
-			case 51 : this.map.changeMap("graphisme/map/base_niv1.tmx"); break;
-			case 52 : this.map.changeMap("graphisme/map/base_niv2.tmx"); break;
-			case 53 : this.map.changeMap("graphisme/map/base_niv3.tmx"); break;
-			case 54 : this.map.changeMap("graphisme/map/base_niv4.tmx"); break;
-			case 55 : this.map.changeMap("graphisme/map/base_niv5.tmx"); break;
-			default : this.map.changeMap("graphisme/map/base_niv1.tmx"); break;
+			case 11 : this.map.changeMap("graphisme/map/base_niv1.tmx");this.player_1.setMap(map); break;
+			case 12 : this.map.changeMap("graphisme/map/base_niv2.tmx");this.player_1.setMap(map); break;
+			case 13 : this.map.changeMap("graphisme/map/base_niv3.tmx");this.player_1.setMap(map); break;
+			case 14 : this.map.changeMap("graphisme/map/base_niv4.tmx");this.player_1.setMap(map); break;
+			case 15 : this.map.changeMap("graphisme/map/base_niv5.tmx");this.player_1.setMap(map); break;
+			case 21 : this.map.changeMap("graphisme/map/if_niv1.tmx");  this.player_1.setMap(map); break;
+			case 22 : this.map.changeMap("graphisme/map/if_niv2.tmx");  this.player_1.setMap(map); break;
+			case 23 : this.map.changeMap("graphisme/map/if_niv3.tmx");  this.player_1.setMap(map); break;
+			case 24 : this.map.changeMap("graphisme/map/base_niv4.tmx");this.player_1.setMap(map); break;
+			case 25 : this.map.changeMap("graphisme/map/base_niv5.tmx");this.player_1.setMap(map); break;
+			case 31 : this.map.changeMap("graphisme/map/base_niv1.tmx");this.player_1.setMap(map); break;
+			case 32 : this.map.changeMap("graphisme/map/base_niv2.tmx");this.player_1.setMap(map); break;
+			case 33 : this.map.changeMap("graphisme/map/base_niv3.tmx");this.player_1.setMap(map); break;
+			case 34 : this.map.changeMap("graphisme/map/base_niv4.tmx");this.player_1.setMap(map); break;
+			case 35 : this.map.changeMap("graphisme/map/base_niv5.tmx");this.player_1.setMap(map); break;
+			case 41 : this.map.changeMap("graphisme/map/coop_niv1.tmx");this.player_1.setMap(map); break;
+			case 42 : this.map.changeMap("graphisme/map/coop_niv2.tmx");this.player_1.setMap(map); break;
+			case 43 : this.map.changeMap("graphisme/map/coop_niv3.tmx");this.player_1.setMap(map); break;
+	//		case 44 : this.map.changeMap("graphisme/map/coop_niv4.tmx");this.player_1.setMap(map); break;
+			case 45 : this.map.changeMap("graphisme/map/base_niv5.tmx");this.player_1.setMap(map); break;
+			case 51 : this.map.changeMap("graphisme/map/base_niv1.tmx");this.player_1.setMap(map); break;
+			case 52 : this.map.changeMap("graphisme/map/base_niv2.tmx");this.player_1.setMap(map); break;
+			case 53 : this.map.changeMap("graphisme/map/base_niv3.tmx");this.player_1.setMap(map); break;
+			case 54 : this.map.changeMap("graphisme/map/base_niv4.tmx");this.player_1.setMap(map); break;
+			case 55 : this.map.changeMap("graphisme/map/base_niv5.tmx");this.player_1.setMap(map); break;
+			default : this.map.changeMap("graphisme/map/base_niv1.tmx");this.player_1.setMap(map); break;
 		}
 	}
 
@@ -101,13 +101,10 @@ public class WindowGame extends BasicGameState {
 		
 	
 	this.map.renderBackground(this.player_1.getLigne(),this.player_1.getColonne());
-	//this.map.renderTest();
 	this.player_1.render(g);
 //	this.player_2.render(g);
-	
 	this.map.renderForeground(this.player_1.getLigne(),this.player_1.getColonne());
 	this.interf.render(container, game, g);
-	//this.map.renderTest();
 	copie.render(container,game,g);
 	if(menu_ouvert) menu.draw(1, container.getHeight()/20+1);
 	g.resetTransform();
