@@ -13,11 +13,11 @@ import org.newdawn.slick.tiled.TiledMap;
 
 public class Interface {
 	
-	private Image MAIN,P1,P2,MENU,ACTIONS,SON, SON_ON,SON_OFF,MUSIC,MUSIC_ON,MUSIC_OFF,PLAY,STOP;
+	private Image MAIN,P1,P2,MENU,ACTIONS,MUSIC,MUSIC_ON,MUSIC_OFF,PLAY,STOP,POUBELLE;
 	
 	private Image emplacement1,emplacement2,emplacement3,emplacement4,emplacement5,emplacement6,emplacement7,emplacement8,emplacement9,emplacement10,emplacement11,emplacement12,emplacement13,emplacement14,emplacement15,emplacement16,emplacement17,emplacement18,emplacement19,emplacement20,emplacement21,emplacement22,emplacement23,emplacement24,emplacement25,emplacement26,emplacement27,emplacement28;
 	
-	private Action allumer,avancer,tournerG,tournerD,sauter,appuyer,prendre,lacher,lockUnlock,myBreak,testCouleurCase,testCaseDevant;
+	private Action allumer,avancer,tournerG,tournerD,sauter,appuyer,prendre,lacher,lockUnlock,myBreak,testCaseBleue,testAvancer,testSauter,p1,p2;
 	
 	private boolean running;
 	
@@ -28,14 +28,12 @@ public class Interface {
 		this.P2 = new Image("graphisme/Images/fond/fond_actions.png");
 		this.MENU = new Image("graphisme/Images/fond/fond_actions.png");
 		this.ACTIONS = new Image("graphisme/Images/fond/fond_actions.png");
-		this.SON = new Image("graphisme/Images/sonON.png");
-		SON_ON = new Image("graphisme/Images/sonON.png");
-		SON_OFF = new Image("graphisme/Images/sonOFF.png");
-		MUSIC = new Image("graphisme/Images/musiqueON.png");
 		MUSIC_ON = new Image("graphisme/Images/musiqueON.png");
 		MUSIC_OFF = new Image("graphisme/Images/musiqueOFF.png");
-		PLAY = new Image("graphisme/Images/play.jpg");
-		STOP = new Image("graphisme/Images/Stop.png");
+		MUSIC = MUSIC_ON;
+		PLAY = new Image("graphisme/Images/play.png");
+		STOP = new Image("graphisme/Images/stop.png");
+		POUBELLE = new Image("graphisme/Images/trash.png");
 		this.emplacement1 = new Image("graphisme/Images/actions/emplacement.bmp");
 		this.emplacement2 = new Image("graphisme/Images/actions/emplacement.bmp");
 		this.emplacement3 = new Image("graphisme/Images/actions/emplacement.bmp");
@@ -74,20 +72,26 @@ public class Interface {
 		lacher = new Action();
 		lockUnlock = new Action();
 		myBreak = new Action();
-		testCouleurCase = new Action();
-		testCaseDevant = new Action();
+		testCaseBleue = new Action();
+		testAvancer = new Action();
+		testSauter = new Action();
+		p1 = new Action();
+		p2 = new Action();
 		allumer.setImage(new Image("graphisme/Images/actions/Allumer.png"));
 		avancer.setImage(new Image("graphisme/Images/actions/Avancer.png"));
 		tournerG.setImage(new Image("graphisme/Images/actions/TournerGauche.png"));
 		tournerD.setImage(new Image("graphisme/Images/actions/TournerDroite.png"));
 		sauter.setImage(new Image("graphisme/Images/actions/Sauter.png"));
-		appuyer.setImage(new Image("graphisme/Images/actions/Appuyer.png"));
+		appuyer.setImage(new Image("graphisme/Images/actions/appuie.png"));
 		prendre.setImage(new Image("graphisme/Images/actions/Prendre.png"));
-		lacher.setImage(new Image("graphisme/Images/actions/Lacher.jpg"));
-		lockUnlock.setImage(new Image("graphisme/Images/actions/LockUnlock.png"));
-		myBreak.setImage(new Image("graphisme/Images/actions/Break.png"));
-		testCouleurCase.setImage(new Image("graphisme/Images/actions/Allumer.png"));
-		testCaseDevant.setImage(new Image("graphisme/Images/actions/TestCaseDevant.png"));
+		lacher.setImage(new Image("graphisme/Images/actions/poser.png"));
+		lockUnlock.setImage(new Image("graphisme/Images/actions/Allumer.png"));///////////////
+		myBreak.setImage(new Image("graphisme/Images/actions/break.png"));
+		testCaseBleue.setImage(new Image("graphisme/Images/actions/Allumer.png"));//////////
+		testAvancer.setImage(new Image("graphisme/Images/actions/Allumer.png"));////////
+		testSauter.setImage(new Image("graphisme/Images/actions/Allumer.png"));/////////
+		p1.setImage(new Image("graphisme/Images/actions/P1.png"));
+		p2.setImage(new Image("graphisme/Images/actions/P2.png"));
 		running = false;
 	}
 	
@@ -122,16 +126,14 @@ public class Interface {
 						16*container.getHeight()/20-decalage,
 						2*container.getWidth()/3-2*decalage,
 						4*container.getHeight()/20);
-		g.drawString("S",container.getWidth()-this.SON.getWidth()-15,5);
-		this.SON.draw(container.getWidth()-this.SON.getWidth(), 0,container.getHeight()/20,container.getHeight()/20);
-		g.drawString("M",container.getWidth()-this.MUSIC.getWidth()-2*this.SON.getWidth()-5,5);
-		this.MUSIC.draw(container.getWidth()-this.MUSIC.getWidth()-2*this.SON.getWidth(), 0,container.getHeight()/20,container.getHeight()/20);
-		
+		g.drawString("M",container.getWidth()-this.MUSIC.getWidth()-decalage2-5,5);
+		this.MUSIC.draw(container.getWidth()-this.MUSIC.getWidth()-decalage2, 0,container.getHeight()/20,container.getHeight()/20);
+		this.POUBELLE.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,16*container.getHeight()/20-decalage,4*container.getHeight()/20,4*container.getHeight()/20);
 		if (!running) {
-			this.PLAY.draw(container.getWidth()*5/6-PLAY.getWidth()/2-decalage,16*container.getHeight()/20-decalage,4*container.getHeight()/20,4*container.getHeight()/20);
+			this.PLAY.draw(2*container.getWidth()/3+20,16*container.getHeight()/20-decalage,4*container.getHeight()/20,4*container.getHeight()/20);
 		}
 		else {
-			this.STOP.draw(container.getWidth()*5/6-PLAY.getWidth()/2-decalage,16*container.getHeight()/20-decalage,4*container.getHeight()/20,4*container.getHeight()/20);
+			this.STOP.draw(2*container.getWidth()/3+20,16*container.getHeight()/20-decalage,4*container.getHeight()/20,4*container.getHeight()/20);
 		}
 		g.drawString("Menu",5,5);
 		
@@ -198,12 +200,15 @@ public class Interface {
 		this.tournerD.getImage().draw(decalage+20+3*lg+3*decalage2, 16*container.getHeight()/20-decalage+20);
 		this.sauter.getImage().draw(decalage+20+4*lg+4*decalage2, 16*container.getHeight()/20-decalage+20);
 		this.appuyer.getImage().draw(decalage+20+5*lg+5*decalage2, 16*container.getHeight()/20-decalage+20);
+		this.p1.getImage().draw(decalage+20+6*lg+6*decalage2, 16*container.getHeight()/20-decalage+20);
 		this.prendre.getImage().draw(decalage+20, 16*container.getHeight()/20-decalage+20+lar);
 		this.lacher.getImage().draw(decalage+20+lg+decalage2, 16*container.getHeight()/20-decalage+20+lar);
 		this.myBreak.getImage().draw(decalage+20+2*lg+2*decalage2, 16*container.getHeight()/20-decalage+20+lar);
-		this.testCaseDevant.getImage().draw(decalage+20+3*lg+3*decalage2, 16*container.getHeight()/20-decalage+20+lar);
-		this.testCouleurCase.getImage().draw(decalage+20+4*lg+4*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		this.testAvancer.getImage().draw(decalage+20+3*lg+3*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		this.testCaseBleue.getImage().draw(decalage+20+4*lg+4*decalage2, 16*container.getHeight()/20-decalage+20+lar);
 		this.lockUnlock.getImage().draw(decalage+20+5*lg+5*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		this.p2.getImage().draw(decalage+20+6*lg+6*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		this.testSauter.getImage().draw(decalage+20+7*lg+7*decalage2, 16*container.getHeight()/20-decalage+20+lar);
 	}
 	public Action getAllumer(){ return allumer; }
 	public Action getAvancer() { return avancer; }
@@ -215,8 +220,11 @@ public class Interface {
 	public Action getLacher(){ return lacher; }
 	public Action getLockUnlock(){ return lockUnlock; }
 	public Action getMyBreak(){ return myBreak; }
-	public Action getTestCouleurCase(){ return testCouleurCase; }
-	public Action getTestCaseDevant(){ return testCaseDevant; }
+	public Action getTestCaseBleue(){ return testCaseBleue; }
+	public Action getTestAvancer(){ return testAvancer; }
+	public Action getTestSauter(){ return testSauter; }
+	public Action getP1() { return p1; }
+	public Action getP2() { return p2; }
 	
 	public void setEmplacement1(Image i){ emplacement1 = i; }
 	public void setEmplacement2(Image i){ emplacement2 = i; }
@@ -247,11 +255,40 @@ public class Interface {
 	public void setEmplacement27(Image i){ emplacement27 = i; }
 	public void setEmplacement28(Image i){ emplacement28 = i; }
 	
-	public Image getSon() { return this.SON; }
-	public void setSon() { if (this.SON.equals(SON_ON)) this.SON = SON_OFF; else this.SON = SON_ON; }
 	public Image getMusic() { return this.MUSIC; }
 	public void setMusic() { if (this.MUSIC.equals(MUSIC_ON)) this.MUSIC = MUSIC_OFF; else this.MUSIC = MUSIC_ON; }
 	
 	public void setRunning() { running = !running; }
+	
+	public void effacer() throws SlickException{
+		this.emplacement1 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement2 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement3 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement4 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement5 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement6 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement7 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement8 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement9 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement10 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement11 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement12 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement13 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement14 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement15 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement16 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement17 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement18 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement19 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement20 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement21 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement22 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement23 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement24 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement25 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement26 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement27 = new Image("graphisme/Images/actions/emplacement.bmp");
+		this.emplacement28 = new Image("graphisme/Images/actions/emplacement.bmp");
+	}
 	
 }

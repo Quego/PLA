@@ -71,6 +71,7 @@ public class ChoixHardLevels extends BasicGameState{
 	    	positionX += boutonLvl4.getWidth() + ecartLargeur;
 	    	boutonLvl5.draw(positionX,positionY);  
 	    	//boutonMouse.draw(PG_X,PG_Y);
+	    	g.setColor(Color.black);
 	    	g.drawString("Click on your choice", Main.resolutionX/2-80, Main.resolutionY/2-10);
 	    } 
 	    
@@ -97,61 +98,22 @@ public class ChoixHardLevels extends BasicGameState{
 	    		game.enterState(Choix.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 	    	}
 	    	if(x>62 && x<312 && y>78 && y<311){
-	    		game.enterState(WindowGame.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+	    		WindowGame.precedent = 51;
 	    	}
 	    	if(x>374 && x<624 && y>78 && y<311){
-	    		game.enterState(WindowGame.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+	    		WindowGame.precedent = 52;
 	    	}
 			if(x>686 && x<936 && y>78 && y<311){
-				game.enterState(WindowGame.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));	
+				WindowGame.precedent = 53;
 			}
 			if(x>219 && x<469 && y>389 && y<622){
-				game.enterState(WindowGame.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
-			}
+				WindowGame.precedent = 54;
+			}	
 			if(x>531 && x<781 && y>389 && y<622){
-				game.enterState(WindowGame.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+				WindowGame.precedent = 55;
 			}
+			game.enterState(WindowGame.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 	    }
-	    
-	    public void keyReleased(int key, char c) {  
-	    	switch (key) {
-	    	case Input.KEY_ENTER :
-	    		if (quit)Menu.container.exit(); 
-	    		else  
-	    		{
-	    				game.enterState(WindowGame.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));break;
-	    		}
-	    		
-	    		
-	    	case Input.KEY_ESCAPE:Menu.container.exit(); break;
-	    	//case Input.KEY_M: if(Accueil.Music_Choix.playing()){ Accueil.Music_Choix.pause(); MusicManager.mute=true; }else {Accueil.Music_Choix.resume(); MusicManager.mute=false;}break;
-	    	
-	    	case Input.KEY_RIGHT:
-	    		if(this.PG_X < 250)
-	    		{
-	    			this.PG_X = 259;
-	    			this.quit = false;
-	    		}
-	    		else 
-	    		{
-	    			this.PG_X = 509;
-	    			this.quit = true;
-	    		}
-	    		
-	    		break;
-	    	case Input.KEY_LEFT:
-	    		if(this.PG_X > 300)
-	    		{
-	    			this.PG_X = 259;
-	    			this.quit = false;
-	    		}
-	    		else 
-	    		{
-	    			this.PG_X = 9;
-	    			this.quit = false;
-	    		}
-	    		break;
-	    	}
-		   }	
+	
 	    
 }
