@@ -270,10 +270,11 @@ public class WindowGame extends BasicGameState {
 	}
 	
     public void mouseDragged(int oldx, int oldy, int newx, int newy){
-    	//se souvenir de l action selectionnée//
+
 	    	S = "";
 			X = 1000;
 			Y = 700;
+			//se souvenir de l action selectionnée//
     		this.copie.setdestX(newx-this.copie.getImage().getWidth()/2);
     		this.copie.setdestY(newy-this.copie.getImage().getHeight()/2);
     		copie.setdestX(newx-this.copie.getImage().getWidth()/2);
@@ -589,6 +590,8 @@ public class WindowGame extends BasicGameState {
 			case Input.KEY_K:     this.player_1.down(); break;
 			case Input.KEY_A:     this.map.allume(this.player_1.getColonne(),this.player_1.getLigne()); break;
 			case Input.KEY_I:     this.map.interrup(this.player_1.getColonne(),this.player_1.getLigne()); break;
+			case Input.KEY_P:     this.map.poseFruit(this.player_1.getColonne(),this.player_1.getLigne()); break;
+			case Input.KEY_R:     this.map.prendFruit(this.player_1.getColonne(),this.player_1.getLigne()); break;
 			}
 		}
 		/*if(!this.player_2.isRunning() && !this.player_2.isJumping() && !this.player_2.isFalling() ){
@@ -627,12 +630,12 @@ public class WindowGame extends BasicGameState {
 			Y = y;
 		}
 		if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+2*lg+2*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-			S = "Tourner à gauche";
+			S = "Tourner ï¿½ gauche";
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+3*lg+3*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-			S = "Tourner à droite";
+			S = "Tourner ï¿½ droite";
 			X = x;
 			Y = y;
 		}
@@ -662,7 +665,7 @@ public class WindowGame extends BasicGameState {
 			Y = y;
 		}
 		if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+3*lg+3*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			S = "Arreter la boucle programmée";
+			S = "Arreter la boucle programmï¿½e";
 			X = x;
 			Y = y;
 		}
