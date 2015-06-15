@@ -1,5 +1,4 @@
 package model;
-import jus.util.assertion.*;
 
 public class Sauter implements Action {
 	public void executer(){
@@ -13,7 +12,6 @@ public class Sauter implements Action {
 			Controleur.getBotActif().setPosition(dest);
 			Controleur.getMap().getCellule(Controleur.getBotActif().getPositionDevant()).setOccupee(true);
 		}
-		else throw new Ensure("Le Bot ne peut pas sauter !");
 	}
 	
 	public String toString(){

@@ -1,16 +1,15 @@
 package model;
 import java.util.*;
 
-import jus.util.assertion.*;
 public class Bot {
 	
 	/*-----------------------------ATTRIBUTS-----------------------------*/
 	/**
-	 * position représente la position du Bot dans la Map
-	 * orientation représente l'orientation du Bot (NORD, EST, SUD, OUEST)
-	 * couleur représente la couleur du Bot
-	 * objet représente l'objet tenu par le robot ou rien
-	 * actions représente la liste d'actions que le Bot va exécuter lors de l'appel de la procédure play()
+	 * position reprï¿½sente la position du Bot dans la Map
+	 * orientation reprï¿½sente l'orientation du Bot (NORD, EST, SUD, OUEST)
+	 * couleur reprï¿½sente la couleur du Bot
+	 * objet reprï¿½sente l'objet tenu par le robot ou rien
+	 * actions reprï¿½sente la liste d'actions que le Bot va exï¿½cuter lors de l'appel de la procï¿½dure play()
 	 */
 	private Position position;
 	private Orientation orientation;
@@ -143,7 +142,7 @@ public class Bot {
 	
 	/*---------------------PROCEDURES-&-FONCTIONS-----------------------------*/
 	/**
-	 * exécute la liste de fonctions contenue dans l'attribut actions seulement si le Bot est actif
+	 * exï¿½cute la liste de fonctions contenue dans l'attribut actions seulement si le Bot est actif
 	 */
 	public void play(){
 		if (etat == Etat.ACTIF){
@@ -158,12 +157,11 @@ public class Bot {
 	}
 	
 	/**
-	 * positionne le Bot à sa position, son orientation et sa couleur de départ
-	 * @ensure le Bot est retourné à la position initiale
+	 * positionne le Bot ï¿½ sa position, son orientation et sa couleur de dï¿½part
+	 * @ensure le Bot est retournï¿½ ï¿½ la position initiale
 	 */
 	public void resetBot(){
 		position = Controleur.getMap().getPositionInit();
-		if (getPosition() != Controleur.getMap().getPositionInit()) throw new Ensure("Le Bot n'est pas retourné à sa position initiale");
 	}
 	
 	/**
@@ -172,13 +170,12 @@ public class Bot {
 	 */
 	public void resetListeFonctions(){
 		actions.clear();
-		if (!(actions.isEmpty())) throw new Ensure("La liste d'actions n'a pas été vidée");
 	}
 	
 	public String toString(){
 		String etat = "Le bot est " + this.etat.toString() + "\n";
-		String pos 	= "Le Bot est à la position : "	+ this.position.toString() 	+"\n";
-		String orient = "Il est tourné vers "	+ this.orientation.toString() +"\n";
+		String pos 	= "Le Bot est ï¿½ la position : "	+ this.position.toString() 	+"\n";
+		String orient = "Il est tournï¿½ vers "	+ this.orientation.toString() +"\n";
 		String coul = "Il est de couleur "	+ this.couleur.toString() +"\n";
 		String obj;
 		String fonct;
@@ -189,7 +186,7 @@ public class Bot {
 				obj = "Il ne tient rien dans ses mains \n";
 		}
 		if (this.actions.isEmpty()) {
-			fonct = "Il n'a rien à faire \n";
+			fonct = "Il n'a rien ï¿½ faire \n";
 		}
 		else {
 			fonct = "Il doit faire cette liste d'actions : " + this.actions.toString() + "\n";

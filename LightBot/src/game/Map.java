@@ -1,17 +1,6 @@
 package game;
 
-
-import org.newdawn.slick.Color;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.Input;
-import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.state.BasicGameState;
-import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.state.transition.FadeInTransition;
-import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
 public class Map {
@@ -148,7 +137,7 @@ public class Map {
 		  	return Height;
 	  }
 	  
-	  public void YOLOSWAG(){
+	  public void YOLOSWAG() {
 			if (this.tiledMap.getTileId(2,4,6) == 1 )
 				this.tiledMap.setTileId(2,4,6, 9);
 			else if (this.tiledMap.getTileId(2,4,6) == 9 )
