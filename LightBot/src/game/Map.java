@@ -38,7 +38,7 @@ public class Map {
 	}
 	
 	public void renderForeground(int ligne, int colonne){
-		for(int i=ligne+colonne+1;i<this.Height + this.Width-1;i++){
+		for(int i=ligne+colonne+1;i<this.Width + this.Height-1;i++){
 			this.tiledMap.render(0, 0, i);
 		}
 	}
@@ -158,6 +158,10 @@ public class Map {
 	
 	public void changeMap(String file) throws SlickException {
 		this.tiledMap = new TiledMap(file);
+		Height = tiledMap.getHeight();
+		Width = tiledMap.getWidth();
+		TilesWidth = tiledMap.getTileWidth();	
+		TilesHeight = tiledMap.getTileHeight();
 	}	
 	
 	  public float getHeight(){
