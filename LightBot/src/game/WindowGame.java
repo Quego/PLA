@@ -103,6 +103,7 @@ public class WindowGame extends BasicGameState {
 		this.interf.getMyBreak().update();
 		this.interf.getTestCouleurCase().update();
 		this.interf.getTestCaseDevant().update();
+		this.map.randomCase(/*colonne*/ 0, /*ligne*/ 0);
 	}
 	
 	public void mousePressed(int button, int x, int y){

@@ -66,7 +66,6 @@ public class Map {
 	
 	public void interrup(int colonne, int ligne)
 	{
-		System.out.println(+this.tiledMap.getTileId(colonne,ligne, ligne + colonne));
 		int ID = this.tiledMap.getTileId(colonne,ligne, ligne + colonne);
 		if ((17 <= ID ) && (ID <= 24)){
 			if ((ID%2 == 1))
@@ -140,19 +139,29 @@ public class Map {
 		
 	}
 	
+	  public void randomCase(int colonne, int ligne){
+		  int nombreAleatoire =  (int)(Math.random() * (50));
+		  int ID = this.tiledMap.getTileId(colonne,ligne, ligne + colonne);
+		  if (nombreAleatoire == 1){
+			switch (ID) {
+        	case 2: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 9); break;
+        	case 4: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 10); break;
+        	case 6: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 11); break;
+        	case 8: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 12); break;
+        	case 9: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 2); break;
+        	case 10:this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 4); break;
+        	case 11:this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 6); break;
+        	case 12:this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 8); break;
+			}
+		  }
+	  }
+	
 	public void changeMap(String file) throws SlickException {
 		this.tiledMap = new TiledMap(file);
 	}	
 	
 	  public float getHeight(){
 		  	return Height;
-	  }
-	  
-	  public void YOLOSWAG(){
-			if (this.tiledMap.getTileId(2,4,6) == 1 )
-				this.tiledMap.setTileId(2,4,6, 9);
-			else if (this.tiledMap.getTileId(2,4,6) == 9 )
-				this.tiledMap.setTileId(2,4,6, 1);
 	  }
 	  
 	  
