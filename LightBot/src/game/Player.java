@@ -403,5 +403,9 @@ public class Player {
 	  public void setNewDirection(int x){
 		this.direction = ((direction+x+4)%4);
 	  }
+	  
+	  public void setMap(Map map){
+		  this.map = map;
+	  }
 
 }
