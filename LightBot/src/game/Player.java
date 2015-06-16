@@ -40,15 +40,15 @@ public class Player {
 	  
 	public void init() throws SlickException { 
 		  
-		SpriteSheet spriteSheet = new SpriteSheet("graphisme/sprite/character.png", 64, 64);
+		SpriteSheet spriteSheet = new SpriteSheet("graphisme/sprite/character.png", 64, 96);
 		this.animations[0] = loadAnimation(spriteSheet, 0, 1, 0);
 		this.animations[1] = loadAnimation(spriteSheet, 0, 1, 1);
 		this.animations[2] = loadAnimation(spriteSheet, 0, 1, 2);
 		this.animations[3] = loadAnimation(spriteSheet, 0, 1, 3);
-		this.animations[4] = loadAnimation(spriteSheet, 1, 7, 0);
-		this.animations[5] = loadAnimation(spriteSheet, 1, 7, 1);
-		this.animations[6] = loadAnimation(spriteSheet, 1, 7, 2);
-		this.animations[7] = loadAnimation(spriteSheet, 1, 7, 3);
+		this.animations[4] = loadAnimation(spriteSheet, 1, 4, 0);
+		this.animations[5] = loadAnimation(spriteSheet, 1, 4, 1);
+		this.animations[6] = loadAnimation(spriteSheet, 1, 4, 2);
+		this.animations[7] = loadAnimation(spriteSheet, 1, 4, 3);
 	  }
 	  
 	public void placePlayer(int ligne, int colonne, int hauteur){

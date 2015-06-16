@@ -94,25 +94,27 @@ public class ChoixFruit extends BasicGameState{
 	    	if(x>0 && x<boutonQuit.getWidth() && y>0 && y<boutonQuit.getHeight()){
 	    		Menu.container.exit();
 	    	}
-	    	if(x>boutonQuit.getWidth() && x<(boutonQuit.getWidth()+boutonRetour.getWidth()) && y>0 && y<boutonRetour.getHeight()){
-	    		game.enterState(Choix.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+	    	else {
+		    	if(x>boutonQuit.getWidth() && x<(boutonQuit.getWidth()+boutonRetour.getWidth()) && y>0 && y<boutonRetour.getHeight()){
+		    		game.enterState(Choix.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+		    	}
+		    	if(x>62 && x<312 && y>78 && y<311){
+		    		WindowGame.precedent = 31;
+		    	}
+		    	if(x>374 && x<624 && y>78 && y<311){
+		    		WindowGame.precedent = 32;
+		    	}
+				if(x>686 && x<936 && y>78 && y<311){
+					WindowGame.precedent = 33;
+				}
+				if(x>219 && x<469 && y>389 && y<622){
+					WindowGame.precedent = 34;
+				}	
+				if(x>531 && x<781 && y>389 && y<622){
+					WindowGame.precedent = 35;
+				}
+				game.enterState(WindowGame.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 	    	}
-	    	if(x>62 && x<312 && y>78 && y<311){
-	    		WindowGame.precedent = 31;
-	    	}
-	    	if(x>374 && x<624 && y>78 && y<311){
-	    		WindowGame.precedent = 32;
-	    	}
-			if(x>686 && x<936 && y>78 && y<311){
-				WindowGame.precedent = 33;
-			}
-			if(x>219 && x<469 && y>389 && y<622){
-				WindowGame.precedent = 34;
-			}	
-			if(x>531 && x<781 && y>389 && y<622){
-				WindowGame.precedent = 35;
-			}
-			game.enterState(WindowGame.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 	    }
 	    
 	   
