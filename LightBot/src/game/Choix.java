@@ -40,9 +40,9 @@ public class Choix extends BasicGameState {
     	//boutonSolo = new Image("graphisme/image/Solo.png");
     	//boutonMulti = new Image("graphisme/image/Multi.png");
     	boutonMouse  = new Image("graphisme/Images/Mouse.png");
-    	boutonBasic = new Image("graphisme/Images/choix/choix1.png");
+    	boutonBasic = new Image("graphisme/Images/choix/choixBasic.png");
     	boutonITE = new Image("graphisme/Images/choix/ChoixITE.jpg");
-    	boutonFruit = new Image("graphisme/Images/choix/ChoixFruit.jpg");
+    	boutonFruit = new Image("graphisme/Images/choix/choixFruit.png");
     	boutonCoop = new Image("graphisme/Images/choix/ChoixCoop.jpg");
     	boutonHardLevels = new Image("graphisme/Images/choix/choix5.png");
     	boutonRetour = new Image("graphisme/Images/Retour.png");
