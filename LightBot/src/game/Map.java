@@ -55,12 +55,12 @@ public class Map {
 			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 3);
 		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 5)
 			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 6);
-		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 5)
-			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 6);
+		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 6)
+			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 5);
 		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 7)
 			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 8);
-		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 7)
-			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 8);
+		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 8)
+			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 7);
 
 	}
 	
