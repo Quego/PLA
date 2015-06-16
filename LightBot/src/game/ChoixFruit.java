@@ -38,7 +38,7 @@ public class ChoixFruit extends BasicGameState{
 	    	//boutonMulti = new Image("graphisme/image/Multi.png");
 	    	boutonMouse  = new Image("graphisme/Images/Mouse.png");
 	    	boutonLvl1 = new Image("graphisme/Images/choix/ChoixFruit/choix31.png");
-	    	boutonLvl2 = new Image("graphisme/Images/choix/ChoixFruit/choix32.jpg");
+	    	boutonLvl2 = new Image("graphisme/Images/choix/ChoixFruit/choix32.png");
 	    	boutonLvl3 = new Image("graphisme/Images/choix/ChoixFruit/choix33.png");
 	    	boutonLvl4 = new Image("graphisme/Images/choix/ChoixFruit/choix34.png");
 	    	boutonLvl5 = new Image("graphisme/Images/choix/ChoixFruit/choix35.png");

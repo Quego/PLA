@@ -23,13 +23,14 @@ public class WindowGame extends BasicGameState {
 	private Player player_1;
 	private Player player_2;
 	private Action copie;
+	private Image aide; //Matthieu 
 	private Image background,menu;
 	private boolean running = false, menu_ouvert = false;
 	public static final int ID = 2;
 	private Interface interf = new Interface();
 	private StateBasedGame game;
 	private Map map = new Map();
-	private int X, Y;
+	private int X, Y, LG;//Matthieu : ajout LG
 	private String S;
 	public WindowGame() {
 	}
@@ -37,7 +38,8 @@ public class WindowGame extends BasicGameState {
 	public int getID() {
 		return ID;
 	}
-
+	
+	//Matthieu : ajout des init necessaire
 	public void init(GameContainer container, StateBasedGame game) throws SlickException{	
 		this.container = container;
 		map.init();
@@ -49,8 +51,9 @@ public class WindowGame extends BasicGameState {
 		this.player_2.placePlayer(0,0,1);
 		this.interf.init();
 		copie = new Action();
-		background = new Image("graphisme/Images/fond/niv1.png");
+		background = new Image("graphisme/Images/fond/fond_jeu.jpg");
 		menu = new Image("graphisme/Images/menu.png");
+		aide = new Image("graphisme/Images/actions/aide.gif");
 		X = 1000;
 		Y = 700;
 		S = "";
@@ -72,10 +75,10 @@ public class WindowGame extends BasicGameState {
 			case 23 : this.map.changeMap("graphisme/map/if_niv3.tmx");  this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv3.png"); break;
 			case 24 : this.map.changeMap("graphisme/map/base_niv4.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv4.png"); break;
 			case 25 : this.map.changeMap("graphisme/map/base_niv5.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv5.png"); break;
-			case 31 : this.map.changeMap("graphisme/map/base_niv1.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv1.png"); break;
-			case 32 : this.map.changeMap("graphisme/map/base_niv2.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv2.png"); break;
-			case 33 : this.map.changeMap("graphisme/map/base_niv3.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv3.png"); break;
-			case 34 : this.map.changeMap("graphisme/map/base_niv4.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv4.png"); break;
+			case 31 : this.map.changeMap("graphisme/map/fruit_niv1.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv1.png"); break;
+			case 32 : this.map.changeMap("graphisme/map/fruit_niv2.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv2.png"); break;
+			case 33 : this.map.changeMap("graphisme/map/fruit_niv3.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv3.png"); break;
+			case 34 : this.map.changeMap("graphisme/map/fruit_niv4.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv4.png"); break;
 			case 35 : this.map.changeMap("graphisme/map/base_niv5.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv5.png"); break;
 			case 41 : this.map.changeMap("graphisme/map/coop_niv1.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv1.png"); break;
 			case 42 : this.map.changeMap("graphisme/map/coop_niv2.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv2.png"); break;
@@ -100,24 +103,26 @@ public class WindowGame extends BasicGameState {
 		
 		
 	
-	this.map.renderBackground(this.player_1.getLigne(),this.player_1.getColonne());
-	this.player_1.render(g);
+	//this.map.renderBackground(this.player_1.getLigne(),this.player_1.getColonne());
+	//this.player_1.render(g);
 //	this.player_2.render(g);
-	this.map.renderForeground(this.player_1.getLigne(),this.player_1.getColonne());
+	//this.map.renderForeground(this.player_1.getLigne(),this.player_1.getColonne());
+		this.map.render(this.player_1,this.player_2,g);
 	this.interf.render(container, game, g);
 	copie.render(container,game,g);
 	if(menu_ouvert) menu.draw(1, container.getHeight()/20+1);
 	g.resetTransform();
 	g.setColor(Color.red);
+	aide.draw(X-4, Y-3, LG, 25);
 	g.drawString(S,X,Y);
 	}
 
 	public void update(GameContainer container, StateBasedGame game, int delta)throws SlickException{
 
 		this.player_1.update(delta);
-//		this.player_2.update(delta);
+		this.player_2.update(delta);
 		this.copie.update();
-		this.map.randomCase(/*colonne*/ 0, /*ligne*/ 0);
+	//	this.map.randomCase(/*colonne*/ 0, /*ligne*/ 0);
 
 	}
 	
@@ -594,13 +599,13 @@ public class WindowGame extends BasicGameState {
 			case Input.KEY_R:     this.map.prendFruit(this.player_1.getColonne(),this.player_1.getLigne()); break;
 			}
 		}
-		/*if(!this.player_2.isRunning() && !this.player_2.isJumping() && !this.player_2.isFalling() ){
+		if(!this.player_2.isRunning() && !this.player_2.isJumping() && !this.player_2.isFalling() ){
 			switch (key) {
-        case Input.KEY_Z:     this.player_2.setDirection(0); this.player_2.start(); break;
-        case Input.KEY_Q:     this.player_2.setDirection(1); this.player_2.setNewDirection(1); break;
-        case Input.KEY_D:     this.player_2.setDirection(2); this.player_2.setNewDirection(-1); break;
+			case Input.KEY_Z:    this.player_2.start(); break;
+			case Input.KEY_Q:  this.player_2.setNewDirection(1); break;
+			case Input.KEY_D: this.player_2.setNewDirection(-1); break;
 			}
-	    }*/
+	    }
 		switch (key) {
 		case Input.KEY_M:		/*this.interf.setMusic(); if(m.playing()) m.pause(); else m.resume();*/ break;
 		case Input.KEY_ESCAPE: 	this.menu_ouvert = !this.menu_ouvert; break;
@@ -611,6 +616,8 @@ public class WindowGame extends BasicGameState {
 		
 	}
 	
+	
+	//Matthieu : modif
 	public void mouseMoved(int oldx, int oldy, int x, int y){
 		int decalage = 7;
 		int decalage2 = 28;
@@ -621,86 +628,102 @@ public class WindowGame extends BasicGameState {
 		Y = 700;
 		if(x>(decalage+20) && x < (decalage+20 + lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + h)){
 			S = "Avancer";
+			LG = 72;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+lg+decalage2) && x<(decalage+20+lg+decalage2+lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20+h)){
-			S = "Allumer la case bleue";
+			S = "Allumer";
+			LG = 72;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+2*lg+2*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-			S = "Tourner � gauche";
+			S = "Tourner a gauche";
+			LG = 155;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+3*lg+3*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-			S = "Tourner � droite";
+			S = "Tourner a droite";
+			LG = 155;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+4*lg+4*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
 			S = "Sauter";
+			LG = 65;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+5*lg+5*decalage2) && x < (decalage+20+5*lg+5*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
 			S = "Appuyer sur l'interrupteur";
+			LG = 250;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-			S = "Lancer la proc�dure P1";
+			S = "Lancer P1";
+			LG = 100;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20) && x < (decalage+20+ h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
 			S = "Prendre l'objet";
+			LG = 145;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+lg+decalage2) && x < (decalage+20+lg+decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20 +h+ lg)){
 			S = "Lacher l'objet";
+			LG = 140;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+3*lg+3*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			S = "Arreter la boucle programm�e";
+			S = "Arreter la boucle programmee";
+			LG = 265;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
 			S = "Avancer ???";
+			LG = 110;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+4*lg+4*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
 			S = "Case bleue ???";
+			LG = 135;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+5*lg+5*decalage2) && x < (decalage+20+5*lg+5*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
 			S = "Changement de Bot";
+			LG = 165;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			S = "Lancer la proc�dure P2";
+			S = "Lancer P2";
+			LG = 100;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+7*lg+7*decalage2) && x < (decalage+20+7*lg+7*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
 			S = "Sauter ???";
+			LG = 100;
 			X = x;
 			Y = y;
 		}
 		if(x>2*container.getWidth()/3+20+2*lg+2*decalage2 && y > 16*container.getHeight()/20-decalage && x< 2*container.getWidth()/3+20+2*lg+2*decalage2 + 4*container.getHeight()/20 && y<  16*container.getHeight()/20-decalage + 4*container.getHeight()/20){
-			S = "Effacer les actions donn�es";
-			X = x;
+			S = "Effacer les actions donnees";
+			LG = 255;
+			X = 750;
 			Y = y;
 		}
 		Y -= 17; 
 	}
-	
+
 	
 }
