@@ -35,7 +35,7 @@ public class Choix extends BasicGameState {
 	   
     public void init(GameContainer container, StateBasedGame game) throws SlickException { 
     	this.game = game;
-    	background = new Image("graphisme/Images/fond/FOND_CHOIX.png");
+    	background = new Image("graphisme/Images/fond/fond_choix.jpg");
     	boutonQuit = new Image("graphisme/Images/Quit.png");
     	//boutonSolo = new Image("graphisme/image/Solo.png");
     	//boutonMulti = new Image("graphisme/image/Multi.png");
@@ -58,7 +58,7 @@ public class Choix extends BasicGameState {
     	float positionX,positionY,ecartLargeur,ecartHauteur;
     	ecartLargeur = (container.getWidth()-(boutonBasic.getWidth()+boutonITE.getWidth()+boutonFruit.getWidth()))/4;
     	ecartHauteur = (container.getHeight()-(boutonBasic.getHeight()+boutonCoop.getHeight()))/3;
-    	background.draw();
+    	background.draw(0,0,container.getWidth(),container.getScreenHeight());
     	boutonQuit.draw(0,0); boutonRetour.draw(boutonQuit.getWidth(),0);
     	//boutonSolo.draw(50, 350);
     	//boutonMulti.draw(300, 350);

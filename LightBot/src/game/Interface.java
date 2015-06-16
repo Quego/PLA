@@ -3,6 +3,8 @@ package game;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Objet;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -13,7 +15,7 @@ import org.newdawn.slick.tiled.TiledMap;
 
 public class Interface {
 	
-	private Image MAIN,P1,P2,MENU,ACTIONS,MUSIC,MUSIC_ON,MUSIC_OFF,PLAY,STOP,POUBELLE;
+	private Image MAIN,P1,P2,MENU,ACTIONS,MUSIC,MUSIC_ON,MUSIC_OFF,PLAY,STOP,POUBELLE,fraise,pasteque,myrtille;
 	
 	private Image emplacement1,emplacement2,emplacement3,emplacement4,emplacement5,emplacement6,emplacement7,emplacement8,emplacement9,emplacement10,emplacement11,emplacement12,emplacement13,emplacement14,emplacement15,emplacement16,emplacement17,emplacement18,emplacement19,emplacement20,emplacement21,emplacement22,emplacement23,emplacement24,emplacement25,emplacement26,emplacement27,emplacement28;
 	
@@ -28,6 +30,9 @@ public class Interface {
 		this.P2 = new Image("graphisme/Images/fond/fond_actions.png");
 		this.MENU = new Image("graphisme/Images/fond/fond_actions.png");
 		this.ACTIONS = new Image("graphisme/Images/fond/fond_actions.png");
+		this.fraise = new Image("graphisme/Images/fruits/panier_fraise.png");
+		this.pasteque = new Image("graphisme/Images/fruits/panier_pasteque.png");
+		this.myrtille = new Image("graphisme/Images/fruits/panier_myrtille.png");
 		MUSIC_ON = new Image("graphisme/Images/musiqueON.png");
 		MUSIC_OFF = new Image("graphisme/Images/musiqueOFF.png");
 		MUSIC = MUSIC_ON;
@@ -122,6 +127,8 @@ public class Interface {
 						container.getWidth(),
 						container.getHeight()/20);
 		
+		panier(/*List<Objet> fruit,*/ container);
+		
 		this.ACTIONS.draw(decalage, 
 						16*container.getHeight()/20-decalage,
 						2*container.getWidth()/3-2*decalage,
@@ -210,6 +217,42 @@ public class Interface {
 		this.p2.getImage().draw(decalage+20+6*lg+6*decalage2, 16*container.getHeight()/20-decalage+20+lar);
 		this.testSauter.getImage().draw(decalage+20+7*lg+7*decalage2, 16*container.getHeight()/20-decalage+20+lar);
 	}
+	
+	
+	public void panier(/*List<Objet> fruit,*/ GameContainer container ){
+		float decalage = container.getHeight()/100;
+		for (int i = 0; i < 4; i ++){
+		this.fraise.draw(0, 
+				container.getHeight()/20+decalage + i*50,
+				50,
+				50);}
+	/*	for (int i = 0; i < fruit.size(); i ++){
+			switch (fruit.get(i)){
+				case FRAISE : this.fraise.draw(0, 
+				container.getHeight()/20+decalage + i*50,
+				50,
+				50);
+					break;
+				case PASTEQUE : this.pasteque.draw(0, 
+				container.getHeight()/20+decalage + i*50,
+				50,
+				50);
+					break;
+				case MYRTILLE : this.myrtille.draw(0, 
+				container.getHeight()/20+decalage + i*50,
+				50,
+				50);
+					break;
+				default :
+					break;
+			}
+		}
+		
+		
+		*/
+	}
+	
+	
 	public Action getAllumer(){ return allumer; }
 	public Action getAvancer() { return avancer; }
 	public Action getTournerG() { return tournerG; }

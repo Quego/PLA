@@ -49,7 +49,7 @@ public class WindowGame extends BasicGameState {
 		this.player_2.placePlayer(0,0,1);
 		this.interf.init();
 		copie = new Action();
-		background = new Image("graphisme/Images/fond/fond_jeu.png");
+		background = new Image("graphisme/Images/fond/fond_jeu.jpg");
 		menu = new Image("graphisme/Images/menu.png");
 		X = 1000;
 		Y = 700;
