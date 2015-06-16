@@ -18,13 +18,15 @@ public class Player {
 	
 	private float x =0, y = 0;
 	private int direction = 0;
-	private Animation[] animations = new Animation[8];
+	private Animation[] animations = new Animation[12]; //Modifié par elsa 16/6
 	private int posLigne, posColonne;
 	private Map map;
 	  
 	private float destinationX,destinationY;
+	private int delta_a = 0;
 	  
 	private boolean running = false;
+	private boolean lightning = false; //Ajout par elsa 16/6
 	private boolean jumping = false;
 	private boolean topJump = false;
 	private boolean falling = false;
@@ -36,7 +38,7 @@ public class Player {
 	public Player(Map map) {
 	  this.map = map;
 	 }
-	  
+	  //Modif par elsa 16/6
 	public void init() throws SlickException { 
 		  
 		SpriteSheet spriteSheet = new SpriteSheet("graphisme/sprite/character.png", 64, 96);
@@ -48,6 +50,10 @@ public class Player {
 		this.animations[5] = loadAnimation(spriteSheet, 1, 4, 1);
 		this.animations[6] = loadAnimation(spriteSheet, 1, 4, 2);
 		this.animations[7] = loadAnimation(spriteSheet, 1, 4, 3);
+		this.animations[8] = loadAnimation(spriteSheet, 0, 4, 4);
+		this.animations[9] = loadAnimation(spriteSheet, 0, 4, 5);
+		this.animations[10] = loadAnimation(spriteSheet, 0, 4, 6);
+		this.animations[11] = loadAnimation(spriteSheet, 0, 4, 7);
 	  }
 	  
 	public void placePlayer(int ligne, int colonne, int hauteur){
@@ -66,11 +72,11 @@ public class Player {
 			}
 			return animation;
 	}
-	  
+	  //Modifié par Elsa 16/6
 	public void render(Graphics g) throws SlickException {
 	 //   g.setColor(new Color(0, 0, 0, .5f));
 	  //  g.fillOval(x - 16, y - 8, 32, 16);
-	    g.drawAnimation(animations[direction + (running ? 4 : 0)], x-32, y-60);
+	    g.drawAnimation(animations[direction + (running ? 4 : (lightning? 8 : 0))], x-32, y-55);
 	 }
 	  
 	  
@@ -79,7 +85,19 @@ public class Player {
 		updateRun(delta);
 		updateJump(delta);
 		updateDown(delta);
+		updateLight(delta);
 		}
+	
+	private void updateLight(int delta){
+		if(lightning){
+			delta_a += delta;
+			if (delta_a > 20*delta){ 
+			lightning = false;
+			delta_a = 0;
+			}
+		}
+	}
+
 	
 	private void updateRun(int delta){
 		if (running) {
@@ -390,6 +408,14 @@ public class Player {
 	  
 	  public void setRunning(boolean running) { 
 		  this.running = running; 
+	  }
+	  
+	  public boolean isLightning() { 
+		  return lightning;
+	  }
+	  
+	  public void setLightning(boolean lightning) { 
+		  this.lightning = lightning; 
 	  }
 	  
 	  public int getLigne(){

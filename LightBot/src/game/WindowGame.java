@@ -578,16 +578,17 @@ public class WindowGame extends BasicGameState {
 		
 		
     }
-
+//Modif par elsa 16/6
 	public void keyPressed(int key, char c) {
 		if(!this.player_1.isRunning() && !this.player_1.isJumping() && !this.player_1.isFalling() ){
+			this.player_1.setLightning(false);
 			switch (key) {
 			case Input.KEY_UP:    this.player_1.start(); break;
 			case Input.KEY_LEFT:  this.player_1.setNewDirection(1); break;
 			case Input.KEY_RIGHT: this.player_1.setNewDirection(-1); break;
 			case Input.KEY_J:     this.player_1.jump(); break;
 			case Input.KEY_K:     this.player_1.down(); break;
-			case Input.KEY_A:     this.map.allume(this.player_1.getColonne(),this.player_1.getLigne()); break;
+			case Input.KEY_A:     this.map.allume(this.player_1.getColonne(),this.player_1.getLigne());this.player_1.setLightning(true); break;
 			case Input.KEY_I:     this.map.interrup(this.player_1.getColonne(),this.player_1.getLigne()); break;
 			case Input.KEY_P:     this.map.poseFruit(this.player_1.getColonne(),this.player_1.getLigne()); break;
 			case Input.KEY_R:     this.map.prendFruit(this.player_1.getColonne(),this.player_1.getLigne()); break;
