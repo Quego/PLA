@@ -258,6 +258,7 @@ public class Interface {
 	public Image getMusic() { return this.MUSIC; }
 	public void setMusic() { if (this.MUSIC.equals(MUSIC_ON)) this.MUSIC = MUSIC_OFF; else this.MUSIC = MUSIC_ON; }
 	
+	public boolean getRunning() {return this.running;}
 	public void setRunning() { running = !running; }
 	
 	public void effacer() throws SlickException{
