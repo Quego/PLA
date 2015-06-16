@@ -82,11 +82,11 @@ public class Interface {
 		tournerG.setImage(new Image("graphisme/Images/actions/TournerGauche.png"));
 		tournerD.setImage(new Image("graphisme/Images/actions/TournerDroite.png"));
 		sauter.setImage(new Image("graphisme/Images/actions/Sauter.png"));
-		appuyer.setImage(new Image("graphisme/Images/actions/appuie.png"));
-		prendre.setImage(new Image("graphisme/Images/actions/prendre.png"));
-		lacher.setImage(new Image("graphisme/Images/actions/poser.png"));
+		appuyer.setImage(new Image("graphisme/Images/actions/Appuie.png"));
+		prendre.setImage(new Image("graphisme/Images/actions/Prendre.png"));
+		lacher.setImage(new Image("graphisme/Images/actions/Poser.png"));
 		lockUnlock.setImage(new Image("graphisme/Images/actions/Allumer.png"));///////////////
-		myBreak.setImage(new Image("graphisme/Images/actions/break.png"));
+		myBreak.setImage(new Image("graphisme/Images/actions/Break.png"));
 		testCaseBleue.setImage(new Image("graphisme/Images/actions/Allumer.png"));//////////
 		testAvancer.setImage(new Image("graphisme/Images/actions/Allumer.png"));////////
 		testSauter.setImage(new Image("graphisme/Images/actions/Allumer.png"));/////////
