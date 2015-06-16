@@ -28,7 +28,7 @@ public class Interface {
 		this.MAIN = new Image("graphisme/Images/fond/fond_actions.png");
 		this.P1 = new Image("graphisme/Images/fond/fond_actions.png");
 		this.P2 = new Image("graphisme/Images/fond/fond_actions.png");
-		this.MENU = new Image("graphisme/Images/fond/fond_actions.png");
+		this.MENU = new Image("graphisme/Images/fond/fond_menu.jpg");
 		this.ACTIONS = new Image("graphisme/Images/fond/fond_actions.png");
 		this.fraise = new Image("graphisme/Images/fruits/panier_fraise.png");
 		this.pasteque = new Image("graphisme/Images/fruits/panier_pasteque.png");

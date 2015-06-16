@@ -27,7 +27,7 @@ public class Accueil extends BasicGameState {
 
 	   public void init(GameContainer container, StateBasedGame game) throws SlickException {
 		   	this.game = game;
-		   	this.background = new Image("graphisme/Images/fond/FOND_ACCUEIL.png");
+		   	this.background = new Image("graphisme/Images/fond/fond_accueil.png");
 		   	//this.music = new Music("music/OMFG.ogg");
 		   	//this.music.loop((float) 0.75, 1);
 	   }
@@ -45,7 +45,7 @@ public class Accueil extends BasicGameState {
 		}
 	 
 	   public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
-		   this.background.draw();
+		   this.background.draw(0,0,container.getWidth(),container.getScreenHeight());
 		   g.setColor(Color.black);
 		   g.drawString("Press 'ENTER'", Main.resolutionX/2-50, Main.resolutionY/2+220);
 	   }
