@@ -5,7 +5,7 @@
  </tileset>
  <layer name="Calque 1" width="3" height="1">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NiQAAA8FjulwwAAAA=
+   H4sIAAAAAAAAA+NkQAAA/vx85gwAAAA=
   </data>
  </layer>
  <layer name="Calque 2" width="3" height="1">
@@ -15,7 +15,7 @@
  </layer>
  <layer name="Calque 3" width="3" height="1">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NggABOIAYA5YndBgwAAAA=
+   H4sIAAAAAAAAA2NggAAmIAYA5A7c0QwAAAA=
   </data>
  </layer>
 </map>
