@@ -78,6 +78,7 @@ public class Map {
 	
 	public void allume(int colonne, int ligne)
 	{
+		
 		if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) ==1 )
 			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 2);
 		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 2)

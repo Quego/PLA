@@ -7,6 +7,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Sound;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -32,7 +33,10 @@ public class Player {
 	private boolean falling = false;
 	private boolean topDown = false;
 	private boolean mid = false;
-	  
+	
+	private Sound allumer;
+	
+	
 	public Player() {
 	  }
 
@@ -55,6 +59,8 @@ public class Player {
 		this.animations[9] = loadAnimation(spriteSheet, 0, 4, 5);
 		this.animations[10] = loadAnimation(spriteSheet, 0, 4, 6);
 		this.animations[11] = loadAnimation(spriteSheet, 0, 4, 7);
+		
+		allumer = new Sound("music/allumer.ogg");
 	  }
 	  
 	public void placePlayer(int ligne, int colonne, int hauteur){
@@ -77,6 +83,7 @@ public class Player {
 	public void render(Graphics g) throws SlickException {
 	 //   g.setColor(new Color(0, 0, 0, .5f));
 	  //  g.fillOval(x - 16, y - 8, 32, 16);
+		if (lightning)	allumer.play();
 	    g.drawAnimation(animations[direction + (running ? 4 : (lightning? 8 : 0))], x-32, y-55);
 	 }
 	  
