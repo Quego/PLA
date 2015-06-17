@@ -82,7 +82,7 @@ public class WindowGame extends BasicGameState {
 			case 32 : this.map.changeMap("graphisme/map/fruit_niv2.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv2.png"); break;
 			case 33 : this.map.changeMap("graphisme/map/fruit_niv3.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv3.png"); break;
 			case 34 : this.map.changeMap("graphisme/map/fruit_niv4.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv4.png"); break;
-			case 35 : this.map.changeMap("graphisme/map/base_niv5.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv5.png"); break;
+			case 35 : this.map.changeMap("graphisme/map/fruit_niv5.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv5.png"); break;
 			case 41 : this.map.changeMap("graphisme/map/coop_niv1.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv1.png"); break;
 			case 42 : this.map.changeMap("graphisme/map/coop_niv2.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv2.png"); break;
 			case 43 : this.map.changeMap("graphisme/map/coop_niv3.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv3.png"); break;
