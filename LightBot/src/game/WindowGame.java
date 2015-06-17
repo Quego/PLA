@@ -25,6 +25,8 @@ public class WindowGame extends BasicGameState {
 	private Action copie;
 	private Image aide; //Matthieu 
 	private Image background,menu;
+	private boolean win = false; //Elsa
+	private Image finNiv; //Elsa
 	private boolean running = false, menu_ouvert = false;
 	public static final int ID = 2;
 	private Interface interf = new Interface();
@@ -39,7 +41,7 @@ public class WindowGame extends BasicGameState {
 		return ID;
 	}
 	
-	//Matthieu : ajout des init necessaire
+	//Elsa : ajout des init necessaire
 	public void init(GameContainer container, StateBasedGame game) throws SlickException{	
 		this.container = container;
 		map.init();
@@ -54,6 +56,7 @@ public class WindowGame extends BasicGameState {
 		background = new Image("graphisme/Images/fond/fond_jeu.jpg");
 		menu = new Image("graphisme/Images/menu.png");
 		aide = new Image("graphisme/Images/actions/aide.gif");
+		finNiv = new Image("graphisme/Images/win1.png");
 		X = 1000;
 		Y = 700;
 		S = "";
@@ -79,7 +82,7 @@ public class WindowGame extends BasicGameState {
 			case 32 : this.map.changeMap("graphisme/map/fruit_niv2.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv2.png"); break;
 			case 33 : this.map.changeMap("graphisme/map/fruit_niv3.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv3.png"); break;
 			case 34 : this.map.changeMap("graphisme/map/fruit_niv4.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv4.png"); break;
-			case 35 : this.map.changeMap("graphisme/map/base_niv5.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv5.png"); break;
+			case 35 : this.map.changeMap("graphisme/map/fruit_niv5.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv5.png"); break;
 			case 41 : this.map.changeMap("graphisme/map/coop_niv1.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv1.png"); break;
 			case 42 : this.map.changeMap("graphisme/map/coop_niv2.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv2.png"); break;
 			case 43 : this.map.changeMap("graphisme/map/coop_niv3.tmx");this.player_1.setMap(map); background = new Image("graphisme/Images/fond/niv3.png"); break;
@@ -94,6 +97,7 @@ public class WindowGame extends BasicGameState {
 		}
 	}
 
+	//Elsa
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
 		background.draw(0,0);
@@ -115,6 +119,8 @@ public class WindowGame extends BasicGameState {
 	g.setColor(Color.red);
 	aide.draw(X-4, Y-3, LG, 25);
 	g.drawString(S,X,Y);
+	if(win)	finNiv.draw(0,0);
+	
 	}
 
 	public void update(GameContainer container, StateBasedGame game, int delta)throws SlickException{
@@ -583,8 +589,8 @@ public class WindowGame extends BasicGameState {
 		
 		
     }
-//Modif par elsa 16/6
-	public void keyPressed(int key, char c) {
+	//Elsa
+    public void keyPressed(int key, char c) {
 		if(!this.player_1.isRunning() && !this.player_1.isJumping() && !this.player_1.isFalling() ){
 			this.player_1.setLightning(false);
 			switch (key) {
@@ -597,6 +603,7 @@ public class WindowGame extends BasicGameState {
 			case Input.KEY_I:     this.map.interrup(this.player_1.getColonne(),this.player_1.getLigne()); break;
 			case Input.KEY_P:     this.map.poseFruit(this.player_1.getColonne(),this.player_1.getLigne()); break;
 			case Input.KEY_R:     this.map.prendFruit(this.player_1.getColonne(),this.player_1.getLigne()); break;
+			case Input.KEY_W:     if(win){win=false;}else{win=true;} break; //Elsa
 			}
 		}
 		if(!this.player_2.isRunning() && !this.player_2.isJumping() && !this.player_2.isFalling() ){

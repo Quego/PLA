@@ -43,7 +43,7 @@ public class Choix extends BasicGameState {
     	boutonBasic = new Image("graphisme/Images/choix/choixBasic.png");
     	boutonITE = new Image("graphisme/Images/choix/ChoixITE.jpg");
     	boutonFruit = new Image("graphisme/Images/choix/choixFruit.png");
-    	boutonCoop = new Image("graphisme/Images/choix/ChoixCoop.jpg");
+    	boutonCoop = new Image("graphisme/Images/choix/ChoixCoop.png");
     	boutonHardLevels = new Image("graphisme/Images/choix/choix5.png");
     	boutonRetour = new Image("graphisme/Images/Retour.png");
     	//PG_X = (container.getWidth()-(boutonBasic.getWidth()+boutonITE.getWidth()+boutonFruit.getWidth()))/8-boutonMouse.getWidth()/2;

@@ -41,7 +41,7 @@ public class ChoixCoop extends BasicGameState{
 	    	boutonLvl1 = new Image("graphisme/Images/choix/ChoixCoop/choix41.png");
 	    	boutonLvl2 = new Image("graphisme/Images/choix/ChoixCoop/choix42.png");
 	    	boutonLvl3 = new Image("graphisme/Images/choix/ChoixCoop/choix43.png");
-	    	boutonLvl4 = new Image("graphisme/Images/choix/ChoixCoop/choix44.jpg");
+	    	boutonLvl4 = new Image("graphisme/Images/choix/ChoixCoop/choix44.png");
 	    	boutonLvl5 = new Image("graphisme/Images/choix/ChoixCoop/choix45.png");
 	    	boutonRetour = new Image("graphisme/Images/Retour.png");
 	    	
