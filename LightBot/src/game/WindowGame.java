@@ -25,6 +25,8 @@ public class WindowGame extends BasicGameState {
 	private Action copie;
 	private Image aide; //Matthieu 
 	private Image background,menu;
+	private boolean win = false; //Elsa
+	private Image finNiv; //Elsa
 	private boolean running = false, menu_ouvert = false;
 	public static final int ID = 2;
 	private Interface interf = new Interface();
@@ -40,7 +42,7 @@ public class WindowGame extends BasicGameState {
 		return ID;
 	}
 	
-	//Matthieu : ajout des init necessaire
+	//Elsa : ajout des init necessaire
 	public void init(GameContainer container, StateBasedGame game) throws SlickException{	
 		this.container = container;
 		map.init();
@@ -55,6 +57,7 @@ public class WindowGame extends BasicGameState {
 		background = new Image("graphisme/Images/fond/fond_jeu.jpg");
 		menu = new Image("graphisme/Images/menu.png");
 		aide = new Image("graphisme/Images/actions/aide.gif");
+		finNiv = new Image("graphisme/Images/win1.png");
 		X = 1000;
 		Y = 700;
 		S = "";
@@ -96,6 +99,7 @@ public class WindowGame extends BasicGameState {
 		}
 	}
 
+	//Elsa
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
 		background.draw(0,0);
@@ -117,6 +121,8 @@ public class WindowGame extends BasicGameState {
 	g.setColor(Color.red);
 	aide.draw(X-4, Y-3, LG, 25);
 	g.drawString(S,X,Y);
+	if(win)	finNiv.draw(0,0);
+	
 	}
 
 	public void update(GameContainer container, StateBasedGame game, int delta)throws SlickException{
@@ -585,8 +591,8 @@ public class WindowGame extends BasicGameState {
 		
 		
     }
-//Modif par elsa 16/6
-	public void keyPressed(int key, char c) {
+	//Elsa
+    public void keyPressed(int key, char c) {
 		if(!this.player_1.isRunning() && !this.player_1.isJumping() && !this.player_1.isFalling() ){
 			this.player_1.setLightning(false);
 			switch (key) {
@@ -599,6 +605,7 @@ public class WindowGame extends BasicGameState {
 			case Input.KEY_I:     this.map.interrup(this.player_1.getColonne(),this.player_1.getLigne()); break;
 			case Input.KEY_P:     this.map.poseFruit(this.player_1.getColonne(),this.player_1.getLigne()); break;
 			case Input.KEY_R:     this.map.prendFruit(this.player_1.getColonne(),this.player_1.getLigne()); break;
+			case Input.KEY_W:     if(win){win=false;}else{win=true;} break; //Elsa
 			}
 		}
 		if(!this.player_2.isRunning() && !this.player_2.isJumping() && !this.player_2.isFalling() ){
