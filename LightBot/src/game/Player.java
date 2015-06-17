@@ -83,7 +83,7 @@ public class Player {
 	public void render(Graphics g) throws SlickException {
 	 //   g.setColor(new Color(0, 0, 0, .5f));
 	  //  g.fillOval(x - 16, y - 8, 32, 16);
-		if (lightning)	allumer.play();
+		if (lightning)	allumer.play(1,(float)0.05);
 	    g.drawAnimation(animations[direction + (running ? 4 : (lightning? 8 : 0))], x-32, y-55);
 	 }
 	  
