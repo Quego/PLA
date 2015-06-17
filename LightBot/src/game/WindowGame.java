@@ -27,10 +27,12 @@ public class WindowGame extends BasicGameState {
 	private Image background,menu;
 	private boolean win = false; //Elsa
 	private Image finNiv; //Elsa
+	private Image explication; //Elsa
 	private boolean running = false, menu_ouvert = false;
 	public static final int ID = 2;
 	private Interface interf = new Interface();
 	private StateBasedGame game;
+	private Music m;
 	private Map map = new Map();
 	private int X, Y, LG;//Matthieu : ajout LG
 	private String S;
@@ -57,10 +59,12 @@ public class WindowGame extends BasicGameState {
 		menu = new Image("graphisme/Images/menu.png");
 		aide = new Image("graphisme/Images/actions/aide.gif");
 		finNiv = new Image("graphisme/Images/win1.png");
+		explication = new Image("graphisme/Images/explication/explication_allumer.png");
 		X = 1000;
 		Y = 700;
 		S = "";
-		
+	   	this.m = new Music("music/Game_of_Thrones_8-bit.ogg");
+	   	this.m.loop();		
 	}
 	
 	public void enter(GameContainer container, StateBasedGame game) throws SlickException 
@@ -190,7 +194,7 @@ public class WindowGame extends BasicGameState {
 		//Musique//
 		if (x>container.getWidth()-this.interf.getMusic().getWidth()-decalage2 && y> 0 && x< container.getWidth()-decalage2-this.interf.getMusic().getWidth() +container.getHeight()/20 && y < container.getHeight()/20){
 			this.interf.setMusic(); 
-			//if(m.playing()) m.pause(); else m.resume();
+			if(m.playing()) m.pause(); else m.resume();
 		}
 		//choix de l'action//
 		if(x>(decalage+20) && x < (decalage+20 + lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + h)){
@@ -614,7 +618,7 @@ public class WindowGame extends BasicGameState {
 			}
 	    }
 		switch (key) {
-		case Input.KEY_M:		/*this.interf.setMusic(); if(m.playing()) m.pause(); else m.resume();*/ break;
+		case Input.KEY_M:		this.interf.setMusic(); if(m.playing()) m.pause(); else m.resume(); break;
 		case Input.KEY_ESCAPE: 	this.menu_ouvert = !this.menu_ouvert; break;
 		}
 		
