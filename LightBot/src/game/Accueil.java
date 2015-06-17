@@ -28,8 +28,6 @@ public class Accueil extends BasicGameState {
 	   public void init(GameContainer container, StateBasedGame game) throws SlickException {
 		   	this.game = game;
 		   	this.background = new Image("graphisme/Images/fond/FOND_ACCUEIL.png");
-		   	//this.music = new Music("music/OMFG.ogg");
-		   	//this.music.loop((float) 0.75, 1);
 	   }
 
 	   
@@ -61,14 +59,13 @@ public class Accueil extends BasicGameState {
 	      switch (key) {
 	    	  case Input.KEY_ENTER: 
 	    	  {
-	    		/*  Music_Choix.loop(); if(MusicManager.mute) Music_Choix.pause(); */
 	    		  this.game.enterState(Choix.ID, new FadeOutTransition(Color.white), new FadeInTransition(Color.white));break;
 	    	  }
-	    	//  case Input.KEY_M: if(music.playing()){ music.pause(); }else {music.resume();}break;
 	    	  case Input.KEY_ESCAPE:Menu.container.exit(); break;
 
 	      }
 	   }
+	   
 	}
 
 
