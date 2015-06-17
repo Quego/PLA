@@ -18,17 +18,20 @@ public class Player {
 	
 	private float x =0, y = 0;
 	private int direction = 0;
-	private Animation[] animations = new Animation[8];
+	private Animation[] animations = new Animation[12]; //Modifié par elsa 16/6
 	private int posLigne, posColonne;
 	private Map map;
 	  
 	private float destinationX,destinationY;
+	private int delta_a = 0;
 	  
 	private boolean running = false;
+	private boolean lightning = false; //Ajout par elsa 16/6
 	private boolean jumping = false;
 	private boolean topJump = false;
 	private boolean falling = false;
 	private boolean topDown = false;
+	private boolean mid = false;
 	  
 	public Player() {
 	  }
@@ -36,7 +39,7 @@ public class Player {
 	public Player(Map map) {
 	  this.map = map;
 	 }
-	  
+	  //Modif par elsa 16/6
 	public void init() throws SlickException { 
 		  
 		SpriteSheet spriteSheet = new SpriteSheet("graphisme/sprite/character.png", 64, 96);
@@ -48,6 +51,10 @@ public class Player {
 		this.animations[5] = loadAnimation(spriteSheet, 1, 4, 1);
 		this.animations[6] = loadAnimation(spriteSheet, 1, 4, 2);
 		this.animations[7] = loadAnimation(spriteSheet, 1, 4, 3);
+		this.animations[8] = loadAnimation(spriteSheet, 0, 4, 4);
+		this.animations[9] = loadAnimation(spriteSheet, 0, 4, 5);
+		this.animations[10] = loadAnimation(spriteSheet, 0, 4, 6);
+		this.animations[11] = loadAnimation(spriteSheet, 0, 4, 7);
 	  }
 	  
 	public void placePlayer(int ligne, int colonne, int hauteur){
@@ -66,11 +73,11 @@ public class Player {
 			}
 			return animation;
 	}
-	  
+	  //Modifié par Elsa 16/6
 	public void render(Graphics g) throws SlickException {
 	 //   g.setColor(new Color(0, 0, 0, .5f));
 	  //  g.fillOval(x - 16, y - 8, 32, 16);
-	    g.drawAnimation(animations[direction + (running ? 4 : 0)], x-32, y-60);
+	    g.drawAnimation(animations[direction + (running ? 4 : (lightning? 8 : 0))], x-32, y-55);
 	 }
 	  
 	  
@@ -79,28 +86,50 @@ public class Player {
 		updateRun(delta);
 		updateJump(delta);
 		updateDown(delta);
+		updateLight(delta);
 		}
+	
+	private void updateLight(int delta){
+		if(lightning){
+			delta_a += delta;
+			if (delta_a > 20*delta){ 
+			lightning = false;
+			delta_a = 0;
+			}
+		}
+	}
+
 	
 	private void updateRun(int delta){
 		if (running) {
     		switch (this.direction) {
         	case 0:  this.x += .1f * delta;this.y -= 0.5* .1f * delta;
+        	if ( mid && (this.x > destinationX - map.getTilesWidth()/4) && (this.y < destinationY + map.getTilesHeight()/4)) {
+        		this.posLigne--; 
+        		mid = false;
+        	}
 			if ((this.x > destinationX) && (this.y < destinationY)) {
 				this.x = destinationX;
 				this.y = destinationY;
-				this.posLigne--;
 				running = false;
 			}
         	break;
         	case 1: this.x -= .1f * delta; this.y -= 0.5 * .1f * delta;
+        	if ( mid && (this.x < destinationX + map.getTilesWidth()/4) && (this.y < destinationY + map.getTilesHeight()/4)) {
+        		this.posColonne--;
+        		mid = false;
+        	}
 			if ((this.x < destinationX) && (this.y < destinationY)) {
 				this.x = destinationX;
 				this.y = destinationY;
-				this.posColonne--;
 				running = false;
 			}
         	break;
         	case 2: this.x -= .1f * delta;this.y += 0.5* .1f * delta;
+        	if ( mid && (this.x < destinationX + map.getTilesWidth()/4) && (this.y > destinationY - map.getTilesHeight()/4)) {
+    			this.posLigne++;
+        		mid = false;
+        	}
 			if ((this.x < destinationX) && (this.y > destinationY)) {
 				this.x = destinationX;
 				this.y = destinationY;
@@ -108,6 +137,10 @@ public class Player {
 			}            	
         	break;
         	case 3: this.x += .1f * delta; this.y += 0.5 * .1f * delta; 
+        	if ( mid && (this.x > destinationX - map.getTilesWidth()/4) && (this.y > destinationY - map.getTilesHeight()/4)) {
+    			this.posColonne++;
+        		mid = false;
+        	}
 				if ((this.x > destinationX) && (this.y > destinationY)) {
 					this.x = destinationX;
 					this.y = destinationY;
@@ -128,11 +161,14 @@ public class Player {
         		if(this.y >= destinationY)
         			this.y -= .1f * delta;
         		if (this.y <= destinationY) {
-					this.x += .1f * delta;
+        			this.x += .1f * delta;
+        			if ( mid && (this.x > destinationX - map.getTilesWidth()/4)){
+        				mid = false;
+        				this.posLigne--;
+        			}
 					if (this.x > destinationX) {	
 						this.x = destinationX;
 						this.y = destinationY;
-						this.posLigne--;
 						jumping = false;
 					}
         		}
@@ -143,10 +179,13 @@ public class Player {
         			this.y -= .1f * delta;
         		if (this.y <= destinationY) {
         			this.x -= .1f * delta;
+        			if ( mid && (this.x < destinationX + map.getTilesWidth()/4)){
+        				mid = false;
+        				this.posColonne--;
+        			}
         			if (this.x < destinationX){ 
         				this.x = destinationX;
         				this.y = destinationY;
-        				this.posColonne--;
         				jumping = false;
         			}
 			}
@@ -163,6 +202,10 @@ public class Player {
     			if(topJump)
     			{
     				this.x -= .1f * delta;this.y += 0.5* .1f * delta;
+    				if ( mid && (this.x < destinationX + map.getTilesWidth()/4) && (this.y > destinationY - map.getTilesHeight()/4)) {
+    	    			this.posLigne++;
+    	        		mid = false;
+    	        	}
     				if ((this.x < destinationX) && (this.y > destinationY)) {
     					this.x = destinationX;
     					this.y = destinationY;
@@ -182,6 +225,10 @@ public class Player {
     			}
        			if(topJump){
        				this.x += .1f * delta; this.y += 0.5 * .1f * delta; 
+       	        	if ( mid && (this.x > destinationX - map.getTilesWidth()/4) && (this.y > destinationY - map.getTilesHeight()/4)) {
+       	    			this.posColonne++;
+       	        		mid = false;
+       	        	}
        				if ((this.x > destinationX) && (this.y > destinationY)) {
        					this.x = destinationX;
        					this.y = destinationY;
@@ -205,9 +252,12 @@ public class Player {
     			if(!topDown){
 	    			this.x += .1f * delta;
 	    			this.y -= 0.5* .1f * delta;
+	            	if ( mid && (this.x > destinationX - map.getTilesWidth()/4) && (this.y < destinationY + map.getTilesHeight()/4)) {
+	            		this.posLigne--; 
+	            		mid = false;
+	            	}
 	    			if ((this.x > destinationX) && (this.y < destinationY - map.getTilesHeight()/2)) {
 	    				this.x = destinationX;
-	    				this.posLigne--;
 	    				topDown = true;
 	    			}
     			}
@@ -227,9 +277,12 @@ public class Player {
     			if(!topDown){
     				this.x -= .1f * delta;
     				this.y -= 0.5 * .1f * delta;
+    	        	if ( mid && (this.x < destinationX + map.getTilesWidth()/4) && (this.y < destinationY + map.getTilesHeight()/4)) {
+    	        		this.posColonne--;
+    	        		mid = false;
+    	        	}
 	    			if ((this.x < destinationX) && (this.y < destinationY - map.getTilesHeight()/2)) {
 	    				this.x = destinationX;
-	    				this.posColonne--;
 	    				topDown = true;
 	    			}
     			}
@@ -250,8 +303,13 @@ public class Player {
     		case 2: 
     			if (this.x >= destinationX)
     				this.x -= .1f * delta;
+    			if ( mid && (this.x < destinationX + map.getTilesWidth()/4)){
+    				mid = false;
+    				this.posLigne++;
+    			}
     			if (this.x <= destinationX ){
     				this.y += .1f * delta;
+
     				if (this.y > destinationY) {
     					this.x = destinationX;
     					this.y = destinationY;
@@ -264,8 +322,13 @@ public class Player {
         	case 3: 
         		if (this.x <= destinationX)
        				this.x += .1f * delta;
+    			if ( mid && (this.x > destinationX - map.getTilesWidth()/4)){
+    				mid = false;
+    				this.posColonne++;
+    			}
         		if (this.x >= destinationX){
         			this.y += .1f * delta;
+        			
        				if (this.y > destinationY) {
        					this.x = destinationX;
        					this.y = destinationY;
@@ -292,15 +355,14 @@ public class Player {
 		case 2: 
 			this.destinationX = this.x - map.getTilesWidth()/2;
 			this.destinationY = this.y + map.getTilesHeight()/2; 
-			this.posLigne++;
 			break;
 		case 3:
 			this.destinationX = this.x + map.getTilesWidth()/2;
 			this.destinationY = this.y + map.getTilesHeight()/2; 
-			this.posColonne++;
 			break;
 		}
 		running = true;
+		mid = true;
 	}
 		
 	public void jump() {
@@ -316,15 +378,14 @@ public class Player {
 		case 2: 
 			this.destinationX = this.x - map.getTilesWidth()/2;
 			this.destinationY = this.y;
-			this.posLigne++;
 			break;
 		case 3:
 			this.destinationX = this.x + map.getTilesWidth()/2;
 			this.destinationY = this.y;
-			this.posColonne++;
 			break;
 		}
 		jumping = true;
+		mid = true;
 	}
 
 	public void down(){
@@ -340,15 +401,14 @@ public class Player {
 		case 2: 
 			this.destinationX = this.x - map.getTilesWidth()/2;
 			this.destinationY = this.y + map.getTilesHeight()/2+map.getTilesHeight()/2;; 
-			this.posLigne++;
 			break;
 		case 3:
 			this.destinationX = this.x + map.getTilesWidth()/2;
 			this.destinationY = this.y + map.getTilesHeight()/2+map.getTilesHeight()/2;; 
-			this.posColonne++;
 			break;
 		}
 		falling = true;
+		mid = true;
 		
 	}
 	  
@@ -390,6 +450,14 @@ public class Player {
 	  
 	  public void setRunning(boolean running) { 
 		  this.running = running; 
+	  }
+	  
+	  public boolean isLightning() { 
+		  return lightning;
+	  }
+	  
+	  public void setLightning(boolean lightning) { 
+		  this.lightning = lightning; 
 	  }
 	  
 	  public int getLigne(){

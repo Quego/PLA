@@ -19,12 +19,45 @@ public class Map {
 		TilesWidth = tiledMap.getTileWidth();	
 		TilesHeight = tiledMap.getTileHeight();
 	}
+//	this.map.renderBackground(this.player_1.getLigne(),this.player_1.getColonne());
+//	this.player_1.render(g);
+//	this.player_2.render(g);
+//	this.map.renderForeground(this.player_1.getLigne(),this.player_1.getColonne());
+	public void render(Player p1, Player p2, Graphics g) throws SlickException{
+		if (p1.getLigne() +p1.getColonne() < p2.getLigne() +p2.getColonne()){
+			renderBackground(p1.getLigne(),p1.getColonne());
+			p1.render(g);
+			renderMiddle(p1.getLigne(),p1.getColonne(), p2.getLigne(),p2.getColonne());
+			p2.render(g);
+			renderForeground(p2.getLigne(),p2.getColonne());
+		}
+		else if (p1.getLigne() +p1.getColonne() > p2.getLigne() +p2.getColonne()){
+			renderBackground(p2.getLigne(),p2.getColonne());
+			p2.render(g);
+			renderMiddle(p2.getLigne(),p2.getColonne(), p1.getLigne(),p1.getColonne());
+			p1.render(g);
+			renderForeground(p1.getLigne(),p1.getColonne());
+		}
+		else {
+			renderBackground(p1.getLigne(),p1.getColonne());
+			p1.render(g);
+			p2.render(g);
+			renderForeground(p1.getLigne(),p1.getColonne());
+		}
+	}
 	
 	public void renderBackground(int ligne, int colonne){
 		for(int i=0;i<=ligne+colonne;i++){
 			this.tiledMap.render(0, 0, i);
 		}
 	}
+	
+	public void renderMiddle(int ligneS, int colonneS, int ligneE, int colonneE){
+		for(int i=ligneS + colonneS+1;i<=ligneE+colonneE;i++){
+			this.tiledMap.render(0, 0, i);
+		}
+	}
+	
 	
 	public void renderForeground(int ligne, int colonne){
 		for(int i=ligne+colonne+1;i<this.Width + this.Height-1;i++){
@@ -44,12 +77,12 @@ public class Map {
 			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 3);
 		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 5)
 			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 6);
-		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 5)
-			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 6);
+		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 6)
+			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 5);
 		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 7)
 			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 8);
-		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 7)
-			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 8);
+		else if (this.tiledMap.getTileId(colonne,ligne, ligne + colonne) == 8)
+			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, 7);
 
 	}
 	
