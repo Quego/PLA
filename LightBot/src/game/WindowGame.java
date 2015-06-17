@@ -27,6 +27,7 @@ public class WindowGame extends BasicGameState {
 	private Image background,menu;
 	private boolean win = false; //Elsa
 	private Image finNiv; //Elsa
+	private Image explication; //Elsa
 	private boolean running = false, menu_ouvert = false;
 	public static final int ID = 2;
 	private Interface interf = new Interface();
@@ -57,6 +58,7 @@ public class WindowGame extends BasicGameState {
 		menu = new Image("graphisme/Images/menu.png");
 		aide = new Image("graphisme/Images/actions/aide.gif");
 		finNiv = new Image("graphisme/Images/win1.png");
+		explication = new Image("graphisme/Images/explication/explication_allumer.png");
 		X = 1000;
 		Y = 700;
 		S = "";
