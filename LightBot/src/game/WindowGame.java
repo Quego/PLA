@@ -407,7 +407,7 @@ public class WindowGame extends BasicGameState {
     	if(x>(2*container.getWidth()/3+20+3*lg+3*decalage2) && x<(2*container.getWidth()/3+20+lg+3*lg+3*decalage2) && y>(container.getHeight()/20+decalage + 30 + 2*h + 2*10) && y<(container.getHeight()/20+decalage + 30 + 2*h + 10 + h)){
 			switch (button){
 			case Input.MOUSE_LEFT_BUTTON :  if (nbActionsMain>=12) this.interf.setEmplacement12(copie.getImage()); 
-				else this.interf.setEmplacement2(e_lock); break;
+				else this.interf.setEmplacement12(e_lock); break;
 			case Input.MOUSE_RIGHT_BUTTON  : if (nbActionsMain>=12) this.interf.setEmplacement12(e);
 				else this.interf.setEmplacement12(e_lock); break;
 			}
@@ -439,7 +439,7 @@ public class WindowGame extends BasicGameState {
 		}
 		if(x>(2*container.getWidth()/3+20+lg+decalage2) && x<(2*container.getWidth()/3+20+lg+decalage2+lg) && y>(7*container.getHeight()/20+2*decalage+ 30 + h + 5) && y<(7*container.getHeight()/20+2*decalage+ 30 + h + 5 + h)){
 			switch (button){
-				case Input.MOUSE_LEFT_BUTTON :  if (nbActionsMain>=6) this.interf.setEmplacement18(copie.getImage()); 
+				case Input.MOUSE_LEFT_BUTTON :  if (nbActionsP1>=6) this.interf.setEmplacement18(copie.getImage()); 
 				else this.interf.setEmplacement18(e_lock); break;
 				case Input.MOUSE_RIGHT_BUTTON  : if (nbActionsP1>=6) this.interf.setEmplacement18(e);
 				else this.interf.setEmplacement18(e_lock); break;
