@@ -31,11 +31,34 @@ public class Action {
 		  this.logo = new Image("graphisme/Images/actions/Avancer.png");
 		  this.contourRouge = new Image("graphisme/Images/actions/contourRouge.png");
 		  this.contourVert = new Image("graphisme/Images/actions/contourVert.png");
+		  estBloquee = false;
+		  testVrai = false;
+		  testFaux = false;
 	  }
 	  
-	  public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
-		  g.resetTransform();
-		  this.logo.draw(this.x,this.y);  
+	  public Action(Action copie) {
+		  this.x = copie.getX();
+		  this.y = copie.getY();
+		  this.destX = copie.getdestX();
+		  this.destY = copie.getdestY();
+		  estBloquee = copie.estBloquee();
+		  testVrai = copie.getTestVrai();
+		  testFaux = copie.getTestFaux();
+		  try {
+			this.logo = new Image(copie.getImage().getResourceReference());
+			this.contourRouge = new Image("graphisme/Images/actions/contourRouge.png");
+			this.contourVert = new Image("graphisme/Images/actions/contourVert.png");
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
+		  
+	}
+
+	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
+		  g.resetTransform();		 
+		  logo.draw(x,y);
+		  if (testVrai) contourVert.draw(x, y,50,50);
+		  if (testFaux) contourRouge.draw(x, y,50,50);
 	  }
 	  
 	  public void update() {
