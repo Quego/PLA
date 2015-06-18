@@ -90,7 +90,7 @@ public class Interface {
 		appuyer.setImage(new Image("graphisme/Images/actions/Appuie.png"));
 		prendre.setImage(new Image("graphisme/Images/actions/Prendre.png"));
 		lacher.setImage(new Image("graphisme/Images/actions/Poser.png"));
-		lockUnlock.setImage(new Image("graphisme/Images/actions/Allumer.png"));///////////////
+		lockUnlock.setImage(new Image("graphisme/Images/actions/LockUnlock.png"));///////////////
 		myBreak.setImage(new Image("graphisme/Images/actions/Break.png"));
 		testCaseBleue.setImage(new Image("graphisme/Images/actions/Allumer.png"));//////////
 		testAvancer.setImage(new Image("graphisme/Images/actions/Allumer.png"));////////
