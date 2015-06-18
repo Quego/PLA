@@ -257,6 +257,25 @@ public class WindowGame extends BasicGameState {
 		    	copie.setY(y-this.interf.getP1().getImage().getHeight()/2);
 			}
 		}
+		if(x>(decalage+20+7*lg+7*decalage2) && x < (decalage+20+7*lg+7*decalage2 + h/3) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+			if (!this.interf.getP1().estBloquee()){
+				copie.setTestFaux(true);
+				copie.setTestVrai(false);
+			}
+		}
+		if(x>(decalage+20+7*lg+7*decalage2+h/3) && x < (decalage+20+7*lg+7*decalage2 + h*2/3) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+			if (!this.interf.getP1().estBloquee()){
+				copie.setTestFaux(false);
+				copie.setTestVrai(false);
+			}
+		}
+		if(x>(decalage+20+7*lg+7*decalage2+h*2/3) && x < (decalage+20+7*lg+7*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+			if (!this.interf.getP1().estBloquee()){
+				copie.setTestFaux(false);
+				copie.setTestVrai(true);
+			}
+		}
+		
 		if(x>(decalage+20) && x < (decalage+20+ h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
 			if (!this.interf.getPrendre().estBloquee()){
 				copie.setImage(this.interf.getPrendre().getImage().copy());

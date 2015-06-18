@@ -16,7 +16,10 @@ import org.newdawn.slick.tiled.TiledMap;
 
 public class Action {
 	  private Image logo;
-	  private boolean estBloquee = true;
+	  private Image contourVert, contourRouge; 
+	  private boolean estBloquee = false;
+	  private boolean testVrai = false;
+	  private boolean testFaux = false;
 	  private float x,y,destX,destY;	  
 	  
 
@@ -26,6 +29,8 @@ public class Action {
 		  this.destX = 1000;
 		  this.destY = 700;
 		  this.logo = new Image("graphisme/Images/actions/Avancer.png");
+		  this.contourRouge = new Image("graphisme/Images/actions/contourRouge.png");
+		  this.contourVert = new Image("graphisme/Images/actions/contourVert.png");
 	  }
 	  
 	  public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
@@ -36,7 +41,20 @@ public class Action {
 	  public void update() {
 			this.x = this.destX;
 			this.y = this.destY;
-		}
+	  }
+	  
+	  public void draw(float f, float g){
+		  logo.draw(f,g);
+		  if (testVrai) contourVert.draw(f, g,50,50);
+		  if (testFaux) contourRouge.draw(f, g,50,50);
+	  }
+	  
+	  public void setTestVrai(boolean b){ testVrai = b; }
+	  public void setTestFaux(boolean b){ testFaux = b; }
+	  
+	  public boolean getTestVrai(){ return testVrai; }
+	  public boolean getTestFaux(){ return testFaux; }
+	  
 	  
 	  public boolean estBloquee(){ return estBloquee; }
 	  public void setEstBloquee(boolean b) { estBloquee = b; }
@@ -80,6 +98,8 @@ public class Action {
 	  public void setdestY(float y) {
 		  this.destY = y;
 	  }
+
+	
 
 	  
 	   
