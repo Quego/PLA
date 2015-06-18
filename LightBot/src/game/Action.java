@@ -16,6 +16,7 @@ import org.newdawn.slick.tiled.TiledMap;
 
 public class Action {
 	  private Image logo;
+	  private boolean estBloquee = true;
 	  private float x,y,destX,destY;	  
 	  
 
@@ -37,7 +38,8 @@ public class Action {
 			this.y = this.destY;
 		}
 	  
-		
+	  public boolean estBloquee(){ return estBloquee; }
+	  public void setEstBloquee(boolean b) { estBloquee = b; }
   
 	  public Image getImage(){
 		  return logo;

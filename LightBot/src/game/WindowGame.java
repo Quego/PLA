@@ -37,8 +37,8 @@ public class WindowGame extends BasicGameState {
 	private int X, Y, LG;//Matthieu : ajout LG
 	private String S;
 	private static int nbActionsMain = 1;
-	private static int nbActionsP1 = 1;
-	private static int nbActionsP2 = 1;
+	private static int nbActionsP1 = 7;
+	private static int nbActionsP2 = 4;
 	private static Image e, e_lock; 
 	public WindowGame() {
 	}
@@ -208,79 +208,110 @@ public class WindowGame extends BasicGameState {
 		}
 		//choix de l'action//
 		if(x>(decalage+20) && x < (decalage+20 + lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + h)){
-			copie.setImage(this.interf.getAvancer().getImage().copy());
-			copie.setX(x-this.interf.getAvancer().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getAvancer().getImage().getHeight()/2);
+			if (!this.interf.getAvancer().estBloquee()){
+				copie.setImage(this.interf.getAvancer().getImage().copy());
+				copie.setX(x-this.interf.getAvancer().getImage().getWidth()/2);
+				copie.setY(y-this.interf.getAvancer().getImage().getHeight()/2);
+			}
+			
 		}
 		if(x>(decalage+20+lg+decalage2) && x<(decalage+20+lg+decalage2+lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20+h)){
-			copie.setImage(this.interf.getAllumer().getImage().copy());
-			copie.setX(x-this.interf.getAllumer().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getAllumer().getImage().getHeight()/2);
+			if (!this.interf.getAllumer().estBloquee()){
+				copie.setImage(this.interf.getAllumer().getImage().copy());
+				copie.setX(x-this.interf.getAllumer().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getAllumer().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+2*lg+2*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-			copie.setImage(this.interf.getTournerG().getImage().copy());
-			copie.setX(x-this.interf.getTournerG().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getTournerG().getImage().getHeight()/2);
+			if (!this.interf.getTournerG().estBloquee()){
+				copie.setImage(this.interf.getTournerG().getImage().copy());
+				copie.setX(x-this.interf.getTournerG().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getTournerG().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+3*lg+3*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-			copie.setImage(this.interf.getTournerD().getImage().copy());
-			copie.setX(x-this.interf.getTournerD().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getTournerD().getImage().getHeight()/2);
+			if (!this.interf.getTournerD().estBloquee()){
+				copie.setImage(this.interf.getTournerD().getImage().copy());
+				copie.setX(x-this.interf.getTournerD().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getTournerD().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20+4*lg+4*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-			copie.setImage(this.interf.getSauter().getImage().copy());
-			copie.setX(x-this.interf.getSauter().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getSauter().getImage().getHeight()/2);
+			if (!this.interf.getSauter().estBloquee()){
+				copie.setImage(this.interf.getSauter().getImage().copy());
+				copie.setX(x-this.interf.getSauter().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getSauter().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20+5*lg+5*decalage2) && x < (decalage+20+5*lg+5*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-			copie.setImage(this.interf.getAppuyer().getImage().copy());
-			copie.setX(x-this.interf.getAppuyer().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getAppuyer().getImage().getHeight()/2);
+			if (!this.interf.getAppuyer().estBloquee()){
+				copie.setImage(this.interf.getAppuyer().getImage().copy());
+				copie.setX(x-this.interf.getAppuyer().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getAppuyer().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-			copie.setImage(this.interf.getP1().getImage().copy());
-			copie.setX(x-this.interf.getP1().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getP1().getImage().getHeight()/2);
+			if (!this.interf.getP1().estBloquee()){
+				copie.setImage(this.interf.getP1().getImage().copy());
+				copie.setX(x-this.interf.getP1().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getP1().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20) && x < (decalage+20+ h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			copie.setImage(this.interf.getPrendre().getImage().copy());
-			copie.setX(x-this.interf.getPrendre().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getPrendre().getImage().getHeight()/2);
+			if (!this.interf.getPrendre().estBloquee()){
+				copie.setImage(this.interf.getPrendre().getImage().copy());
+				copie.setX(x-this.interf.getPrendre().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getPrendre().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20+lg+decalage2) && x < (decalage+20+lg+decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20 +h+ lg)){
-			copie.setImage(this.interf.getLacher().getImage().copy());
-			copie.setX(x-this.interf.getLacher().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getLacher().getImage().getHeight()/2);
+			if (!this.interf.getLacher().estBloquee()){
+				copie.setImage(this.interf.getLacher().getImage().copy());
+				copie.setX(x-this.interf.getLacher().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getLacher().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+3*lg+3*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			copie.setImage(this.interf.getMyBreak().getImage().copy());
-			copie.setX(x-this.interf.getMyBreak().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getMyBreak().getImage().getHeight()/2);
+			if (!this.interf.getMyBreak().estBloquee()){
+				copie.setImage(this.interf.getMyBreak().getImage().copy());
+				copie.setX(x-this.interf.getMyBreak().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getMyBreak().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			copie.setImage(this.interf.getTestAvancer().getImage().copy());
-			copie.setX(x-this.interf.getTestAvancer().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getTestAvancer().getImage().getHeight()/2);
+			if (!this.interf.getTestAvancer().estBloquee()){
+				copie.setImage(this.interf.getTestAvancer().getImage().copy());
+				copie.setX(x-this.interf.getTestAvancer().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getTestAvancer().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20+4*lg+4*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			copie.setImage(this.interf.getTestCaseBleue().getImage().copy());
-			copie.setX(x-this.interf.getTestCaseBleue().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getTestCaseBleue().getImage().getHeight()/2);
+			if (!this.interf.getTestCaseBleue().estBloquee()){
+				copie.setImage(this.interf.getTestCaseBleue().getImage().copy());
+				copie.setX(x-this.interf.getTestCaseBleue().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getTestCaseBleue().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20+5*lg+5*decalage2) && x < (decalage+20+5*lg+5*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			copie.setImage(this.interf.getLockUnlock().getImage().copy());
-			copie.setX(x-this.interf.getLockUnlock().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getLockUnlock().getImage().getHeight()/2);
+			if (!this.interf.getLockUnlock().estBloquee()){
+				copie.setImage(this.interf.getLockUnlock().getImage().copy());
+				copie.setX(x-this.interf.getLockUnlock().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getLockUnlock().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			copie.setImage(this.interf.getP2().getImage().copy());
-			copie.setX(x-this.interf.getP2().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getP2().getImage().getHeight()/2);
+			if (!this.interf.getP2().estBloquee()){
+				copie.setImage(this.interf.getP2().getImage().copy());
+				copie.setX(x-this.interf.getP2().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getP2().getImage().getHeight()/2);
+			}
 		}
 		if(x>(decalage+20+7*lg+7*decalage2) && x < (decalage+20+7*lg+7*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			copie.setImage(this.interf.getTestSauter().getImage().copy());
-			copie.setX(x-this.interf.getTestSauter().getImage().getWidth()/2);
-	    	copie.setY(y-this.interf.getTestSauter().getImage().getHeight()/2);
+			if (!this.interf.getTestSauter().estBloquee()){
+				copie.setImage(this.interf.getTestSauter().getImage().copy());
+				copie.setX(x-this.interf.getTestSauter().getImage().getWidth()/2);
+		    	copie.setY(y-this.interf.getTestSauter().getImage().getHeight()/2);
+			}
 		}
 		if(x>2*container.getWidth()/3+20+2*lg+2*decalage2 && y > 16*container.getHeight()/20-decalage && x< 2*container.getWidth()/3+20+2*lg+2*decalage2 + 4*container.getHeight()/20 && y<  16*container.getHeight()/20-decalage + 4*container.getHeight()/20){
 			try {
@@ -407,7 +438,7 @@ public class WindowGame extends BasicGameState {
     	if(x>(2*container.getWidth()/3+20+3*lg+3*decalage2) && x<(2*container.getWidth()/3+20+lg+3*lg+3*decalage2) && y>(container.getHeight()/20+decalage + 30 + 2*h + 2*10) && y<(container.getHeight()/20+decalage + 30 + 2*h + 10 + h)){
 			switch (button){
 			case Input.MOUSE_LEFT_BUTTON :  if (nbActionsMain>=12) this.interf.setEmplacement12(copie.getImage()); 
-				else this.interf.setEmplacement2(e_lock); break;
+				else this.interf.setEmplacement12(e_lock); break;
 			case Input.MOUSE_RIGHT_BUTTON  : if (nbActionsMain>=12) this.interf.setEmplacement12(e);
 				else this.interf.setEmplacement12(e_lock); break;
 			}
@@ -439,7 +470,7 @@ public class WindowGame extends BasicGameState {
 		}
 		if(x>(2*container.getWidth()/3+20+lg+decalage2) && x<(2*container.getWidth()/3+20+lg+decalage2+lg) && y>(7*container.getHeight()/20+2*decalage+ 30 + h + 5) && y<(7*container.getHeight()/20+2*decalage+ 30 + h + 5 + h)){
 			switch (button){
-				case Input.MOUSE_LEFT_BUTTON :  if (nbActionsMain>=6) this.interf.setEmplacement18(copie.getImage()); 
+				case Input.MOUSE_LEFT_BUTTON :  if (nbActionsP1>=6) this.interf.setEmplacement18(copie.getImage()); 
 				else this.interf.setEmplacement18(e_lock); break;
 				case Input.MOUSE_RIGHT_BUTTON  : if (nbActionsP1>=6) this.interf.setEmplacement18(e);
 				else this.interf.setEmplacement18(e_lock); break;

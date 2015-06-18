@@ -18,6 +18,7 @@ public class Accueil extends BasicGameState {
 	   
 		public static final int ID = 1;
 		private Image background;
+		private Image jouer;
 		private StateBasedGame game;
 		//protected static Music music;
 	   
@@ -28,6 +29,7 @@ public class Accueil extends BasicGameState {
 	   public void init(GameContainer container, StateBasedGame game) throws SlickException {
 		   	this.game = game;
 		   	this.background = new Image("graphisme/Images/fond/FOND_ACCUEIL.png");
+		   	this.jouer = new Image("graphisme/Images/fond/jouer.png");
 	   }
 
 	   
@@ -44,27 +46,19 @@ public class Accueil extends BasicGameState {
 	 
 	   public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
 		   this.background.draw(0,0,container.getWidth(),container.getScreenHeight());
-		   g.setColor(Color.black);
-		   g.drawString("Press 'ENTER'", Main.resolutionX/2-50, Main.resolutionY/2+220);
+		   this.jouer.draw(200,400);
 	   }
 
 	   public void update(GameContainer container, StateBasedGame game, int delta) {
 	   }
 	   
 	   public void mouseClicked(int button, int x, int y, int ClickCount){
-		   this.game.enterState(Choix.ID, new FadeOutTransition(Color.white), new FadeInTransition(Color.white));
+		  if (x>200 && x<200+jouer.getWidth() && y>400 && y<400+jouer.getHeight()){
+			   this.game.enterState(Choix.ID, new FadeOutTransition(Color.white), new FadeInTransition(Color.white));
+		  }
 	   }
 	   
-	   public void keyReleased(int key, char c) {
-	      switch (key) {
-	    	  case Input.KEY_ENTER: 
-	    	  {
-	    		  this.game.enterState(Choix.ID, new FadeOutTransition(Color.white), new FadeInTransition(Color.white));break;
-	    	  }
-	    	  case Input.KEY_ESCAPE:Menu.container.exit(); break;
-
-	      }
-	   }
+	   
 	   
 	}
 
