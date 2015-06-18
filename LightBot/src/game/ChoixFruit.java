@@ -32,7 +32,7 @@ public class ChoixFruit extends BasicGameState{
 		   
 	    public void init(GameContainer container, StateBasedGame game) throws SlickException { 
 	    	this.game = game;
-	    	background = new Image("graphisme/Images/fond/FOND_CHOIX.png");
+	    	background = new Image("graphisme/Images/fond/FRUITS.png");
 	    	boutonQuit = new Image("graphisme/Images/Quit.png");
 	    	//boutonSolo = new Image("graphisme/image/Solo.png");
 	    	//boutonMulti = new Image("graphisme/image/Multi.png");

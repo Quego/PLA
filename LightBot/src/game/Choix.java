@@ -35,15 +35,15 @@ public class Choix extends BasicGameState {
 	   
     public void init(GameContainer container, StateBasedGame game) throws SlickException { 
     	this.game = game;
-    	background = new Image("graphisme/Images/fond/fond_choix.jpg");
+    	background = new Image("graphisme/Images/fond/FOND_CHOIX.png");
     	boutonQuit = new Image("graphisme/Images/Quit.png");
     	//boutonSolo = new Image("graphisme/image/Solo.png");
     	//boutonMulti = new Image("graphisme/image/Multi.png");
     	boutonMouse  = new Image("graphisme/Images/Mouse.png");
     	boutonBasic = new Image("graphisme/Images/choix/choixBasic.png");
-    	boutonITE = new Image("graphisme/Images/choix/ChoixITE.jpg");
-    	boutonFruit = new Image("graphisme/Images/choix/choixFruit.png");
-    	boutonCoop = new Image("graphisme/Images/choix/ChoixCoop.png");
+    	boutonITE = new Image("graphisme/Images/choix/IF.png");
+    	boutonFruit = new Image("graphisme/Images/choix/FRUITS.png");
+    	boutonCoop = new Image("graphisme/Images/choix/COOP.png");
     	boutonHardLevels = new Image("graphisme/Images/choix/choix5.png");
     	boutonRetour = new Image("graphisme/Images/Retour.png");
     	//PG_X = (container.getWidth()-(boutonBasic.getWidth()+boutonITE.getWidth()+boutonFruit.getWidth()))/8-boutonMouse.getWidth()/2;
@@ -56,24 +56,22 @@ public class Choix extends BasicGameState {
     public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException 
     {	
     	float positionX,positionY,ecartLargeur,ecartHauteur;
-    	ecartLargeur = (container.getWidth()-(boutonBasic.getWidth()+boutonITE.getWidth()+boutonFruit.getWidth()))/4;
-    	ecartHauteur = (container.getHeight()-(boutonBasic.getHeight()+boutonCoop.getHeight()))/3;
+    	ecartLargeur = (container.getWidth()-(250+250+250))/4;
+    	ecartHauteur = (container.getHeight()-(233+233))/3;
     	background.draw(0,0,container.getWidth(),container.getScreenHeight());
     	boutonQuit.draw(0,0); boutonRetour.draw(boutonQuit.getWidth(),0);
     	//boutonSolo.draw(50, 350);
     	//boutonMulti.draw(300, 350);
     	positionX = ecartLargeur; positionY = ecartHauteur;
-    	boutonBasic.draw(positionX,positionY);
-    	positionX += boutonBasic.getWidth() + ecartLargeur;
-    	boutonITE.draw(positionX,positionY);
-    	positionX += boutonITE.getWidth() + ecartLargeur;
-    	boutonFruit.draw(positionX,positionY);
-    	positionX = (container.getWidth()-(boutonCoop.getWidth()+boutonHardLevels.getWidth()+ecartLargeur))/2; positionY += boutonBasic.getHeight() + ecartHauteur;
-    	boutonCoop.draw(positionX,positionY);
-    	positionX += boutonCoop.getWidth() + ecartLargeur;
-    	boutonHardLevels.draw(positionX,positionY);  
-    	//boutonMouse.draw(PG_X,PG_Y);
-    	g.drawString("Click on your choice", Main.resolutionX/2-80, Main.resolutionY/2-10);
+    	boutonBasic.draw(positionX,positionY,250,233);
+    	positionX += 250 + ecartLargeur;
+    	boutonITE.draw(positionX,positionY,250,233);
+    	positionX += 250 + ecartLargeur;
+    	boutonFruit.draw(positionX,positionY,250,233);
+    	positionX = (container.getWidth()-(250+250+ecartLargeur))/2; positionY += 233 + ecartHauteur;
+    	boutonCoop.draw(positionX,positionY,250,233);
+    	positionX += 250 + ecartLargeur;
+    	boutonHardLevels.draw(positionX,positionY,250,233);  
     } 
     
     public void enter(GameContainer container, StateBasedGame game) throws SlickException {

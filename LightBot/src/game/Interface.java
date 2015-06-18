@@ -17,7 +17,7 @@ public class Interface {
 	
 	private Image MAIN,P1,P2,MENU,ACTIONS,MUSIC,MUSIC_ON,MUSIC_OFF,PLAY,STOP,POUBELLE,fraise,pasteque,myrtille;
 	
-	private Image emplacement1,emplacement2,emplacement3,emplacement4,emplacement5,emplacement6,emplacement7,emplacement8,emplacement9,emplacement10,emplacement11,emplacement12,emplacement13,emplacement14,emplacement15,emplacement16,emplacement17,emplacement18,emplacement19,emplacement20,emplacement21,emplacement22,emplacement23,emplacement24,emplacement25,emplacement26,emplacement27,emplacement28;
+	private Image couleurs, emplacement1,emplacement2,emplacement3,emplacement4,emplacement5,emplacement6,emplacement7,emplacement8,emplacement9,emplacement10,emplacement11,emplacement12,emplacement13,emplacement14,emplacement15,emplacement16,emplacement17,emplacement18,emplacement19,emplacement20,emplacement21,emplacement22,emplacement23,emplacement24,emplacement25,emplacement26,emplacement27,emplacement28;
 	
 	private Action allumer,avancer,tournerG,tournerD,sauter,appuyer,prendre,lacher,lockUnlock,myBreak,testCaseBleue,testAvancer,testSauter,p1,p2;
 	
@@ -36,6 +36,7 @@ public class Interface {
 		this.fraise = new Image("graphisme/Images/fruits/panier_fraise.png");
 		this.pasteque = new Image("graphisme/Images/fruits/panier_pasteque.png");
 		this.myrtille = new Image("graphisme/Images/fruits/panier_myrtille.png");
+		this.couleurs = new Image("graphisme/Images/actions/rouge_ou_vert.png");
 		MUSIC_ON = new Image("graphisme/Images/musiqueON.png");
 		MUSIC_OFF = new Image("graphisme/Images/musiqueOFF.png");
 		MUSIC = MUSIC_ON;
@@ -103,6 +104,7 @@ public class Interface {
 		testSauter.setImage(new Image("graphisme/Images/actions/Allumer.png"));/////////
 		p1.setImage(new Image("graphisme/Images/actions/P1.png"));
 		p2.setImage(new Image("graphisme/Images/actions/P2.png"));
+		
 		running = false;
 	}
 	
@@ -204,25 +206,44 @@ public class Interface {
 		
 		//ACTIONS//
 		int lg,lar;
+		Image lock = new Image(e_lock);
 		lg = this.avancer.getImage().getWidth();
 		lar = this.avancer.getImage().getHeight()+10;
 		g.drawString("Actions", decalage+5, 16*container.getHeight()/20-decalage);
-		this.avancer.getImage().draw(decalage+20, 16*container.getHeight()/20-decalage+20);
-		this.allumer.getImage().draw(decalage+20+lg+decalage2, 16*container.getHeight()/20-decalage+20);
-		this.tournerG.getImage().draw(decalage+20+2*lg+2*decalage2, 16*container.getHeight()/20-decalage+20);
-		this.tournerD.getImage().draw(decalage+20+3*lg+3*decalage2, 16*container.getHeight()/20-decalage+20);
-		this.sauter.getImage().draw(decalage+20+4*lg+4*decalage2, 16*container.getHeight()/20-decalage+20);
-		this.appuyer.getImage().draw(decalage+20+5*lg+5*decalage2, 16*container.getHeight()/20-decalage+20);
-		this.p1.getImage().draw(decalage+20+6*lg+6*decalage2, 16*container.getHeight()/20-decalage+20);
-		this.prendre.getImage().draw(decalage+20, 16*container.getHeight()/20-decalage+20+lar);
-		this.lacher.getImage().draw(decalage+20+lg+decalage2, 16*container.getHeight()/20-decalage+20+lar);
-		this.myBreak.getImage().draw(decalage+20+2*lg+2*decalage2, 16*container.getHeight()/20-decalage+20+lar);
-		this.testAvancer.getImage().draw(decalage+20+3*lg+3*decalage2, 16*container.getHeight()/20-decalage+20+lar);
-		this.testCaseBleue.getImage().draw(decalage+20+4*lg+4*decalage2, 16*container.getHeight()/20-decalage+20+lar);
-		this.lockUnlock.getImage().draw(decalage+20+5*lg+5*decalage2, 16*container.getHeight()/20-decalage+20+lar);
-		this.p2.getImage().draw(decalage+20+6*lg+6*decalage2, 16*container.getHeight()/20-decalage+20+lar);
-		this.testSauter.getImage().draw(decalage+20+7*lg+7*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		if(!avancer.estBloquee()) this.avancer.draw(decalage+20, 16*container.getHeight()/20-decalage+20);
+		else lock.draw(decalage+20, 16*container.getHeight()/20-decalage+20);
+		if(!allumer.estBloquee())this.allumer.draw(decalage+20+lg+decalage2, 16*container.getHeight()/20-decalage+20);
+		else lock.draw(decalage+20+lg+decalage2, 16*container.getHeight()/20-decalage+20);
+		if(!tournerG.estBloquee())this.tournerG.draw(decalage+20+2*lg+2*decalage2, 16*container.getHeight()/20-decalage+20);
+		else lock.draw(decalage+20+2*lg+2*decalage2, 16*container.getHeight()/20-decalage+20);
+		if(!tournerD.estBloquee())this.tournerD.draw(decalage+20+3*lg+3*decalage2, 16*container.getHeight()/20-decalage+20);
+		else lock.draw(decalage+20+3*lg+3*decalage2, 16*container.getHeight()/20-decalage+20);
+		if(!sauter.estBloquee())this.sauter.draw(decalage+20+4*lg+4*decalage2, 16*container.getHeight()/20-decalage+20);
+		else lock.draw(decalage+20+4*lg+4*decalage2, 16*container.getHeight()/20-decalage+20);
+		if(!appuyer.estBloquee())this.appuyer.draw(decalage+20+5*lg+5*decalage2, 16*container.getHeight()/20-decalage+20);
+		else lock.draw(decalage+20+5*lg+5*decalage2, 16*container.getHeight()/20-decalage+20);
+		if(!p1.estBloquee())this.p1.getImage().draw(decalage+20+6*lg+6*decalage2, 16*container.getHeight()/20-decalage+20);
+		else lock.draw(decalage+20+6*lg+6*decalage2, 16*container.getHeight()/20-decalage+20);
+		if(!(testCaseBleue.estBloquee() && testAvancer.estBloquee() && testSauter.estBloquee())) this.couleurs.draw(decalage+20+7*lg+7*decalage2, 16*container.getHeight()/20-decalage+20,50,50);
+		else lock.draw(decalage+20+7*lg+7*decalage2, 16*container.getHeight()/20-decalage+20);
+		if(!prendre.estBloquee())this.prendre.draw(decalage+20, 16*container.getHeight()/20-decalage+20+lar);
+		else lock.draw(decalage+20, 16*container.getHeight()/20-decalage+20+lar);
+		if(!lacher.estBloquee())this.lacher.draw(decalage+20+lg+decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		else lock.draw(decalage+20+lg+decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		if(!myBreak.estBloquee())this.myBreak.draw(decalage+20+2*lg+2*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		else lock.draw(decalage+20+2*lg+2*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		if(!testAvancer.estBloquee())this.testAvancer.draw(decalage+20+3*lg+3*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		else lock.draw(decalage+20+3*lg+3*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		if(!testCaseBleue.estBloquee())this.testCaseBleue.draw(decalage+20+4*lg+4*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		else lock.draw(decalage+20+4*lg+4*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		if(!lockUnlock.estBloquee())this.lockUnlock.draw(decalage+20+5*lg+5*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		else lock.draw(decalage+20+5*lg+5*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		if(!p2.estBloquee())this.p2.draw(decalage+20+6*lg+6*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		else lock.draw(decalage+20+6*lg+6*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		if(!testSauter.estBloquee())this.testSauter.draw(decalage+20+7*lg+7*decalage2, 16*container.getHeight()/20-decalage+20+lar);
+		else lock.draw(decalage+20+7*lg+7*decalage2, 16*container.getHeight()/20-decalage+20+lar);
 	}
+	
 	
 	
 	public void panier(/*List<Objet> fruit,*/ GameContainer container ){
