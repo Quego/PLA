@@ -17,7 +17,8 @@ public class Interface {
 	
 	private Image MAIN,P1,P2,MENU,ACTIONS,MUSIC,MUSIC_ON,MUSIC_OFF,PLAY,STOP,POUBELLE,fraise,pasteque,myrtille;
 	
-	private Image couleurs, emplacement1,emplacement2,emplacement3,emplacement4,emplacement5,emplacement6,emplacement7,emplacement8,emplacement9,emplacement10,emplacement11,emplacement12,emplacement13,emplacement14,emplacement15,emplacement16,emplacement17,emplacement18,emplacement19,emplacement20,emplacement21,emplacement22,emplacement23,emplacement24,emplacement25,emplacement26,emplacement27,emplacement28;
+	private Image couleurs;
+	private Action emplacement1,emplacement2,emplacement3,emplacement4,emplacement5,emplacement6,emplacement7,emplacement8,emplacement9,emplacement10,emplacement11,emplacement12,emplacement13,emplacement14,emplacement15,emplacement16,emplacement17,emplacement18,emplacement19,emplacement20,emplacement21,emplacement22,emplacement23,emplacement24,emplacement25,emplacement26,emplacement27,emplacement28;
 	
 	private Action allumer,avancer,tournerG,tournerD,sauter,appuyer,prendre,lacher,lockUnlock,myBreak,testCaseBleue,testAvancer,testSauter,p1,p2;
 	
@@ -43,36 +44,64 @@ public class Interface {
 		PLAY = new Image("graphisme/Images/play.png");
 		STOP = new Image("graphisme/Images/stop.png");
 		POUBELLE = new Image("graphisme/Images/trash.png");
-		if (WindowGame.getNbActionsMain() >= 1) this.emplacement1 = new Image(e); else  this.emplacement1 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 2) this.emplacement2 = new Image(e); else  this.emplacement2 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 3) this.emplacement3 = new Image(e); else  this.emplacement3 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 4) this.emplacement4 = new Image(e); else  this.emplacement4 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 5) this.emplacement5 = new Image(e); else  this.emplacement5 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 6) this.emplacement6 = new Image(e); else  this.emplacement6 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 7) this.emplacement7 = new Image(e); else  this.emplacement7 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 8) this.emplacement8 = new Image(e); else  this.emplacement8 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 9) this.emplacement9 = new Image(e); else  this.emplacement9 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 10) this.emplacement10 = new Image(e); else  this.emplacement10 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 11) this.emplacement11 = new Image(e); else  this.emplacement11 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 12) this.emplacement12 = new Image(e); else  this.emplacement12 = new Image(e_lock);
+		this.emplacement1  = new Action();
+		this.emplacement2  = new Action();
+		this.emplacement3  = new Action();
+		this.emplacement4  = new Action();
+		this.emplacement5  = new Action();
+		this.emplacement6  = new Action();
+		this.emplacement7  = new Action();
+		this.emplacement8  = new Action();
+		this.emplacement9  = new Action();
+		this.emplacement10 = new Action();
+		this.emplacement11 = new Action();
+		this.emplacement12 = new Action();
+		this.emplacement13 = new Action();
+		this.emplacement14 = new Action();
+		this.emplacement15 = new Action();
+		this.emplacement16 = new Action();
+		this.emplacement17 = new Action();
+		this.emplacement18 = new Action();
+		this.emplacement19 = new Action();
+		this.emplacement20 = new Action();
+		this.emplacement21 = new Action();
+		this.emplacement22 = new Action();
+		this.emplacement23 = new Action();
+		this.emplacement24 = new Action();
+		this.emplacement25 = new Action();
+		this.emplacement26 = new Action();
+		this.emplacement27 = new Action();
+		this.emplacement28 = new Action();
+		if (WindowGame.getNbActionsMain() >= 1) this.emplacement1.setImage(new Image(e)); else  this.emplacement1.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 2) this.emplacement2.setImage(new Image(e)); else  this.emplacement2.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 3) this.emplacement3.setImage(new Image(e)); else  this.emplacement3.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 4) this.emplacement4.setImage(new Image(e)); else  this.emplacement4.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 5) this.emplacement5.setImage(new Image(e)); else  this.emplacement5.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 6) this.emplacement6.setImage(new Image(e)); else  this.emplacement6.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 7) this.emplacement7.setImage(new Image(e)); else  this.emplacement7.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 8) this.emplacement8.setImage(new Image(e)); else  this.emplacement8.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 9) this.emplacement9.setImage(new Image(e)); else  this.emplacement9.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 10) this.emplacement10.setImage(new Image(e)); else  this.emplacement10.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 11) this.emplacement11.setImage(new Image(e)); else  this.emplacement11.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 12) this.emplacement12.setImage(new Image(e)); else  this.emplacement12.setImage(new Image(e_lock));
 		
-		if (WindowGame.getNbActionsP1() >= 1) this.emplacement13 = new Image(e); else  this.emplacement13 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 2) this.emplacement14 = new Image(e); else  this.emplacement14 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 3) this.emplacement15 = new Image(e); else  this.emplacement15 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 4) this.emplacement16 = new Image(e); else  this.emplacement16 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 5) this.emplacement17 = new Image(e); else  this.emplacement17 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 6) this.emplacement18 = new Image(e); else  this.emplacement18 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 7) this.emplacement19 = new Image(e); else  this.emplacement19 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 8) this.emplacement20 = new Image(e); else  this.emplacement20 = new Image(e_lock);
+		if (WindowGame.getNbActionsP1() >= 1) this.emplacement13.setImage(new Image(e)); else  this.emplacement13.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 2) this.emplacement14.setImage(new Image(e)); else  this.emplacement14.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 3) this.emplacement15.setImage(new Image(e)); else  this.emplacement15.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 4) this.emplacement16.setImage(new Image(e)); else  this.emplacement16.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 5) this.emplacement17.setImage(new Image(e)); else  this.emplacement17.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 6) this.emplacement18.setImage(new Image(e)); else  this.emplacement18.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 7) this.emplacement19.setImage(new Image(e)); else  this.emplacement19.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 8) this.emplacement20.setImage(new Image(e)); else  this.emplacement20.setImage(new Image(e_lock));
 		
-		if (WindowGame.getNbActionsP2() >= 1) this.emplacement21 = new Image(e); else  this.emplacement21 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 2) this.emplacement22 = new Image(e); else  this.emplacement22 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 3) this.emplacement23 = new Image(e); else  this.emplacement23 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 4) this.emplacement24 = new Image(e); else  this.emplacement24 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 5) this.emplacement25 = new Image(e); else  this.emplacement25 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 6) this.emplacement26 = new Image(e); else  this.emplacement26 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 7) this.emplacement27 = new Image(e); else  this.emplacement27 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 8) this.emplacement28 = new Image(e); else  this.emplacement28 = new Image(e_lock);
+		if (WindowGame.getNbActionsP2() >= 1) this.emplacement21.setImage(new Image(e)); else  this.emplacement21.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 2) this.emplacement22.setImage(new Image(e)); else  this.emplacement22.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 3) this.emplacement23.setImage(new Image(e)); else  this.emplacement23.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 4) this.emplacement24.setImage(new Image(e)); else  this.emplacement24.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 5) this.emplacement25.setImage(new Image(e)); else  this.emplacement25.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 6) this.emplacement26.setImage(new Image(e)); else  this.emplacement26.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 7) this.emplacement27.setImage(new Image(e)); else  this.emplacement27.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 8) this.emplacement28.setImage(new Image(e)); else  this.emplacement28.setImage(new Image(e_lock));
 		
 		allumer = new Action();
 		avancer = new Action();
@@ -143,7 +172,7 @@ public class Interface {
 						4*container.getHeight()/20);
 		g.drawString("M",container.getWidth()-this.MUSIC.getWidth()-decalage2-5,5);
 		this.MUSIC.draw(container.getWidth()-this.MUSIC.getWidth()-decalage2, 0,container.getHeight()/20,container.getHeight()/20);
-		this.POUBELLE.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,16*container.getHeight()/20-decalage,4*container.getHeight()/20,4*container.getHeight()/20);
+		this.POUBELLE.draw(2*container.getWidth()/3+20+2*this.emplacement1.getImage().getWidth()+2*decalage2,16*container.getHeight()/20-decalage,4*container.getHeight()/20,4*container.getHeight()/20);
 		if (!running) {
 			this.PLAY.draw(2*container.getWidth()/3+20,16*container.getHeight()/20-decalage,4*container.getHeight()/20,4*container.getHeight()/20);
 		}
@@ -156,52 +185,52 @@ public class Interface {
     	g.drawString("Main", 2*container.getWidth()/3+5,container.getHeight()/20+ decalage + 5);
 
 		this.emplacement1.draw(2*container.getWidth()/3+20,container.getHeight()/20+decalage + 30);
-		this.emplacement5.draw(2*container.getWidth()/3+20,container.getHeight()/20+decalage + 30 + this.emplacement1.getHeight() + 10);
-		this.emplacement9.draw(2*container.getWidth()/3+20,container.getHeight()/20+decalage + 30 + 2*this.emplacement1.getHeight() + 2*10);
+		this.emplacement5.draw(2*container.getWidth()/3+20,container.getHeight()/20+decalage + 30 + this.emplacement1.getImage().getHeight() + 10);
+		this.emplacement9.draw(2*container.getWidth()/3+20,container.getHeight()/20+decalage + 30 + 2*this.emplacement1.getImage().getHeight() + 2*10);
 		
-		this.emplacement2.draw(2*container.getWidth()/3+20+this.emplacement1.getWidth()+decalage2 ,container.getHeight()/20+decalage + 30);
-		this.emplacement6.draw(2*container.getWidth()/3+20+this.emplacement1.getWidth()+decalage2 ,container.getHeight()/20+decalage + 30 + this.emplacement1.getHeight() + 10);
-		this.emplacement10.draw(2*container.getWidth()/3+20+this.emplacement1.getWidth()+decalage2 ,container.getHeight()/20+decalage + 30 + 2*this.emplacement1.getHeight() + 2*10);
+		this.emplacement2.draw(2*container.getWidth()/3+20+this.emplacement1.getImage().getWidth()+decalage2 ,container.getHeight()/20+decalage + 30);
+		this.emplacement6.draw(2*container.getWidth()/3+20+this.emplacement1.getImage().getWidth()+decalage2 ,container.getHeight()/20+decalage + 30 + this.emplacement1.getImage().getHeight() + 10);
+		this.emplacement10.draw(2*container.getWidth()/3+20+this.emplacement1.getImage().getWidth()+decalage2 ,container.getHeight()/20+decalage + 30 + 2*this.emplacement1.getImage().getHeight() + 2*10);
 		
-		this.emplacement3.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,container.getHeight()/20+decalage + 30);
-		this.emplacement7.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,container.getHeight()/20+decalage + 30 + this.emplacement1.getHeight() + 10);
-		this.emplacement11.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,container.getHeight()/20+decalage + 30 + 2*this.emplacement1.getHeight() + 2*10);
+		this.emplacement3.draw(2*container.getWidth()/3+20+2*this.emplacement1.getImage().getWidth()+2*decalage2,container.getHeight()/20+decalage + 30);
+		this.emplacement7.draw(2*container.getWidth()/3+20+2*this.emplacement1.getImage().getWidth()+2*decalage2,container.getHeight()/20+decalage + 30 + this.emplacement1.getImage().getHeight() + 10);
+		this.emplacement11.draw(2*container.getWidth()/3+20+2*this.emplacement1.getImage().getWidth()+2*decalage2,container.getHeight()/20+decalage + 30 + 2*this.emplacement1.getImage().getHeight() + 2*10);
 		
-		this.emplacement4.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,container.getHeight()/20+decalage + 30);
-		this.emplacement8.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,container.getHeight()/20+decalage + 30 + this.emplacement1.getHeight() + 10);
-		this.emplacement12.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,container.getHeight()/20+decalage + 30 + 2*this.emplacement1.getHeight() + 2*10);
+		this.emplacement4.draw(2*container.getWidth()/3+20+3*this.emplacement1.getImage().getWidth()+3*decalage2,container.getHeight()/20+decalage + 30);
+		this.emplacement8.draw(2*container.getWidth()/3+20+3*this.emplacement1.getImage().getWidth()+3*decalage2,container.getHeight()/20+decalage + 30 + this.emplacement1.getImage().getHeight() + 10);
+		this.emplacement12.draw(2*container.getWidth()/3+20+3*this.emplacement1.getImage().getWidth()+3*decalage2,container.getHeight()/20+decalage + 30 + 2*this.emplacement1.getImage().getHeight() + 2*10);
 		
 		
 		//emplacement P1//
 		g.drawString("P1", 2*container.getWidth()/3+5, 7*container.getHeight()/20+2*decalage+5);
 		
 		this.emplacement13.draw(2*container.getWidth()/3+20, 7*container.getHeight()/20+2*decalage+30);
-		this.emplacement17.draw(2*container.getWidth()/3+20, 7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
+		this.emplacement17.draw(2*container.getWidth()/3+20, 7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getImage().getHeight() + 5);
 	
-		this.emplacement14.draw(2*container.getWidth()/3+20+this.emplacement1.getWidth()+decalage2 ,7*container.getHeight()/20+2*decalage+30);
-		this.emplacement18.draw(2*container.getWidth()/3+20+this.emplacement1.getWidth()+decalage2 ,7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
+		this.emplacement14.draw(2*container.getWidth()/3+20+this.emplacement1.getImage().getWidth()+decalage2 ,7*container.getHeight()/20+2*decalage+30);
+		this.emplacement18.draw(2*container.getWidth()/3+20+this.emplacement1.getImage().getWidth()+decalage2 ,7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getImage().getHeight() + 5);
 		
-		this.emplacement15.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,7*container.getHeight()/20+2*decalage+30);
-		this.emplacement19.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
+		this.emplacement15.draw(2*container.getWidth()/3+20+2*this.emplacement1.getImage().getWidth()+2*decalage2,7*container.getHeight()/20+2*decalage+30);
+		this.emplacement19.draw(2*container.getWidth()/3+20+2*this.emplacement1.getImage().getWidth()+2*decalage2,7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getImage().getHeight() + 5);
 		
-		this.emplacement16.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,7*container.getHeight()/20+2*decalage+30);
-		this.emplacement20.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
+		this.emplacement16.draw(2*container.getWidth()/3+20+3*this.emplacement1.getImage().getWidth()+3*decalage2,7*container.getHeight()/20+2*decalage+30);
+		this.emplacement20.draw(2*container.getWidth()/3+20+3*this.emplacement1.getImage().getWidth()+3*decalage2,7*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getImage().getHeight() + 5);
 		
 		
 		//emplacement P2//
 		g.drawString("P2", 2*container.getWidth()/3+5, 11*container.getHeight()/20+2*decalage+5);
 		
 		this.emplacement21.draw(2*container.getWidth()/3+20, 11*container.getHeight()/20+2*decalage+30);
-		this.emplacement25.draw(2*container.getWidth()/3+20, 11*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
+		this.emplacement25.draw(2*container.getWidth()/3+20, 11*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getImage().getHeight() + 5);
 	
-		this.emplacement22.draw(2*container.getWidth()/3+20+this.emplacement1.getWidth()+decalage2 ,11*container.getHeight()/20+2*decalage+30);
-		this.emplacement26.draw(2*container.getWidth()/3+20+this.emplacement1.getWidth()+decalage2 ,11*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
+		this.emplacement22.draw(2*container.getWidth()/3+20+this.emplacement1.getImage().getWidth()+decalage2 ,11*container.getHeight()/20+2*decalage+30);
+		this.emplacement26.draw(2*container.getWidth()/3+20+this.emplacement1.getImage().getWidth()+decalage2 ,11*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getImage().getHeight() + 5);
 		
-		this.emplacement23.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,11*container.getHeight()/20+2*decalage+30);
-		this.emplacement27.draw(2*container.getWidth()/3+20+2*this.emplacement1.getWidth()+2*decalage2,11*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
+		this.emplacement23.draw(2*container.getWidth()/3+20+2*this.emplacement1.getImage().getWidth()+2*decalage2,11*container.getHeight()/20+2*decalage+30);
+		this.emplacement27.draw(2*container.getWidth()/3+20+2*this.emplacement1.getImage().getWidth()+2*decalage2,11*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getImage().getHeight() + 5);
 		
-		this.emplacement24.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,11*container.getHeight()/20+2*decalage+30);
-		this.emplacement28.draw(2*container.getWidth()/3+20+3*this.emplacement1.getWidth()+3*decalage2,11*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getHeight() + 5);
+		this.emplacement24.draw(2*container.getWidth()/3+20+3*this.emplacement1.getImage().getWidth()+3*decalage2,11*container.getHeight()/20+2*decalage+30);
+		this.emplacement28.draw(2*container.getWidth()/3+20+3*this.emplacement1.getImage().getWidth()+3*decalage2,11*container.getHeight()/20+2*decalage+ 30 + this.emplacement1.getImage().getHeight() + 5);
 		
 		
 		//ACTIONS//
@@ -296,34 +325,34 @@ public class Interface {
 	public Action getP1() { return p1; }
 	public Action getP2() { return p2; }
 	
-	public void setEmplacement1(Image i){ emplacement1 = i; }
-	public void setEmplacement2(Image i){ emplacement2 = i; }
-	public void setEmplacement3(Image i){ emplacement3 = i; }
-	public void setEmplacement4(Image i){ emplacement4 = i; }
-	public void setEmplacement5(Image i){ emplacement5 = i; }
-	public void setEmplacement6(Image i){ emplacement6 = i; }
-	public void setEmplacement7(Image i){ emplacement7 = i; }
-	public void setEmplacement8(Image i){ emplacement8 = i; }
-	public void setEmplacement9(Image i){ emplacement9 = i; }
-	public void setEmplacement10(Image i){ emplacement10 = i; }
-	public void setEmplacement11(Image i){ emplacement11 = i; }
-	public void setEmplacement12(Image i){ emplacement12 = i; }
-	public void setEmplacement13(Image i){ emplacement13 = i; }
-	public void setEmplacement14(Image i){ emplacement14 = i; }
-	public void setEmplacement15(Image i){ emplacement15 = i; }
-	public void setEmplacement16(Image i){ emplacement16 = i; }
-	public void setEmplacement17(Image i){ emplacement17= i; }
-	public void setEmplacement18(Image i){ emplacement18 = i; }
-	public void setEmplacement19(Image i){ emplacement19 = i; }
-	public void setEmplacement20(Image i){ emplacement20 = i; }
-	public void setEmplacement21(Image i){ emplacement21 = i; }
-	public void setEmplacement22(Image i){ emplacement22 = i; }
-	public void setEmplacement23(Image i){ emplacement23 = i; }
-	public void setEmplacement24(Image i){ emplacement24= i; }
-	public void setEmplacement25(Image i){ emplacement25 = i; }
-	public void setEmplacement26(Image i){ emplacement26 = i; }
-	public void setEmplacement27(Image i){ emplacement27 = i; }
-	public void setEmplacement28(Image i){ emplacement28 = i; }
+	public void setEmplacement1(Action a){ emplacement1   = a;  }
+	public void setEmplacement2(Action a){ emplacement2   = a; }
+	public void setEmplacement3(Action a){ emplacement3   = a; }
+	public void setEmplacement4(Action a){ emplacement4   = a; }
+	public void setEmplacement5(Action a){ emplacement5   = a; }
+	public void setEmplacement6(Action a){ emplacement6   = a; }
+	public void setEmplacement7(Action a){ emplacement7   = a; }
+	public void setEmplacement8(Action a){ emplacement8   = a; }
+	public void setEmplacement9(Action a){ emplacement9   = a; }
+	public void setEmplacement10(Action a){ emplacement10 = a; }
+	public void setEmplacement11(Action a){ emplacement11 = a; }
+	public void setEmplacement12(Action a){ emplacement12 = a; }
+	public void setEmplacement13(Action a){ emplacement13 = a; }
+	public void setEmplacement14(Action a){ emplacement14 = a; }
+	public void setEmplacement15(Action a){ emplacement15 = a; }
+	public void setEmplacement16(Action a){ emplacement16 = a; }
+	public void setEmplacement17(Action a){ emplacement17 = a; }
+	public void setEmplacement18(Action a){ emplacement18 = a; }
+	public void setEmplacement19(Action a){ emplacement19 = a; }
+	public void setEmplacement20(Action a){ emplacement20 = a; }
+	public void setEmplacement21(Action a){ emplacement21 = a; }
+	public void setEmplacement22(Action a){ emplacement22 = a; }
+	public void setEmplacement23(Action a){ emplacement23 = a; }
+	public void setEmplacement24(Action a){ emplacement24 = a; }
+	public void setEmplacement25(Action a){ emplacement25 = a; }
+	public void setEmplacement26(Action a){ emplacement26 = a; }
+	public void setEmplacement27(Action a){ emplacement27 = a; }
+	public void setEmplacement28(Action a){ emplacement28 = a; }
 	
 	public Image getMusic() { return this.MUSIC; }
 	public void setMusic() { if (this.MUSIC.equals(MUSIC_ON)) this.MUSIC = MUSIC_OFF; else this.MUSIC = MUSIC_ON; }
@@ -332,36 +361,36 @@ public class Interface {
 	public void setRunning() { running = !running; }
 	
 	public void effacer() throws SlickException{
-		if (WindowGame.getNbActionsMain() >= 1) this.emplacement1 = new Image(e); else  this.emplacement1 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 2) this.emplacement2 = new Image(e); else  this.emplacement2 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 3) this.emplacement3 = new Image(e); else  this.emplacement3 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 4) this.emplacement4 = new Image(e); else  this.emplacement4 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 5) this.emplacement5 = new Image(e); else  this.emplacement5 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 6) this.emplacement6 = new Image(e); else  this.emplacement6 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 7) this.emplacement7 = new Image(e); else  this.emplacement7 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 8) this.emplacement8 = new Image(e); else  this.emplacement8 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 9) this.emplacement9 = new Image(e); else  this.emplacement9 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 10) this.emplacement10 = new Image(e); else  this.emplacement10 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 11) this.emplacement11 = new Image(e); else  this.emplacement11 = new Image(e_lock);
-		if (WindowGame.getNbActionsMain() >= 12) this.emplacement12 = new Image(e); else  this.emplacement12 = new Image(e_lock);
+		if (WindowGame.getNbActionsMain() >= 1) this.emplacement1.setImage(new Image(e)); else  this.emplacement1.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 2) this.emplacement2.setImage(new Image(e)); else  this.emplacement2.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 3) this.emplacement3.setImage(new Image(e)); else  this.emplacement3.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 4) this.emplacement4.setImage(new Image(e)); else  this.emplacement4.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 5) this.emplacement5.setImage(new Image(e)); else  this.emplacement5.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 6) this.emplacement6.setImage(new Image(e)); else  this.emplacement6.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 7) this.emplacement7.setImage(new Image(e)); else  this.emplacement7.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 8) this.emplacement8.setImage(new Image(e)); else  this.emplacement8.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 9) this.emplacement9.setImage(new Image(e)); else  this.emplacement9.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 10) this.emplacement10.setImage(new Image(e)); else  this.emplacement10.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 11) this.emplacement11.setImage(new Image(e)); else  this.emplacement11.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsMain() >= 12) this.emplacement12.setImage(new Image(e)); else  this.emplacement12.setImage(new Image(e_lock));
 		
-		if (WindowGame.getNbActionsP1() >= 1) this.emplacement13 = new Image(e); else  this.emplacement13 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 2) this.emplacement14 = new Image(e); else  this.emplacement14 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 3) this.emplacement15 = new Image(e); else  this.emplacement15 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 4) this.emplacement16 = new Image(e); else  this.emplacement16 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 5) this.emplacement17 = new Image(e); else  this.emplacement17 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 6) this.emplacement18 = new Image(e); else  this.emplacement18 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 7) this.emplacement19 = new Image(e); else  this.emplacement19 = new Image(e_lock);
-		if (WindowGame.getNbActionsP1() >= 8) this.emplacement20 = new Image(e); else  this.emplacement20 = new Image(e_lock);
-		
-		if (WindowGame.getNbActionsP2() >= 1) this.emplacement21 = new Image(e); else  this.emplacement21 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 2) this.emplacement22 = new Image(e); else  this.emplacement22 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 3) this.emplacement23 = new Image(e); else  this.emplacement23 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 4) this.emplacement24 = new Image(e); else  this.emplacement24 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 5) this.emplacement25 = new Image(e); else  this.emplacement25 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 6) this.emplacement26 = new Image(e); else  this.emplacement26 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 7) this.emplacement27 = new Image(e); else  this.emplacement27 = new Image(e_lock);
-		if (WindowGame.getNbActionsP2() >= 8) this.emplacement28 = new Image(e); else  this.emplacement28 = new Image(e_lock);
+		if (WindowGame.getNbActionsP1() >= 1) this.emplacement13.setImage(new Image(e)); else  this.emplacement13.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 2) this.emplacement14.setImage(new Image(e)); else  this.emplacement14.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 3) this.emplacement15.setImage(new Image(e)); else  this.emplacement15.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 4) this.emplacement16.setImage(new Image(e)); else  this.emplacement16.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 5) this.emplacement17.setImage(new Image(e)); else  this.emplacement17.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 6) this.emplacement18.setImage(new Image(e)); else  this.emplacement18.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 7) this.emplacement19.setImage(new Image(e)); else  this.emplacement19.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP1() >= 8) this.emplacement20.setImage(new Image(e)); else  this.emplacement20.setImage(new Image(e_lock));
+		                                                                                                        
+		if (WindowGame.getNbActionsP2() >= 1) this.emplacement21.setImage(new Image(e)); else  this.emplacement21.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 2) this.emplacement22.setImage(new Image(e)); else  this.emplacement22.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 3) this.emplacement23.setImage(new Image(e)); else  this.emplacement23.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 4) this.emplacement24.setImage(new Image(e)); else  this.emplacement24.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 5) this.emplacement25.setImage(new Image(e)); else  this.emplacement25.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 6) this.emplacement26.setImage(new Image(e)); else  this.emplacement26.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 7) this.emplacement27.setImage(new Image(e)); else  this.emplacement27.setImage(new Image(e_lock));
+		if (WindowGame.getNbActionsP2() >= 8) this.emplacement28.setImage(new Image(e)); else  this.emplacement28.setImage(new Image(e_lock));
 		
 	}
 	
