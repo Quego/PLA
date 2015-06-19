@@ -132,7 +132,7 @@ public class WindowGame extends BasicGameState {
 	copie.render(container,game,g);
 	if(menu_ouvert) menu.draw(1, container.getHeight()/20+1);
 	g.resetTransform();
-	g.setColor(Color.red);
+	g.setColor(Color.black);
 	aide.draw(X-4, Y-3, LG, 25);
 	g.drawString(S,X,Y);
 	if(win)	finNiv.draw(0,0);
@@ -679,6 +679,12 @@ public class WindowGame extends BasicGameState {
 		if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
 			S = "Lancer P1";
 			LG = 100;
+			X = x;
+			Y = y;
+		}
+		if(x>(decalage+20+7*lg+7*decalage2) && x < (decalage+20+7*lg+7*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+			S = "Couleur pour If";
+			LG = 150;
 			X = x;
 			Y = y;
 		}
