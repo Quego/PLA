@@ -29,7 +29,7 @@ public class Accueil extends BasicGameState {
 	   public void init(GameContainer container, StateBasedGame game) throws SlickException {
 		   	this.game = game;
 		   	this.background = new Image("graphisme/Images/fond/FOND_ACCUEIL.png");
-		   	this.jouer = new Image("graphisme/Images/fond/jouer.png");
+		   	this.jouer = new Image("graphisme/Images/fond/Jouer.png");
 	   }
 
 	   
