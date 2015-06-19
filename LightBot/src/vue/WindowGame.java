@@ -183,7 +183,7 @@ public class WindowGame extends BasicGameState {
 		copie.render(container,game,g);
 		if(menu_ouvert) menu.draw(1, container.getHeight()/20+1);
 		g.resetTransform();
-		g.setColor(Color.red);
+		g.setColor(Color.black);
 		aide.draw(X-4, Y-3, LG, 25);
 		g.drawString(S,X,Y);
 		if (Controleur.getMapCourrante().estFini() && interf.getRunning()) finNiv.draw(0,0);
