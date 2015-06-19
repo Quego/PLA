@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="7" height="5" tilewidth="68" tileheight="34">
+ <tileset firstgid="1" name="terrain68larg170haut" tilewidth="68" tileheight="170">
+  <tileoffset x="4" y="0"/>
+  <image source="terrain68larg170haut.png" width="544" height="1409"/>
+ </tileset>
+ <layer name="Calque de Tile 1" width="7" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGDwAAJ4bd86MAAAA
+  </data>
+ </layer>
+ <layer name="Calque 2" width="7" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGDwAAJ4bd86MAAAA
+  </data>
+ </layer>
+ <layer name="Calque 3" width="7" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGDwAAJ4bd86MAAAA
+  </data>
+ </layer>
+ <layer name="Calque 4" width="7" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoD7gJFMfAPGWSj+MAAAA
+  </data>
+ </layer>
+ <layer name="Calque 5" width="7" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgQAUcDLQFQnjkAF7olsCMAAAA
+  </data>
+ </layer>
+ <layer name="Calque 6" width="7" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIB5wk6AWH5DGIQ4AZxD0z4wAAAA=
+  </data>
+ </layer>
+ <layer name="Calque 7" width="7" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgwA7EcIjjAlwkqpfDIgYA+j7rfowAAAA=
+  </data>
+ </layer>
+ <layer name="Calque 8" width="7" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIB1IkaheHoc4JxofAHgslWeMAAAA
+  </data>
+ </layer>
+ <layer name="Calque 9" width="7" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoC7gpEA9AL3EJHmMAAAA
+  </data>
+ </layer>
+ <layer name="Calque 10" width="7" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoB+QJSAPAKNearCMAAAA
+  </data>
+ </layer>
+ <layer name="Calque 11" width="7" height="5">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGByAE4gBFFR/s4wAAAA=
+  </data>
+ </layer>
+</map>
