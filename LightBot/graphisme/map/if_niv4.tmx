@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="3" height="7" tilewidth="68" tileheight="34">
+ <tileset firstgid="1" name="terrain68larg170haut" tilewidth="68" tileheight="170">
+  <tileoffset x="4" y="0"/>
+  <image source="terrain68larg170haut.png" width="544" height="1409"/>
+ </tileset>
+ <layer name="Calque 2" width="3" height="7">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+NkoD4AAAJGQZNUAAAA
+  </data>
+ </layer>
+ <layer name="Calque 3" width="3" height="7">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgYGDgZIAAGE0pAAA4btFXVAAAAA==
+  </data>
+ </layer>
+ <layer name="Calque 4" width="3" height="7">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NggABOBlSAzicFAACMIkd5VAAAAA==
+  </data>
+ </layer>
+ <layer name="Calque 5" width="3" height="7">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgwAScBPiEAACwMjlSVAAAAA==
+  </data>
+ </layer>
+ <layer name="Calque 6" width="3" height="7">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgwA840WhiAACiB51FVAAAAA==
+  </data>
+ </layer>
+ <layer name="Calque 7" width="3" height="7">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIB4wEakOALnINPFUAAAA
+  </data>
+ </layer>
+ <layer name="Calque 8" width="3" height="7">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIA9w4uEDABLFf+VUAAAA
+  </data>
+ </layer>
+ <layer name="Calque 9" width="3" height="7">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoBxwotEAg//4tlQAAAA=
+  </data>
+ </layer>
+ <layer name="Calque 10" width="3" height="7">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoC7gBGIA/KXECVQAAAA=
+  </data>
+ </layer>
+</map>
