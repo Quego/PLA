@@ -190,9 +190,14 @@ public class WindowGame extends BasicGameState {
 			this.menu.draw(1, container.getHeight()/20+1);
 		
 		g.resetTransform();
-		g.setColor(Color.red);
 		
+		g.setColor(Color.red);
 		this.aide.draw(X-4, Y-3, LG, 25);
+
+	// A changer si besoin
+	//	g.setColor(Color.black); 
+	//	aide.draw(X-4, Y-3, LG, 25);
+
 		g.drawString(S,X,Y);
 		
 		if (Controleur.getMapCourrante().estFini() && this.interf.getRunning()) 
