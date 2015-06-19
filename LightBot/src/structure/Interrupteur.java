@@ -1,4 +1,5 @@
 package structure;
+
 import enumere.Couleur;
 import enumere.Etat;
 import enumere.Objet;

@@ -1,4 +1,5 @@
 package structure.actions;
+
 import structure.Bot;
 import structure.Cellule;
 import structure.Controleur;

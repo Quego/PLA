@@ -14,10 +14,10 @@ public class Map {
 
 	public void init() throws SlickException {
 		this.tiledMap = new TiledMap("graphisme/map/base_niv1.tmx");
-		Height = tiledMap.getHeight();
-		Width = tiledMap.getWidth();
-		TilesWidth = tiledMap.getTileWidth();	
-		TilesHeight = tiledMap.getTileHeight();
+		this.Height = tiledMap.getHeight();
+		this.Width = tiledMap.getWidth();
+		this.TilesWidth = tiledMap.getTileWidth();	
+		this.TilesHeight = tiledMap.getTileHeight();
 	}
 	
 	public void render(Player p1, Player p2, org.newdawn.slick.Graphics g) throws SlickException{
@@ -130,7 +130,6 @@ public class Map {
 		
 	
 	public void poseFruit(int colonne, int ligne){
-		//IF GOTFRUIT TODO
 		int ID = this.tiledMap.getTileId(colonne,ligne, ligne + colonne);
 		if (ID == 27 || ID == 29 || ID == 31){
 			this.tiledMap.setTileId(colonne, ligne, ligne + colonne, ID +24);

@@ -15,8 +15,12 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 public class Accueil extends BasicGameState {
 	   
 	public static final int ID = 1;
-	private Image background, jouer;
 	private StateBasedGame game;
+	
+	private Image background, jouer;
+	
+	private int boutonX = 200;
+	private int boutonY = 400;
    
 	public int getID() {
 		return ID;
@@ -36,22 +40,21 @@ public class Accueil extends BasicGameState {
  
    public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
 	   this.background.draw(0,0,container.getWidth(),container.getScreenHeight());
-	   this.jouer.draw(200,400);
+	   this.jouer.draw(this.boutonX,this.boutonY);
    }
 
    public void update(GameContainer container, StateBasedGame game, int delta) {
    }
    
    public void mouseClicked(int button, int x, int y, int ClickCount){
-	   if (x>200 && x<200+jouer.getWidth() && y>400 && y<400+jouer.getHeight()){
+	   if (x>this.boutonX && x<this.boutonX+this.jouer.getWidth() && y>this.boutonY && y<this.boutonY+this.jouer.getHeight()){
 		   this.game.enterState(Choix.ID, new FadeOutTransition(Color.white), new FadeInTransition(Color.white));
 	  }
    }
    
    public void keyReleased(int key, char c) {
       switch (key) {
-    	  case Input.KEY_ENTER: 
-    	  {
+    	  case Input.KEY_ENTER: {
     		  this.game.enterState(Choix.ID, new FadeOutTransition(Color.white), new FadeInTransition(Color.white));break;
     	  }
     	  case Input.KEY_ESCAPE:Menu.container.exit(); break;

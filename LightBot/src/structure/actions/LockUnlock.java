@@ -1,4 +1,5 @@
 package structure.actions;
+
 import structure.Controleur;
 import enumere.Etat;
 

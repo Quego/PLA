@@ -1,4 +1,5 @@
 package structure.actions;
+
 import structure.Cellule;
 import structure.Controleur;
 import enumere.Couleur;
