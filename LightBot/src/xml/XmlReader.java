@@ -242,7 +242,7 @@ public class XmlReader {
 				
 			};
 			
-			parser.parse("/home/thibaut/noug/workspace/PLA=caca/src/map.xml", handler);
+			parser.parse("./src/map.xml", handler);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
