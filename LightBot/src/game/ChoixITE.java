@@ -16,7 +16,7 @@ public class ChoixITE extends BasicGameState{
 		public static final int ID = 5;
 		private Image background;
 	    private StateBasedGame game;
-	    protected static Music music;
+	   // protected static Music music;
 	    private Image boutonQuit,boutonLvl1,boutonLvl2,boutonLvl3,boutonLvl4,boutonLvl5,boutonMouse,boutonRetour;
 	    private int PG_X,PG_Y;
 	    

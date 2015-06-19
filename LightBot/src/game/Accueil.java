@@ -7,7 +7,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
-import org.newdawn.slick.Music;
+//import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -29,7 +29,7 @@ public class Accueil extends BasicGameState {
 	   public void init(GameContainer container, StateBasedGame game) throws SlickException {
 		   	this.game = game;
 		   	this.background = new Image("graphisme/Images/fond/FOND_ACCUEIL.png");
-		   	this.jouer = new Image("graphisme/Images/fond/jouer.png");
+		   	this.jouer = new Image("graphisme/Images/fond/Jouer.png");
 	   }
 
 	   
