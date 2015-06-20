@@ -2569,7 +2569,7 @@
 		</bot>
 		<bot>
 			<initiale>
-				<ligneB>4</ligneB>
+				<ligneB>3</ligneB>
 				<colonneB>5</colonneB>
 			</initiale>
 			<etatB>LOCK</etatB>

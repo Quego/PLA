@@ -5,7 +5,7 @@ import structure.Controleur;
 import enumere.Couleur;
 
 
-public class TestCouleurCase extends IfThenElse {
+public class TestCouleurCase implements Action {
 
 	public int executer() {
 		int num = Controleur.numeroBot();
