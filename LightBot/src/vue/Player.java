@@ -53,8 +53,6 @@ public class Player {
 		this.y =  map.getTilesHeight()/2*(1+ligne+colonne) - (hauteur+1) * (map.getTilesHeight()/2);
 		this.posLigne = ligne;
 		this.posColonne = colonne;
-				  
-		  
 	  }
 	  
 	private Animation loadAnimation(SpriteSheet spriteSheet, int startX, int endX, int y) {
