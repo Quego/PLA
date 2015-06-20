@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="structure.Start" project="LightBot" file="/LightBot/src/structure/Start.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="850" y="44"/>    
+    <position height="-1" width="-1" x="951" y="103"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -228,7 +228,7 @@
   </class>  
   <class id="26" language="java" name="xml.XmlReader" project="LightBot" file="/LightBot/src/xml/XmlReader.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="732" y="101"/>    
+    <position height="-1" width="-1" x="740" y="106"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -345,7 +345,7 @@
   </class>  
   <class id="39" language="java" name="vue.WindowGame" project="LightBot" file="/LightBot/src/vue/WindowGame.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="659" y="911"/>    
+    <position height="-1" width="-1" x="659" y="857"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false" static="true"/>      
@@ -369,6 +369,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="44">    
+    <bendpoint x="430" y="825"/>    
     <end type="SOURCE" refId="39" navigable="false">      
       <attribute id="45" name="map"/>      
       <multiplicity id="46" minimum="0" maximum="1"/>    
@@ -423,7 +424,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="62">    
-    <bendpoint x="142" y="880"/>    
+    <bendpoint x="141" y="865"/>    
     <bendpoint x="122" y="804"/>    
     <end type="SOURCE" refId="39" navigable="false">      
       <attribute id="63" name="copie"/>      
@@ -612,7 +613,9 @@
   </realization>  
   <association id="118">    
     <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="119" name="player_2"/>      
+      <attribute id="119" name="player_2">        
+        <position height="17" width="49" x="497" y="745"/>      
+      </attribute>      
       <multiplicity id="120" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="38" navigable="true"/>    
@@ -627,7 +630,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="124">    
-    <bendpoint x="48" y="905"/>    
+    <bendpoint x="51" y="870"/>    
     <bendpoint x="49" y="728"/>    
     <end type="SOURCE" refId="39" navigable="false">      
       <attribute id="125" name="p2"/>      
@@ -701,7 +704,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="146">    
-    <bendpoint x="566" y="789"/>    
+    <bendpoint x="520" y="810"/>    
     <end type="SOURCE" refId="39" navigable="false">      
       <attribute id="147" name="player_1"/>      
       <multiplicity id="148" minimum="0" maximum="1"/>    

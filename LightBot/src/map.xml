@@ -2420,7 +2420,7 @@
 		<niveau>21</niveau>
 		<largeur>5</largeur>
 		<longueur>5</longueur>
-		<maxActionsMain>11</maxActionsMain>
+		<maxActionsMain>12</maxActionsMain>
 		<maxProcedures>2</maxProcedures>
 		<maxActionsProcedures>8</maxActionsProcedures>
 		<actions>
