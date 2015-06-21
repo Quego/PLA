@@ -4,6 +4,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
@@ -109,6 +110,19 @@ public class ChoixFruit extends BasicGameState{
 			this.game.enterState(WindowGame.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
     	}
     }
+    
+	public void keyReleased(int key, char c) {
+	      switch (key) {
+	    	  case Input.KEY_ESCAPE:Menu.container.exit(); break;
+	    	  case Input.KEY_M: {
+	    		  if (Accueil.music.playing())
+	    			 Accueil.music.pause(); 
+	    		  else	
+	    			Accueil.music.resume();
+	    	  }
+
+	      }
+	   }
     
    
 }

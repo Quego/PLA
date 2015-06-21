@@ -1099,33 +1099,6 @@ public class WindowGame extends BasicGameState {
 		}
 	}
 	
-	public void keyPressed(int key, char c) {
-		if(!player_1.isRunning() && !player_1.isJumping() && !player_1.isFalling() && !player_1.isLeft() && !player_1.isRight()) {
-			this.player_1.setLightning(false);
-			switch (key) {
-				case Input.KEY_UP:    player_1.start(); break;
-				case Input.KEY_LEFT:  player_1.setGauche(); Controleur.orientation(false, 0); break;
-				case Input.KEY_RIGHT: player_1.setDroite(); Controleur.orientation(true, 0); break;
-				case Input.KEY_J:     player_1.jump(); break;
-				case Input.KEY_K:     player_1.down(); break;
-				case Input.KEY_A:     this.map.allume(this.player_1.getColonne(),this.player_1.getLigne());this.player_1.setLightning(true); break;
-				//case Input.KEY_I:     this.map.interrup(this.player_1.getColonne(),this.player_1.getLigne()); break;
-				case Input.KEY_P:     this.map.poseFruit(this.player_1.getColonne(),this.player_1.getLigne()); break;
-				case Input.KEY_R:     this.map.prendFruit(this.player_1.getColonne(),this.player_1.getLigne()); break;
-			}
-		}
-		/*if(!player_2.isRunning() && !player_2.isJumping() && !player_2.isFalling() ){
-			switch (key) {
-		        case Input.KEY_Z:     this.player_2.start(); break;
-		        case Input.KEY_Q:     player_2.setGauche(); Controleur.orientation(false, 0); break;
-		        case Input.KEY_D:     player_2.setDroite(); Controleur.orientation(true, 0); break;
-			}
-	    }*/
-		switch (key) {
-			case Input.KEY_M:		interf.setMusic();break;
-			case Input.KEY_ESCAPE: 	menu_ouvert = !menu_ouvert; break;
-		}
-	}
 	
 	public void mouseMoved(int oldx, int oldy, int x, int y){
 		int decalage = 7;
@@ -1234,4 +1207,12 @@ public class WindowGame extends BasicGameState {
 		Y -= 17; 
 	}
 	
+	public void keyReleased(int key, char c) {
+	      switch (key) {
+	    	  case Input.KEY_ESCAPE:Menu.container.exit(); break;
+	    	  case Input.KEY_M: {
+	    		  this.interf.setMusic();
+	    	  }
+	      }
+	}
 }

@@ -23,6 +23,4 @@ public class Menu extends StateBasedGame {
       addState(new ChoixHardLevels());    
       addState(new WindowGame());
    }
-   
-  
 }

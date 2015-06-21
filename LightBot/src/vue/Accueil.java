@@ -5,6 +5,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -21,6 +22,8 @@ public class Accueil extends BasicGameState {
 	
 	private int boutonX = 200;
 	private int boutonY = 400;
+	
+	public static Music music;
    
 	public int getID() {
 		return ID;
@@ -30,6 +33,9 @@ public class Accueil extends BasicGameState {
 	   	this.game = game;
 		this.background = new Image("graphisme/Images/fond/FOND_ACCUEIL.png");
 	   	this.jouer = new Image("graphisme/Images/fond/jouer.png");
+	   	music = new Music("music/Game_of_Thrones_8-bit.ogg");
+	   	music.play();
+	   	music.loop();
    }
 
    
@@ -39,7 +45,7 @@ public class Accueil extends BasicGameState {
 	}
  
    public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
-	   this.background.draw(0,0,container.getWidth(),container.getScreenHeight());
+	   this.background.draw(0,0,container.getWidth(),container.getHeight());
 	   this.jouer.draw(this.boutonX,this.boutonY);
    }
 
@@ -58,6 +64,12 @@ public class Accueil extends BasicGameState {
     		  this.game.enterState(Choix.ID, new FadeOutTransition(Color.white), new FadeInTransition(Color.white));break;
     	  }
     	  case Input.KEY_ESCAPE:Menu.container.exit(); break;
+    	  case Input.KEY_M: {
+    		  if (Accueil.music.playing())
+    			 Accueil.music.pause(); 
+    		  else	
+    			Accueil.music.resume();
+    	  }
 
       }
    }

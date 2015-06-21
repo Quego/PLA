@@ -40,7 +40,7 @@ public class Interface {
 		this.couleurs = new Image("graphisme/Images/actions/rouge_ou_vert.png");
 		this.musicOn = new Image("graphisme/Images/musiqueON.png");
 		this.musicOff = new Image("graphisme/Images/musiqueOFF.png");
-		this.music = this.musicOn;
+		if (Accueil.music.playing()) this.music = this.musicOn; else  this.music = this.musicOff;
 		this.play = new Image("graphisme/Images/play.png");
 		this.stop = new Image("graphisme/Images/stop.png");
 		this.poubelle = new Image("graphisme/Images/trash.png");
@@ -486,7 +486,16 @@ public class Interface {
 	public Action getEmplacement28(){ return this.emplacement28; }
 	
 	public Image getMusic() { return this.music; }
-	public void setMusic() { if (this.music.equals(musicOn)) this.music = musicOff; else this.music = musicOn; }
+	public void setMusic() { 
+		if (Accueil.music.playing()) {
+			this.music = musicOff;
+			Accueil.music.pause();
+		}
+		else {
+			this.music = musicOn;
+			Accueil.music.resume();
+		}
+	}
 	
 	public boolean getRunning() {return this.running;}
 	public void setRunning() { this.running = !this.running; }
