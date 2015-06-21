@@ -482,9 +482,11 @@ public class WindowGame extends BasicGameState {
 						case 54 : 
 						case 55 : this.game.enterState(ChoixHardLevels.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
 					}
+					this.menu_ouvert = false;
 				}
 				else if (x>0 && x<this.menu.getWidth() && y>(this.container.getHeight()/20+1+menu.getHeight()/3-1) && y<(this.container.getHeight()/20+1+this.menu.getHeight()*2/3)){
-					this.game.enterState(Accueil.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+					this.game.enterState(Choix.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+					this.menu_ouvert = false;
 				}
 				else if(x>0 && x<this.menu.getWidth() && y>(this.container.getHeight()/20+1+this.menu.getHeight()*2/3-1) && y<(this.container.getHeight()/20+1+this.menu.getHeight())){
 					this.container.exit();
