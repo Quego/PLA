@@ -1146,13 +1146,13 @@ public class WindowGame extends BasicGameState {
 			Y = y;
 		}
 		if(x>(decalage+20) && x < (decalage+20+ h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			S = "Prendre l'objet";
+			S = "Donner l'objet à l'autre LightBolt";
 			LG = 145;
 			X = x;
 			Y = y;
 		}
 		if(x>(decalage+20+lg+decalage2) && x < (decalage+20+lg+decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20 +h+ lg)){
-			S = "Lacher l'objet";
+			S = "Poser l'objet";
 			LG = 140;
 			X = x;
 			Y = y;
