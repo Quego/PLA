@@ -139,20 +139,23 @@ public class Map {
 		this.setNbBleu(0);
 		for (List<Cellule> l : this.cellules) {
 			for (Cellule c : l) {
-				if (c.getCouleur() == Couleur.JAUNE && !c.getAleatoire()) {
-					c.setCouleur(Couleur.BLEU);
+				if (c.getAleatoire()) {
+					c.setCouleur(Couleur.BLANCBLEU);
 					this.setNbBleu(this.getNbBleu() + 1);
-				}
-				if (c.getAleatoire()) c.setCouleur(Couleur.BLANCBLEU);
-				if (c.getCouleur() == Couleur.BLANCBLEU) this.setNbBleu(this.getNbBleu() + 1);
-				if (c.getCouleur() == Couleur._ROUGE) c.setCouleur(Couleur.ROUGE);
-				if (c.getCouleur() == Couleur._VERT) c.setCouleur(Couleur.VERT);
-				if (c.getCouleur() == Couleur._VIOLET) c.setCouleur(Couleur.VIOLET);
-				if (c instanceof Interrupteur) {
-					if (((Interrupteur)c).getEtat() == Etat.UNLOCK) {
-						Controleur.getMapCourrante().getCellule(((Interrupteur)c).getCible()).setHauteur(
-								Controleur.getMapCourrante().getCellule(((Interrupteur)c).getCible()).getHauteur() + 3);
-						((Interrupteur)c).setEtat(Etat.LOCK);
+				} else {
+					if (c.getCouleur() == Couleur.JAUNE) {
+						c.setCouleur(Couleur.BLEU);
+						this.setNbBleu(this.getNbBleu() + 1);
+					} 
+					if (c.getCouleur() == Couleur._ROUGE) c.setCouleur(Couleur.ROUGE);
+					if (c.getCouleur() == Couleur._VERT) c.setCouleur(Couleur.VERT);
+					if (c.getCouleur() == Couleur._VIOLET) c.setCouleur(Couleur.VIOLET);
+					if (c instanceof Interrupteur) {
+						if (((Interrupteur)c).getEtat() == Etat.UNLOCK) {
+							Controleur.getMapCourrante().getCellule(((Interrupteur)c).getCible()).setHauteur(
+									Controleur.getMapCourrante().getCellule(((Interrupteur)c).getCible()).getHauteur() + 3);
+							((Interrupteur)c).setEtat(Etat.LOCK);
+						}
 					}
 				}
 			}

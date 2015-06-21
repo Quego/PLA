@@ -446,6 +446,7 @@
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 		<cellule>
 			<hauteurC>0</hauteurC>
@@ -474,6 +475,7 @@
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 	</map>
 	<!--Niveau IfThenElse 2-->
@@ -555,6 +557,7 @@
 			<action>structure.actions.TournerD</action>
 			<action>structure.actions.TournerG</action>
 			<action>structure.actions.Allumer</action>
+			<action>structure.actions.Sauter</action>
 			<action>structure.actions.TestSauter</action>
 			<action>structure.actions.TestCaseDevant</action>
 		</actions>
@@ -564,7 +567,7 @@
 				<colonneB>2</colonneB>
 			</initiale>
 			<etatB>UNLOCK</etatB>
-			<orientation>EST</orientation>
+			<orientation>NORD</orientation>
 		</bot>
 		<cellule>
 			<hauteurC>0</hauteurC>
@@ -735,6 +738,7 @@
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 		<cellule>
 			<hauteurC>0</hauteurC>
@@ -807,6 +811,7 @@
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 		<cellule>
 			<hauteurC>0</hauteurC>
@@ -845,6 +850,7 @@
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 		<cellule>
 			<hauteurC>0</hauteurC>
@@ -853,6 +859,7 @@
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 		<cellule>
 			<hauteurC>0</hauteurC>
@@ -861,10 +868,12 @@
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 		<cellule>
 			<hauteurC>0</hauteurC>
@@ -889,10 +898,12 @@
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 		<cellule>
 			<hauteurC>0</hauteurC>
@@ -929,6 +940,7 @@
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 		<cellule>
 			<hauteurC>0</hauteurC>
@@ -937,10 +949,12 @@
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 		<cellule>
 			<hauteurC>0</hauteurC>
 			<couleurC>BLANCBLEU</couleurC>
+			<aleatoire>TRUE</aleatoire>
 		</cellule>
 	</map>
 	<!--Niveau Fruits 1-->

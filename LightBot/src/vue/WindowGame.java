@@ -89,6 +89,7 @@ public class WindowGame extends BasicGameState {
 	
 	public void enter(GameContainer container, StateBasedGame game) throws SlickException {
 		this.game = game;
+		this.copie = new Action();
 		container.setShowFPS(false);
 		this.interf.effacer();
 		this.interf.setCleaning(false);
@@ -158,7 +159,7 @@ public class WindowGame extends BasicGameState {
 			if (act instanceof TestCouleurCase)
 				this.interf.getTestCaseBleue().setEstBloquee(false);
 			if (act instanceof TestSauter)
-				this.interf.getSauter().setEstBloquee(false);
+				this.interf.getTestSauter().setEstBloquee(false);
 			if (act instanceof TournerD)
 				this.interf.getTournerD().setEstBloquee(false);
 			if (act instanceof TournerG)
@@ -1146,7 +1147,7 @@ public class WindowGame extends BasicGameState {
 			Y = y;
 		}
 		if(x>(decalage+20) && x < (decalage+20+ h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-			S = "Donner l'objet à l'autre LightBolt";
+			S = "Donner l'objet ï¿½ l'autre LightBolt";
 			LG = 145;
 			X = x;
 			Y = y;

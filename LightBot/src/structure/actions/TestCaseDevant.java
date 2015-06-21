@@ -9,12 +9,14 @@ public class TestCaseDevant implements Action {
 
 	public int executer() {
 		int num = Controleur.numeroBot();
-		Cellule courrante = Controleur.getMapCourrante().getCellule(Controleur.getMapCourrante().getBot(num).getPosition());
-		Cellule devant = Controleur.getMapCourrante().getCellule(Controleur.getMapCourrante().getBot(num).getDevant());
-		if (courrante != null && devant != null) {
-			if (devant.getCouleur() != Couleur.GRIS && devant.getHauteur() ==  courrante.getHauteur()) return 0;
-			else return 1;
-		} return -1;
+		if (Controleur.getMapCourrante().estDansMap(num)) {
+			Cellule courrante = Controleur.getMapCourrante().getCellule(Controleur.getMapCourrante().getBot(num).getPosition());
+			Cellule devant = Controleur.getMapCourrante().getCellule(Controleur.getMapCourrante().getBot(num).getDevant());
+			if (courrante != null && devant != null && devant.getCouleur() != Couleur.GRIS) {
+				if (devant.getHauteur() == courrante.getHauteur()) return 0;
+			}
+		}
+		return 1;
 	}
 
 	public String toString() {

@@ -535,7 +535,7 @@ public class Interface {
 	}
 	
 	public void effacer() throws SlickException{
-if (Controleur.getMapCourrante().getMaxActionsMain() >= 1)  this.emplacement1. setImage(new Image(e)); else  this.emplacement1 .setImage(new Image(e_lock)); this.emplacement1.setNom(null);		 		this.emplacement1.setTestFaux(false); this.emplacement1.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsMain() >= 1)  this.emplacement1. setImage(new Image(e)); else  this.emplacement1 .setImage(new Image(e_lock)); this.emplacement1.setNom(null);		 this.emplacement1.setTestFaux(false); this.emplacement1.setTestVrai(false);
 		if (Controleur.getMapCourrante().getMaxActionsMain() >= 2)  this.emplacement2. setImage(new Image(e)); else  this.emplacement2 .setImage(new Image(e_lock)); this.emplacement2.setNom(null);        this.emplacement2.setTestFaux(false); this.emplacement2.setTestVrai(false);
 		if (Controleur.getMapCourrante().getMaxActionsMain() >= 3)  this.emplacement3. setImage(new Image(e)); else  this.emplacement3 .setImage(new Image(e_lock)); this.emplacement3.setNom(null);        this.emplacement3.setTestFaux(false); this.emplacement3.setTestVrai(false);
 		if (Controleur.getMapCourrante().getMaxActionsMain() >= 4)  this.emplacement4. setImage(new Image(e)); else  this.emplacement4 .setImage(new Image(e_lock)); this.emplacement4.setNom(null);        this.emplacement4.setTestFaux(false); this.emplacement4.setTestVrai(false);

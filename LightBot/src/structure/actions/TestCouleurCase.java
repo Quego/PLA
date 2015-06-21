@@ -10,11 +10,8 @@ public class TestCouleurCase implements Action {
 	public int executer() {
 		int num = Controleur.numeroBot();
 		Cellule courrante = Controleur.getMapCourrante().getCellule(Controleur.getMapCourrante().getBot(num).getPosition());
-		if (courrante != null) {
-			if (courrante.getCouleur() == Couleur.BLEU) return 0;
-			else return 1;
-		}
-		return -1;
+		if (courrante != null && courrante.getCouleur() == Couleur.BLEU) return 0;
+		return 1;
 	}
 
 	public String toString() {
