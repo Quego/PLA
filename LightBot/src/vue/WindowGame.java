@@ -37,7 +37,7 @@ public class WindowGame extends BasicGameState {
 	private GameContainer container;
 	public static int precedent;
 	private Action copie;
-	private Image background, menu, aide, finNiv;
+	private Image background, menu, aide, finNiv, tuto1,tuto2;
 	private Action e, e_lock;
 	private boolean menu_ouvert = false;
 	public static final int ID = 2;
@@ -60,7 +60,7 @@ public class WindowGame extends BasicGameState {
 	private List<structure.actions.Action> actionAutorisees = new ArrayList<structure.actions.Action>();
 	private List<Position> casesAleatoires;
 	private int cptMain = 0, cptP1 = 0, cptP2 = 0, cpt = 0, where = -1, choix;
-	private boolean iftrue, test;
+	private boolean iftrue, test, debut_1,debut_2;
 	
 
 	public WindowGame() {}
@@ -85,18 +85,23 @@ public class WindowGame extends BasicGameState {
 		this.X = 1000;
 		this.Y = 700;
 		this.S = "";
+		this.debut_1 = false;
+		this.debut_2 = false;
 	}
 	
 	public void enter(GameContainer container, StateBasedGame game) throws SlickException {
 		this.game = game;
 		this.copie = new Action();
+		this.debut_1 = false;
+		this.debut_2 = false;
 		container.setShowFPS(false);
 		this.interf.effacer();
 		this.interf.setCleaning(false);
 		switch (precedent) {
-		case 11 :this.background = new Image("graphisme/Images/fond/niv1.png"); this.map.changeMap("graphisme/map/base_niv1.tmx");  choix = 0;  Controleur.changeMap(choix); break;
+		//faut que tu declares tes images ici
+		case 11 :this.background = new Image("graphisme/Images/fond/niv1.png"); this.map.changeMap("graphisme/map/base_niv1.tmx"); /*comme ceci*/this.debut_1 = true;this.tuto1 = new Image("graphisme/tutos/message0.1.png");this.tuto2 = new Image("graphisme/tutos/message0.2.png"); choix = 0;  Controleur.changeMap(choix); break;
 		case 12 :this.background = new Image("graphisme/Images/fond/niv2.png"); this.map.changeMap("graphisme/map/base_niv2.tmx");  choix = 1;  Controleur.changeMap(choix); break; 
-		case 13 :this.background = new Image("graphisme/Images/fond/niv3.png"); this.map.changeMap("graphisme/map/base_niv3.tmx");  choix = 2;  Controleur.changeMap(choix); break; 
+		case 13 :this.background = new Image("graphisme/Images/fond/niv3.png"); this.map.changeMap("graphisme/map/base_niv3.tmx"); this.debut_1 = true;this.tuto1 = new Image("graphisme/tutos/message0.3.png"); choix = 2;  Controleur.changeMap(choix); break; 
 		case 14 :this.background = new Image("graphisme/Images/fond/niv4.png"); this.map.changeMap("graphisme/map/base_niv4.tmx");  choix = 3;  Controleur.changeMap(choix); break; 
 		case 15 :this.background = new Image("graphisme/Images/fond/niv5.png"); this.map.changeMap("graphisme/map/base_niv5.tmx");  choix = 4;  Controleur.changeMap(choix); break; 
 		case 21 :this.background = new Image("graphisme/Images/fond/niv1.png"); this.map.changeMap("graphisme/map/if_niv1.tmx");    choix = 5;  Controleur.changeMap(choix); break; 
@@ -172,40 +177,56 @@ public class WindowGame extends BasicGameState {
 		}
 	}
 
-	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {	
-		this.background.draw(0,0);
+	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
+		//coucou elsa faut que tu rajoutes les cas où y a besoin de tutos ici
+		if (debut_1){
+			switch(precedent){
+			case 11 : this.tuto1.draw(); this.debut_2 = true; break;
+			case 13 : this.tuto1.draw(); break;
+			}
+		}
 		
-		g.translate(container.getWidth()/3 -this.map.getTilesWidth()/2,
-					(container.getHeight()/2-this.map.getHeight()*this.map.getTilesHeight()/2 -this.map.getTilesHeight()/2));	
-		
-		if (this.player_2 == null) {
-			this.map.renderBackground(this.player_1.getLigne(),this.player_1.getColonne());
-			this.player_1.render(g);
-			this.map.renderForeground(this.player_1.getLigne(),this.player_1.getColonne());
-		} else this.map.render(this.player_1,this.player_2,g);
-		
-		this.interf.render(container, game, g);
-		this.copie.render(container,game,g);
-		
-		if(this.menu_ouvert) 
-			this.menu.draw(1, container.getHeight()/20+1);
-		
-		g.resetTransform();
-		
-		g.setColor(Color.red);
-		this.aide.draw(X-4, Y-3, LG, 25);
-
-	// A changer si besoin
-	//	g.setColor(Color.black); 
-	//	aide.draw(X-4, Y-3, LG, 25);
-
-		g.drawString(S,X,Y);
-		
-		if (Controleur.getMapCourrante().estFini() && this.interf.getRunning()) 
-			this.finNiv.draw(0,0);
+		else if (debut_2){
+			switch(precedent){
+			case 11 : this.tuto2.draw(); break;
+			}
+		}
+		//jusque là rien d'autre a faire
+		else
+		{
+			this.background.draw(0,0);
+			
+			g.translate(container.getWidth()/3 -this.map.getTilesWidth()/2,
+						(container.getHeight()/2-this.map.getHeight()*this.map.getTilesHeight()/2 -this.map.getTilesHeight()/2));	
+			
+			if (this.player_2 == null) {
+				this.map.renderBackground(this.player_1.getLigne(),this.player_1.getColonne());
+				this.player_1.render(g);
+				this.map.renderForeground(this.player_1.getLigne(),this.player_1.getColonne());
+			} else this.map.render(this.player_1,this.player_2,g);
+			
+			this.interf.render(container, game, g);
+			this.copie.render(container,game,g);
+			
+			if(this.menu_ouvert) 
+				this.menu.draw(1, container.getHeight()/20+1);
+			
+			g.resetTransform();
+			
+	
+			g.setColor(Color.black); 
+			this.aide.draw(X-4, Y-3, LG, 25);
+	
+			g.drawString(S,X,Y);
+			
+			if (Controleur.getMapCourrante().estFini() && this.interf.getRunning()) 
+				this.finNiv.draw(0,0);
+		}
 	}
                                                      
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {
+		
+		
 		this.player_1.update(delta);
 		
 		if (this.player_2 != null) this.player_2.update(delta);
@@ -416,46 +437,17 @@ public class WindowGame extends BasicGameState {
 		lg = this.interf.getAvancer().getImage().getWidth();
 		h = this.interf.getAvancer().getImage().getHeight()+10;
 		if (button == Input.MOUSE_LEFT_BUTTON){
-			// Ecran de fin
-			if (Controleur.getMapCourrante().estFini() && this.interf.getRunning()) {
-				switch (precedent) {
-					case 11 : 
-					case 12 : 
-					case 13 : 
-					case 14 : 
-					case 15 : this.game.enterState(ChoixBasic.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
-					case 21 : 
-					case 22 : 
-					case 23 : 
-					case 24 : 
-					case 25 : this.game.enterState(ChoixITE.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
-					case 31 : 
-					case 32 : 
-					case 33 : 
-					case 34 : 
-					case 35 : this.game.enterState(ChoixFruit.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
-					case 41 : 
-					case 42 : 
-					case 43 : 
-					case 44 : 
-					case 45 : this.game.enterState(ChoixCoop.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
-					case 51 : 
-					case 52 : 
-					case 53 : 
-					case 54 : 
-					case 55 : this.game.enterState(ChoixHardLevels.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
-				}
-				this.interf.setRunning();
-				this.main = new ArrayList<Action>();
-				this.p1 = new ArrayList<Action>();  
-				this.p2 = new ArrayList<Action>();
-				Controleur.changeMap(this.choix);
-				try {this.map.changeMap(this.map.getPath());} 
-				catch (SlickException e) {e.printStackTrace();}
+			//tutos
+			if(debut_1){
+				this.debut_1 = false;
 			}
-			//menu//
-			if (this.menu_ouvert){
-				if(x>0 && x<this.menu.getWidth() && y>(this.container.getHeight()/20)+1 && y<(this.container.getHeight()/20+1+this.menu.getHeight()/3)){
+			else if(debut_2){
+				this.debut_2 = false;
+			}
+			else
+			{
+				// Ecran de fin
+				if (Controleur.getMapCourrante().estFini() && this.interf.getRunning()) {
 					switch (precedent) {
 						case 11 : 
 						case 12 : 
@@ -483,230 +475,269 @@ public class WindowGame extends BasicGameState {
 						case 54 : 
 						case 55 : this.game.enterState(ChoixHardLevels.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
 					}
-					this.menu_ouvert = false;
-				}
-				else if (x>0 && x<this.menu.getWidth() && y>(this.container.getHeight()/20+1+menu.getHeight()/3-1) && y<(this.container.getHeight()/20+1+this.menu.getHeight()*2/3)){
-					this.game.enterState(Choix.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
-					this.menu_ouvert = false;
-				}
-				else if(x>0 && x<this.menu.getWidth() && y>(this.container.getHeight()/20+1+this.menu.getHeight()*2/3-1) && y<(this.container.getHeight()/20+1+this.menu.getHeight())){
-					this.container.exit();
-				}
-				else {
-					this.menu_ouvert = !menu_ouvert;
-				}
-			}
-			if (x>0 && y>0 && x<50 && y<(this.container.getHeight()/20)) {
-				this.menu_ouvert = !this.menu_ouvert;
-			}
-			//bouton play stop//
-			if (x > 2*container.getWidth()/3+20 && y>16*container.getHeight()/20-decalage && x< 2*container.getWidth()/3+20 + 4*container.getHeight()/20 && y < 16*container.getHeight()/20-decalage + 4*container.getHeight()/20){
-				interf.setRunning();
-				if (interf.getRunning()) {
-					main = interf.recupereMain();
-					tmp = new ArrayList<Action>(main);
-					p1 = interf.recupereP1();
-					p2 = interf.recupereP2();
-					backcpt = new ArrayList<Integer>();
-					backup = new ArrayList<List<Action>>();
-					backwhere = new ArrayList<Integer>();
-					cptMain = 0;
-					cptP1 = 0;
-					cptP2 = 0;
-					where = 0;
-					cpt = cptMain;
-				} else {
-					player_1.setFin();
-					if (player_2 != null) player_2.setFin();
-					main = new ArrayList<Action>();
-					p1 = new ArrayList<Action>();
-					p2 = new ArrayList<Action>();
-					tmp = new ArrayList<Action>();
-					backcpt = new ArrayList<Integer>();
-					backwhere = new ArrayList<Integer>();
-					backup = new ArrayList<List<Action>>();
-					Controleur.changeMap(choix);
-					casesAleatoires = Controleur.casesBlancBleu();
-					try {map.changeMap(map.getPath());} 
+					this.interf.setRunning();
+					this.main = new ArrayList<Action>();
+					this.p1 = new ArrayList<Action>();  
+					this.p2 = new ArrayList<Action>();
+					Controleur.changeMap(this.choix);
+					try {this.map.changeMap(this.map.getPath());} 
 					catch (SlickException e) {e.printStackTrace();}
-					player_1.placePlayer(Controleur.positionInit(0).getLigne(), Controleur.positionInit(0).getColonne(), Controleur.hauteurInit(0));
-					player_1.setDirection(Controleur.orientationInit(0));
-					player_1.setDestinationX(Controleur.positionInit(0).getLigne());
-					player_1.setDestinationY(Controleur.positionInit(0).getColonne());
-					if (player_2 != null) {
-						player_2.placePlayer(Controleur.positionInit(1).getLigne(), Controleur.positionInit(1).getColonne(), Controleur.hauteurInit(1));
-						player_2.setDirection(Controleur.orientationInit(1));
-						player_2.setDestinationX(Controleur.positionInit(1).getLigne());
-						player_2.setDestinationY(Controleur.positionInit(1).getColonne());
+				}
+				//menu//
+				if (this.menu_ouvert){
+					if(x>0 && x<this.menu.getWidth() && y>(this.container.getHeight()/20)+1 && y<(this.container.getHeight()/20+1+this.menu.getHeight()/3)){
+						switch (precedent) {
+							case 11 : 
+							case 12 : 
+							case 13 : 
+							case 14 : 
+							case 15 : this.game.enterState(ChoixBasic.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
+							case 21 : 
+							case 22 : 
+							case 23 : 
+							case 24 : 
+							case 25 : this.game.enterState(ChoixITE.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
+							case 31 : 
+							case 32 : 
+							case 33 : 
+							case 34 : 
+							case 35 : this.game.enterState(ChoixFruit.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
+							case 41 : 
+							case 42 : 
+							case 43 : 
+							case 44 : 
+							case 45 : this.game.enterState(ChoixCoop.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
+							case 51 : 
+							case 52 : 
+							case 53 : 
+							case 54 : 
+							case 55 : this.game.enterState(ChoixHardLevels.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black)); break;
+						}
+						this.menu_ouvert = false;
 					}
-					player = player_1;
-				}
-			}
-			//Musique//
-			if (x>container.getWidth()-interf.getMusic().getWidth()-decalage2 && y> 0 && x< container.getWidth()-decalage2-interf.getMusic().getWidth() +container.getHeight()/20 && y < container.getHeight()/20){
-				interf.setMusic();
-			}
-			//choix de l'action//
-			if(x>(decalage+20) && x < (decalage+20 + lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + h)){
-				if (!this.interf.getAvancer().estBloquee()){
-					copie.setImage(interf.getAvancer().getImage().copy());
-					copie.setNom("Avancer");
-					copie.setX(x-interf.getAvancer().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getAvancer().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+lg+decalage2) && x<(decalage+20+lg+decalage2+lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20+h)){
-				if (!this.interf.getAllumer().estBloquee()){
-					copie.setImage(interf.getAllumer().getImage().copy());
-					copie.setNom("Allumer");
-					copie.setX(x-interf.getAllumer().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getAllumer().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+2*lg+2*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-				if (!this.interf.getTournerG().estBloquee()){
-					copie.setImage(interf.getTournerG().getImage().copy());
-					copie.setNom("TournerG");
-					copie.setX(x-interf.getTournerG().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getTournerG().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+3*lg+3*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-				if (!this.interf.getTournerD().estBloquee()){
-					copie.setImage(interf.getTournerD().getImage().copy());
-					copie.setNom("TournerD");
-					copie.setX(x-interf.getTournerD().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getTournerD().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+4*lg+4*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-				if (!this.interf.getSauter().estBloquee()){
-					copie.setImage(interf.getSauter().getImage().copy());
-					copie.setNom("Sauter");
-					copie.setX(x-interf.getSauter().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getSauter().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+5*lg+5*decalage2) && x < (decalage+20+5*lg+5*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-				if (!this.interf.getAppuyer().estBloquee()){
-					copie.setImage(interf.getAppuyer().getImage().copy());
-					copie.setNom("Appuyer");
-					copie.setX(x-interf.getAppuyer().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getAppuyer().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20) && x < (decalage+20+ h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-				copie.setImage(interf.getPrendre().getImage().copy());
-				copie.setNom("Envoyer");
-				copie.setX(x-interf.getPrendre().getImage().getWidth()/2);
-		    	copie.setY(y-interf.getPrendre().getImage().getHeight()/2);
-			}
-			if(x>(decalage+20+lg+decalage2) && x < (decalage+20+lg+decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20 +h+ lg)){
-				if (!this.interf.getLacher().estBloquee()){
-					copie.setImage(interf.getLacher().getImage().copy());
-					copie.setNom("Lacher");
-					copie.setX(x-interf.getLacher().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getLacher().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+3*lg+3*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-				if (!this.interf.getMyBreak().estBloquee()){
-					copie.setImage(interf.getMyBreak().getImage().copy());
-					copie.setNom("Break");
-					copie.setX(x-interf.getMyBreak().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getMyBreak().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-				if (!this.interf.getTestAvancer().estBloquee()){
-					copie.setImage(interf.getTestAvancer().getImage().copy());
-					copie.setNom("TestCaseDevant");
-					copie.setX(x-interf.getTestAvancer().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getTestAvancer().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+4*lg+4*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-				if (!this.interf.getTestCaseBleue().estBloquee()){
-					copie.setImage(interf.getTestCaseBleue().getImage().copy());
-					copie.setNom("TestCouleurCase");
-					copie.setX(x-interf.getTestCaseBleue().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getTestCaseBleue().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+7*lg+7*decalage2) && x < (decalage+20+7*lg+7*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-				if (!this.interf.getTestSauter().estBloquee()){
-					copie.setImage(interf.getTestSauter().getImage().copy());
-					copie.setNom("TestSauter");
-					copie.setX(x-interf.getTestSauter().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getTestSauter().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+5*lg+5*decalage2) && x < (decalage+20+5*lg+5*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-				if (!this.interf.getLockUnlock().estBloquee()){
-					copie.setImage(interf.getLockUnlock().getImage().copy());
-					copie.setNom("LockUnlock");
-					copie.setX(x-interf.getLockUnlock().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getLockUnlock().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-				if (!this.interf.getP1().estBloquee()){
-					copie.setImage(interf.getP1().getImage().copy());
-					copie.setNom("P1");
-					copie.setX(x-interf.getP1().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getP1().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
-				if (!this.interf.getP2().estBloquee()){
-					copie.setImage(interf.getP2().getImage().copy());
-					copie.setNom("P2");
-					copie.setX(x-interf.getP2().getImage().getWidth()/2);
-			    	copie.setY(y-interf.getP2().getImage().getHeight()/2);
-				}
-			}
-			if(x>(decalage+20+7*lg+7*decalage2) && x < (decalage+20+7*lg+7*decalage2 + h/3) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-				if(!(this.interf.getTestCaseBleue().estBloquee() && this.interf.getTestAvancer().estBloquee() && this.interf.getTestSauter().estBloquee())){
-					copie.setTestFaux(true);
-					copie.setTestVrai(false);
-				}
-			}
-			if(x>(decalage+20+7*lg+7*decalage2+h/3) && x < (decalage+20+7*lg+7*decalage2 + h*2/3) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-				if(!(this.interf.getTestCaseBleue().estBloquee() && this.interf.getTestAvancer().estBloquee() && this.interf.getTestSauter().estBloquee())){
-					copie.setTestFaux(false);
-					copie.setTestVrai(false);
-				}
-			}
-			if(x>(decalage+20+7*lg+7*decalage2+h*2/3) && x < (decalage+20+7*lg+7*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
-				if(!(this.interf.getTestCaseBleue().estBloquee() && this.interf.getTestAvancer().estBloquee() && this.interf.getTestSauter().estBloquee())){
-					copie.setTestFaux(false);
-					copie.setTestVrai(true);
-				}
-			}
-			if(x>2*container.getWidth()/3+20+2*lg+2*decalage2 && y > 16*container.getHeight()/20-decalage && x< 2*container.getWidth()/3+20+2*lg+2*decalage2 + 4*container.getHeight()/20 && y<  16*container.getHeight()/20-decalage + 4*container.getHeight()/20){
-				try {
-					interf.effacer();
-					tmp = new ArrayList<Action>(main);
-					backcpt = new ArrayList<Integer>();
-					backup = new ArrayList<List<Action>>();
-					backwhere = new ArrayList<Integer>();
-					Controleur.changeMap(choix);
-					casesAleatoires = Controleur.casesBlancBleu();
-					try {map.changeMap(map.getPath());} 
-					catch (SlickException e) {e.printStackTrace();}
-					player_1.placePlayer(Controleur.positionInit(0).getLigne(), Controleur.positionInit(0).getColonne(), Controleur.hauteurInit(0));
-					player_1.setDirection(Controleur.orientationInit(0));
-					player_1.setDestinationX(Controleur.positionInit(0).getLigne());
-					player_1.setDestinationY(Controleur.positionInit(0).getColonne());
-					if (player_2 != null) {
-						player_2.placePlayer(Controleur.positionInit(1).getLigne(), Controleur.positionInit(1).getColonne(), Controleur.hauteurInit(1));
-						player_2.setDirection(Controleur.orientationInit(1));
-						player_2.setDestinationX(Controleur.positionInit(1).getLigne());
-						player_2.setDestinationY(Controleur.positionInit(1).getColonne());
+					else if (x>0 && x<this.menu.getWidth() && y>(this.container.getHeight()/20+1+menu.getHeight()/3-1) && y<(this.container.getHeight()/20+1+this.menu.getHeight()*2/3)){
+						this.game.enterState(Choix.ID, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+						this.menu_ouvert = false;
 					}
-					player = player_1;
-				} catch (SlickException e) {
-					e.printStackTrace();
+					else if(x>0 && x<this.menu.getWidth() && y>(this.container.getHeight()/20+1+this.menu.getHeight()*2/3-1) && y<(this.container.getHeight()/20+1+this.menu.getHeight())){
+						this.container.exit();
+					}
+					else {
+						this.menu_ouvert = !menu_ouvert;
+					}
+				}
+				if (x>0 && y>0 && x<50 && y<(this.container.getHeight()/20)) {
+					this.menu_ouvert = !this.menu_ouvert;
+				}
+				//bouton play stop//
+				if (x > 2*container.getWidth()/3+20 && y>16*container.getHeight()/20-decalage && x< 2*container.getWidth()/3+20 + 4*container.getHeight()/20 && y < 16*container.getHeight()/20-decalage + 4*container.getHeight()/20){
+					interf.setRunning();
+					if (interf.getRunning()) {
+						main = interf.recupereMain();
+						tmp = new ArrayList<Action>(main);
+						p1 = interf.recupereP1();
+						p2 = interf.recupereP2();
+						backcpt = new ArrayList<Integer>();
+						backup = new ArrayList<List<Action>>();
+						backwhere = new ArrayList<Integer>();
+						cptMain = 0;
+						cptP1 = 0;
+						cptP2 = 0;
+						where = 0;
+						cpt = cptMain;
+					} else {
+						player_1.setFin();
+						if (player_2 != null) player_2.setFin();
+						main = new ArrayList<Action>();
+						p1 = new ArrayList<Action>();
+						p2 = new ArrayList<Action>();
+						tmp = new ArrayList<Action>();
+						backcpt = new ArrayList<Integer>();
+						backwhere = new ArrayList<Integer>();
+						backup = new ArrayList<List<Action>>();
+						Controleur.changeMap(choix);
+						casesAleatoires = Controleur.casesBlancBleu();
+						try {map.changeMap(map.getPath());} 
+						catch (SlickException e) {e.printStackTrace();}
+						player_1.placePlayer(Controleur.positionInit(0).getLigne(), Controleur.positionInit(0).getColonne(), Controleur.hauteurInit(0));
+						player_1.setDirection(Controleur.orientationInit(0));
+						player_1.setDestinationX(Controleur.positionInit(0).getLigne());
+						player_1.setDestinationY(Controleur.positionInit(0).getColonne());
+						if (player_2 != null) {
+							player_2.placePlayer(Controleur.positionInit(1).getLigne(), Controleur.positionInit(1).getColonne(), Controleur.hauteurInit(1));
+							player_2.setDirection(Controleur.orientationInit(1));
+							player_2.setDestinationX(Controleur.positionInit(1).getLigne());
+							player_2.setDestinationY(Controleur.positionInit(1).getColonne());
+						}
+						player = player_1;
+					}
+				}
+				//Musique//
+				if (x>container.getWidth()-interf.getMusic().getWidth()-decalage2 && y> 0 && x< container.getWidth()-decalage2-interf.getMusic().getWidth() +container.getHeight()/20 && y < container.getHeight()/20){
+					interf.setMusic();
+				}
+				//choix de l'action//
+				if(x>(decalage+20) && x < (decalage+20 + lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + h)){
+					if (!this.interf.getAvancer().estBloquee()){
+						copie.setImage(interf.getAvancer().getImage().copy());
+						copie.setNom("Avancer");
+						copie.setX(x-interf.getAvancer().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getAvancer().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+lg+decalage2) && x<(decalage+20+lg+decalage2+lg) && y>(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20+h)){
+					if (!this.interf.getAllumer().estBloquee()){
+						copie.setImage(interf.getAllumer().getImage().copy());
+						copie.setNom("Allumer");
+						copie.setX(x-interf.getAllumer().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getAllumer().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+2*lg+2*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+					if (!this.interf.getTournerG().estBloquee()){
+						copie.setImage(interf.getTournerG().getImage().copy());
+						copie.setNom("TournerG");
+						copie.setX(x-interf.getTournerG().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getTournerG().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+3*lg+3*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+					if (!this.interf.getTournerD().estBloquee()){
+						copie.setImage(interf.getTournerD().getImage().copy());
+						copie.setNom("TournerD");
+						copie.setX(x-interf.getTournerD().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getTournerD().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+4*lg+4*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+					if (!this.interf.getSauter().estBloquee()){
+						copie.setImage(interf.getSauter().getImage().copy());
+						copie.setNom("Sauter");
+						copie.setX(x-interf.getSauter().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getSauter().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+5*lg+5*decalage2) && x < (decalage+20+5*lg+5*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+					if (!this.interf.getAppuyer().estBloquee()){
+						copie.setImage(interf.getAppuyer().getImage().copy());
+						copie.setNom("Appuyer");
+						copie.setX(x-interf.getAppuyer().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getAppuyer().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20) && x < (decalage+20+ h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+					copie.setImage(interf.getPrendre().getImage().copy());
+					copie.setNom("Envoyer");
+					copie.setX(x-interf.getPrendre().getImage().getWidth()/2);
+			    	copie.setY(y-interf.getPrendre().getImage().getHeight()/2);
+				}
+				if(x>(decalage+20+lg+decalage2) && x < (decalage+20+lg+decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20 +h+ lg)){
+					if (!this.interf.getLacher().estBloquee()){
+						copie.setImage(interf.getLacher().getImage().copy());
+						copie.setNom("Lacher");
+						copie.setX(x-interf.getLacher().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getLacher().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+2*lg+2*decalage2) && x < (decalage+20+3*lg+3*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+					if (!this.interf.getMyBreak().estBloquee()){
+						copie.setImage(interf.getMyBreak().getImage().copy());
+						copie.setNom("Break");
+						copie.setX(x-interf.getMyBreak().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getMyBreak().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+3*lg+3*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+					if (!this.interf.getTestAvancer().estBloquee()){
+						copie.setImage(interf.getTestAvancer().getImage().copy());
+						copie.setNom("TestCaseDevant");
+						copie.setX(x-interf.getTestAvancer().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getTestAvancer().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+4*lg+4*decalage2) && x < (decalage+20+4*lg+4*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+					if (!this.interf.getTestCaseBleue().estBloquee()){
+						copie.setImage(interf.getTestCaseBleue().getImage().copy());
+						copie.setNom("TestCouleurCase");
+						copie.setX(x-interf.getTestCaseBleue().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getTestCaseBleue().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+7*lg+7*decalage2) && x < (decalage+20+7*lg+7*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+					if (!this.interf.getTestSauter().estBloquee()){
+						copie.setImage(interf.getTestSauter().getImage().copy());
+						copie.setNom("TestSauter");
+						copie.setX(x-interf.getTestSauter().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getTestSauter().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+5*lg+5*decalage2) && x < (decalage+20+5*lg+5*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+					if (!this.interf.getLockUnlock().estBloquee()){
+						copie.setImage(interf.getLockUnlock().getImage().copy());
+						copie.setNom("LockUnlock");
+						copie.setX(x-interf.getLockUnlock().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getLockUnlock().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+					if (!this.interf.getP1().estBloquee()){
+						copie.setImage(interf.getP1().getImage().copy());
+						copie.setNom("P1");
+						copie.setX(x-interf.getP1().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getP1().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+6*lg+6*decalage2) && x < (decalage+20+6*lg+6*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20+h) && y<(16*container.getHeight()/20-decalage+20+h + lg)){
+					if (!this.interf.getP2().estBloquee()){
+						copie.setImage(interf.getP2().getImage().copy());
+						copie.setNom("P2");
+						copie.setX(x-interf.getP2().getImage().getWidth()/2);
+				    	copie.setY(y-interf.getP2().getImage().getHeight()/2);
+					}
+				}
+				if(x>(decalage+20+7*lg+7*decalage2) && x < (decalage+20+7*lg+7*decalage2 + h/3) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+					if(!(this.interf.getTestCaseBleue().estBloquee() && this.interf.getTestAvancer().estBloquee() && this.interf.getTestSauter().estBloquee())){
+						copie.setTestFaux(true);
+						copie.setTestVrai(false);
+					}
+				}
+				if(x>(decalage+20+7*lg+7*decalage2+h/3) && x < (decalage+20+7*lg+7*decalage2 + h*2/3) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+					if(!(this.interf.getTestCaseBleue().estBloquee() && this.interf.getTestAvancer().estBloquee() && this.interf.getTestSauter().estBloquee())){
+						copie.setTestFaux(false);
+						copie.setTestVrai(false);
+					}
+				}
+				if(x>(decalage+20+7*lg+7*decalage2+h*2/3) && x < (decalage+20+7*lg+7*decalage2 + h) && y >(16*container.getHeight()/20-decalage+20) && y<(16*container.getHeight()/20-decalage+20 + lg)){
+					if(!(this.interf.getTestCaseBleue().estBloquee() && this.interf.getTestAvancer().estBloquee() && this.interf.getTestSauter().estBloquee())){
+						copie.setTestFaux(false);
+						copie.setTestVrai(true);
+					}
+				}
+				if(x>2*container.getWidth()/3+20+2*lg+2*decalage2 && y > 16*container.getHeight()/20-decalage && x< 2*container.getWidth()/3+20+2*lg+2*decalage2 + 4*container.getHeight()/20 && y<  16*container.getHeight()/20-decalage + 4*container.getHeight()/20){
+					try {
+						interf.effacer();
+						tmp = new ArrayList<Action>(main);
+						backcpt = new ArrayList<Integer>();
+						backup = new ArrayList<List<Action>>();
+						backwhere = new ArrayList<Integer>();
+						Controleur.changeMap(choix);
+						casesAleatoires = Controleur.casesBlancBleu();
+						try {map.changeMap(map.getPath());} 
+						catch (SlickException e) {e.printStackTrace();}
+						player_1.placePlayer(Controleur.positionInit(0).getLigne(), Controleur.positionInit(0).getColonne(), Controleur.hauteurInit(0));
+						player_1.setDirection(Controleur.orientationInit(0));
+						player_1.setDestinationX(Controleur.positionInit(0).getLigne());
+						player_1.setDestinationY(Controleur.positionInit(0).getColonne());
+						if (player_2 != null) {
+							player_2.placePlayer(Controleur.positionInit(1).getLigne(), Controleur.positionInit(1).getColonne(), Controleur.hauteurInit(1));
+							player_2.setDirection(Controleur.orientationInit(1));
+							player_2.setDestinationX(Controleur.positionInit(1).getLigne());
+							player_2.setDestinationY(Controleur.positionInit(1).getColonne());
+						}
+						player = player_1;
+					} catch (SlickException e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		}
