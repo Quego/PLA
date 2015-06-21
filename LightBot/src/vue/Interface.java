@@ -535,36 +535,36 @@ public class Interface {
 	}
 	
 	public void effacer() throws SlickException{
-		if (Controleur.getMapCourrante().getMaxActionsMain() >= 1)  this.emplacement1. setImage(new Image(e)); else  this.emplacement1 .setImage(new Image(e_lock)); this.emplacement1.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsMain() >= 2)  this.emplacement2. setImage(new Image(e)); else  this.emplacement2 .setImage(new Image(e_lock)); this.emplacement2.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsMain() >= 3)  this.emplacement3. setImage(new Image(e)); else  this.emplacement3 .setImage(new Image(e_lock)); this.emplacement3.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsMain() >= 4)  this.emplacement4. setImage(new Image(e)); else  this.emplacement4 .setImage(new Image(e_lock)); this.emplacement4.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsMain() >= 5)  this.emplacement5. setImage(new Image(e)); else  this.emplacement5 .setImage(new Image(e_lock)); this.emplacement5.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsMain() >= 6)  this.emplacement6. setImage(new Image(e)); else  this.emplacement6 .setImage(new Image(e_lock)); this.emplacement6.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsMain() >= 7)  this.emplacement7. setImage(new Image(e)); else  this.emplacement7 .setImage(new Image(e_lock)); this.emplacement7.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsMain() >= 8)  this.emplacement8. setImage(new Image(e)); else  this.emplacement8 .setImage(new Image(e_lock)); this.emplacement8.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsMain() >= 9)  this.emplacement9. setImage(new Image(e)); else  this.emplacement9 .setImage(new Image(e_lock)); this.emplacement9.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsMain() >= 10) this.emplacement10.setImage(new Image(e)); else  this.emplacement10.setImage(new Image(e_lock)); this.emplacement10.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsMain() >= 11) this.emplacement11.setImage(new Image(e)); else  this.emplacement11.setImage(new Image(e_lock)); this.emplacement11.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsMain() >= 12) this.emplacement12.setImage(new Image(e)); else  this.emplacement12.setImage(new Image(e_lock)); this.emplacement12.setNom(null);
-		
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 1) this.emplacement13.setImage(new Image(e)); else  this.emplacement13.setImage(new Image(e_lock)); this.emplacement13.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 2) this.emplacement14.setImage(new Image(e)); else  this.emplacement14.setImage(new Image(e_lock)); this.emplacement14.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 3) this.emplacement15.setImage(new Image(e)); else  this.emplacement15.setImage(new Image(e_lock)); this.emplacement15.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 4) this.emplacement16.setImage(new Image(e)); else  this.emplacement16.setImage(new Image(e_lock)); this.emplacement16.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 5) this.emplacement17.setImage(new Image(e)); else  this.emplacement17.setImage(new Image(e_lock)); this.emplacement17.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 6) this.emplacement18.setImage(new Image(e)); else  this.emplacement18.setImage(new Image(e_lock)); this.emplacement18.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 7) this.emplacement19.setImage(new Image(e)); else  this.emplacement19.setImage(new Image(e_lock)); this.emplacement19.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 8) this.emplacement20.setImage(new Image(e)); else  this.emplacement20.setImage(new Image(e_lock)); this.emplacement20.setNom(null);
-		
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 1) this.emplacement21.setImage(new Image(e)); else  this.emplacement21.setImage(new Image(e_lock)); this.emplacement21.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 2) this.emplacement22.setImage(new Image(e)); else  this.emplacement22.setImage(new Image(e_lock)); this.emplacement22.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 3) this.emplacement23.setImage(new Image(e)); else  this.emplacement23.setImage(new Image(e_lock)); this.emplacement23.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 4) this.emplacement24.setImage(new Image(e)); else  this.emplacement24.setImage(new Image(e_lock)); this.emplacement24.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 5) this.emplacement25.setImage(new Image(e)); else  this.emplacement25.setImage(new Image(e_lock)); this.emplacement25.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 6) this.emplacement26.setImage(new Image(e)); else  this.emplacement26.setImage(new Image(e_lock)); this.emplacement26.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 7) this.emplacement27.setImage(new Image(e)); else  this.emplacement27.setImage(new Image(e_lock)); this.emplacement27.setNom(null);
-		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 8) this.emplacement28.setImage(new Image(e)); else  this.emplacement28.setImage(new Image(e_lock)); this.emplacement28.setNom(null);
+if (Controleur.getMapCourrante().getMaxActionsMain() >= 1)  this.emplacement1. setImage(new Image(e)); else  this.emplacement1 .setImage(new Image(e_lock)); this.emplacement1.setNom(null);		 		this.emplacement1.setTestFaux(false); this.emplacement1.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsMain() >= 2)  this.emplacement2. setImage(new Image(e)); else  this.emplacement2 .setImage(new Image(e_lock)); this.emplacement2.setNom(null);        this.emplacement2.setTestFaux(false); this.emplacement2.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsMain() >= 3)  this.emplacement3. setImage(new Image(e)); else  this.emplacement3 .setImage(new Image(e_lock)); this.emplacement3.setNom(null);        this.emplacement3.setTestFaux(false); this.emplacement3.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsMain() >= 4)  this.emplacement4. setImage(new Image(e)); else  this.emplacement4 .setImage(new Image(e_lock)); this.emplacement4.setNom(null);        this.emplacement4.setTestFaux(false); this.emplacement4.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsMain() >= 5)  this.emplacement5. setImage(new Image(e)); else  this.emplacement5 .setImage(new Image(e_lock)); this.emplacement5.setNom(null);        this.emplacement5.setTestFaux(false); this.emplacement5.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsMain() >= 6)  this.emplacement6. setImage(new Image(e)); else  this.emplacement6 .setImage(new Image(e_lock)); this.emplacement6.setNom(null);        this.emplacement6.setTestFaux(false); this.emplacement6.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsMain() >= 7)  this.emplacement7. setImage(new Image(e)); else  this.emplacement7 .setImage(new Image(e_lock)); this.emplacement7.setNom(null);        this.emplacement7.setTestFaux(false); this.emplacement7.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsMain() >= 8)  this.emplacement8. setImage(new Image(e)); else  this.emplacement8 .setImage(new Image(e_lock)); this.emplacement8.setNom(null);        this.emplacement8.setTestFaux(false); this.emplacement8.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsMain() >= 9)  this.emplacement9. setImage(new Image(e)); else  this.emplacement9 .setImage(new Image(e_lock)); this.emplacement9.setNom(null);        this.emplacement9.setTestFaux(false); this.emplacement9.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsMain() >= 10) this.emplacement10.setImage(new Image(e)); else  this.emplacement10.setImage(new Image(e_lock)); this.emplacement10.setNom(null);       this.emplacement10.setTestFaux(false); this.emplacement10.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsMain() >= 11) this.emplacement11.setImage(new Image(e)); else  this.emplacement11.setImage(new Image(e_lock)); this.emplacement11.setNom(null);       this.emplacement11.setTestFaux(false); this.emplacement11.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsMain() >= 12) this.emplacement12.setImage(new Image(e)); else  this.emplacement12.setImage(new Image(e_lock)); this.emplacement12.setNom(null);       this.emplacement12.setTestFaux(false); this.emplacement12.setTestVrai(false);
+
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 1) this.emplacement13.setImage(new Image(e)); else  this.emplacement13.setImage(new Image(e_lock)); this.emplacement13.setNom(null);  this.emplacement13.setTestFaux(false); this.emplacement13.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 2) this.emplacement14.setImage(new Image(e)); else  this.emplacement14.setImage(new Image(e_lock)); this.emplacement14.setNom(null);  this.emplacement14.setTestFaux(false); this.emplacement14.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 3) this.emplacement15.setImage(new Image(e)); else  this.emplacement15.setImage(new Image(e_lock)); this.emplacement15.setNom(null);  this.emplacement15.setTestFaux(false); this.emplacement15.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 4) this.emplacement16.setImage(new Image(e)); else  this.emplacement16.setImage(new Image(e_lock)); this.emplacement16.setNom(null);  this.emplacement16.setTestFaux(false); this.emplacement16.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 5) this.emplacement17.setImage(new Image(e)); else  this.emplacement17.setImage(new Image(e_lock)); this.emplacement17.setNom(null);  this.emplacement17.setTestFaux(false); this.emplacement17.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 6) this.emplacement18.setImage(new Image(e)); else  this.emplacement18.setImage(new Image(e_lock)); this.emplacement18.setNom(null);  this.emplacement18.setTestFaux(false); this.emplacement18.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 7) this.emplacement19.setImage(new Image(e)); else  this.emplacement19.setImage(new Image(e_lock)); this.emplacement19.setNom(null);  this.emplacement19.setTestFaux(false); this.emplacement19.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 8) this.emplacement20.setImage(new Image(e)); else  this.emplacement20.setImage(new Image(e_lock)); this.emplacement20.setNom(null);  this.emplacement20.setTestFaux(false); this.emplacement20.setTestVrai(false);
+		                    
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 1) this.emplacement21.setImage(new Image(e)); else  this.emplacement21.setImage(new Image(e_lock)); this.emplacement21.setNom(null);  this.emplacement21.setTestFaux(false); this.emplacement21.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 2) this.emplacement22.setImage(new Image(e)); else  this.emplacement22.setImage(new Image(e_lock)); this.emplacement22.setNom(null);  this.emplacement22.setTestFaux(false); this.emplacement22.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 3) this.emplacement23.setImage(new Image(e)); else  this.emplacement23.setImage(new Image(e_lock)); this.emplacement23.setNom(null);  this.emplacement23.setTestFaux(false); this.emplacement23.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 4) this.emplacement24.setImage(new Image(e)); else  this.emplacement24.setImage(new Image(e_lock)); this.emplacement24.setNom(null);  this.emplacement24.setTestFaux(false); this.emplacement24.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 5) this.emplacement25.setImage(new Image(e)); else  this.emplacement25.setImage(new Image(e_lock)); this.emplacement25.setNom(null);  this.emplacement25.setTestFaux(false); this.emplacement25.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 6) this.emplacement26.setImage(new Image(e)); else  this.emplacement26.setImage(new Image(e_lock)); this.emplacement26.setNom(null);  this.emplacement26.setTestFaux(false); this.emplacement26.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 7) this.emplacement27.setImage(new Image(e)); else  this.emplacement27.setImage(new Image(e_lock)); this.emplacement27.setNom(null);  this.emplacement27.setTestFaux(false); this.emplacement27.setTestVrai(false);
+		if (Controleur.getMapCourrante().getMaxActionsProcedures() >= 8) this.emplacement28.setImage(new Image(e)); else  this.emplacement28.setImage(new Image(e_lock)); this.emplacement28.setNom(null);  this.emplacement28.setTestFaux(false); this.emplacement28.setTestVrai(false);
 		this.cleaning = true;
 		this.running = false;
 	}
