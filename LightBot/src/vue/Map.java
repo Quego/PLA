@@ -7,6 +7,7 @@ public class Map {
 	
 	private int TilesWidth ;
 	private int TilesHeight;
+	private int randCpt = 0;
 	private TiledMap tiledMap;
 	private int Height;
 	private int Width;	
@@ -155,16 +156,20 @@ public class Map {
 		  int nombreAleatoire =  (int)(Math.random() * (80));
 		  int ID = this.tiledMap.getTileId(colonne,ligne, ligne + colonne);
 		  if (nombreAleatoire == 1){
-			switch (ID) {
-        	case 2: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 9);  return -1;
-        	case 4: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 10); return -1;
-        	case 6: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 11); return -1;
-        	case 8: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 12); return -1;
-        	case 9: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 2); return 1;
-        	case 10:this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 4); return 1;
-        	case 11:this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 6); return 1;
-        	case 12:this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 8); return 1;
-			}
+			  this.randCpt++;
+			  if (this.randCpt >4){
+				  this.randCpt = 0;
+				  switch (ID) {
+				  	case 2: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 9);  return -1;
+		        	case 4: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 10); return -1;
+		        	case 6: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 11); return -1;
+		        	case 8: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 12); return -1;
+		        	case 9: this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 2); return 1;
+		        	case 10:this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 4); return 1;
+		        	case 11:this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 6); return 1;
+		        	case 12:this.tiledMap.setTileId(colonne,ligne,ligne + colonne, 8); return 1;
+					}
+			  }
 		  }
 		  return 0;
 	  }
