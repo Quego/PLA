@@ -13,13 +13,13 @@ public class Lacher implements Action {
 		int num = Controleur.numeroBot();
 		Cellule courrante = Controleur.getMapCourrante().getCellule(Controleur.getMapCourrante().getBot(num).getPosition());
 		if (courrante != null && !Controleur.getMapCourrante().getBot(num).getObjets().isEmpty()) {
-			Objet premier = Controleur.getMapCourrante().getBot(num).getObjets().get(0);
+			Objet premier = Controleur.getMapCourrante().getBot(num).recuperePremierObjet();
 			switch (courrante.getCouleur()) {
 			case ROUGE:
 				if (premier == Objet.FRAISE) {
 					Controleur.getMapCourrante().getCellule(Controleur.getMapCourrante().getBot(num).getPosition()).setObjet(premier);
 					Controleur.getMapCourrante().getCellule(Controleur.getMapCourrante().getBot(num).getPosition()).setCouleur(Couleur._ROUGE);
-					Controleur.getMapCourrante().getBot(num).getObjets().remove(0);
+					Controleur.getMapCourrante().getBot(num).supprimePremierObjet();
 					return 1;
 				}
 				break;
@@ -27,7 +27,7 @@ public class Lacher implements Action {
 				if (premier == Objet.MYRTILLE) {
 					Controleur.getMapCourrante().getCellule(Controleur.getMapCourrante().getBot(num).getPosition()).setObjet(premier);
 					Controleur.getMapCourrante().getCellule(Controleur.getMapCourrante().getBot(num).getPosition()).setCouleur(Couleur._VIOLET);
-					Controleur.getMapCourrante().getBot(num).getObjets().remove(0);
+					Controleur.getMapCourrante().getBot(num).supprimePremierObjet();
 					return 1;
 				}
 				break;
@@ -35,7 +35,7 @@ public class Lacher implements Action {
 				if (premier == Objet.PASTEQUE) {
 					Controleur.getMapCourrante().getCellule(Controleur.getMapCourrante().getBot(num).getPosition()).setObjet(premier);
 					Controleur.getMapCourrante().getCellule(Controleur.getMapCourrante().getBot(num).getPosition()).setCouleur(Couleur._VERT);
-					Controleur.getMapCourrante().getBot(num).getObjets().remove(0);
+					Controleur.getMapCourrante().getBot(num).supprimePremierObjet();
 					return 1;
 				}
 				break;
