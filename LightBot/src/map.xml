@@ -828,9 +828,9 @@
 		<niveau>10</niveau>
 		<largeur>5</largeur>
 		<longueur>5</longueur>
-		<maxActionsMain>1</maxActionsMain>
+		<maxActionsMain>9</maxActionsMain>
 		<maxProcedures>2</maxProcedures>
-		<maxActionsProcedures>6</maxActionsProcedures>
+		<maxActionsProcedures>4</maxActionsProcedures>
 		<actions>
 			<action>structure.actions.Avancer</action>
 			<action>structure.actions.TournerD</action>
